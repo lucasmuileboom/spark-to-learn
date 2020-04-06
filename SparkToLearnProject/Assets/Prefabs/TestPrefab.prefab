@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2854548792550296734}
   - component: {fileID: 2854548792550296733}
   - component: {fileID: 2854548792550296732}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2854548793175378959}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 2854548793337051468}
   - component: {fileID: 2854548793337051475}
   - component: {fileID: 2854548793337051474}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
