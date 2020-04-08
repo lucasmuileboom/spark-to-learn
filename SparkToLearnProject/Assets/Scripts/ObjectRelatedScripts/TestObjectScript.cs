@@ -8,28 +8,44 @@ public class TestObjectScript : MonoBehaviour
     [SerializeField] private GameObject _testObject;
     [SerializeField] private LayerMask _mask;
 
-    private bool _readyToPlace = false;
+    private bool _readyToPlace = true;
     private bool _activateSpawn = false;
+    private GameObject _currentObject;
 
 
     // Update is called once per frame
     void Update()
     {
         _activateSpawn = Input.GetKeyDown(_testKey);
-        if (_activateSpawn && !_readyToPlace)
+        if (_activateSpawn && _readyToPlace)
         {
             Debug.Log("Highlight");
-            _readyToPlace = true;
-            StartCoroutine(SpawnObject.HighlightObjectOnRaycastHit(gameObject, _testObject,BreakCondition,_mask));
+            _readyToPlace = false;
+            _currentObject = _testObject;
+            StartCoroutine(SpawnObject.HighlightObjectOnRaycastHit(gameObject, _currentObject, BreakConditionPreview, _mask));
         }
     }
-    private bool BreakCondition()
+
+    //Condition for exitting the preview of the object
+    private bool BreakConditionPreview(GameObject instance)
     {
-        if (_readyToPlace && _activateSpawn)
+        if (_activateSpawn)
         {
-            Debug.Log("Break");
-            SpawnObject.SpawnObjectOnRaycastHit(transform, _testObject, _mask);
-            _readyToPlace = false;
+            Debug.Log("BreakPreview");
+            StartCoroutine(SpawnObject.RotateObject(instance, KeyCode.LeftArrow, KeyCode.RightArrow, 0.5f, BreakConditionRotating));
+            return true;
+        }
+        else return false;
+    }
+
+    //Condition for exitting when rotating the object
+    private bool BreakConditionRotating(GameObject rotatedObject)
+    {
+        if (_activateSpawn)
+        {
+            Debug.Log("BreakRotating");
+            SpawnObject.Instantiate(rotatedObject);
+            _readyToPlace = true;
             return true;
         }
         else return false;
