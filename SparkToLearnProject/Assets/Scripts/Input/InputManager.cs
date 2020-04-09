@@ -14,6 +14,9 @@ public class InputManager : MonoBehaviour
     [SerializeField] private KeyCode _cameraRotateLeftButton;
     [SerializeField] private KeyCode _cameraRotateRightButton;
 
+    [SerializeField] private KeyCode _FlyUpButton;
+    [SerializeField] private KeyCode _FlyDownButton;
+
     public bool MoveForwardButtonDown() 
     {
         return IsButtonDown(_moveForwardButton);
@@ -45,6 +48,14 @@ public class InputManager : MonoBehaviour
     public bool CameraRotateRightButtonDown() 
     {
         return IsButtonDown(_cameraRotateRightButton);
+    }
+    public bool FlyUpButtonDown()
+    {
+        return IsButtonDown(_FlyUpButton);
+    }
+    public bool FlyDownButtonDown()
+    {
+        return IsButtonDown(_FlyDownButton);
     }
     private bool IsButtonDown(KeyCode keycode) 
     {

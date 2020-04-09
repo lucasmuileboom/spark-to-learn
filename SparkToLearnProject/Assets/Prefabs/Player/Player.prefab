@@ -110,7 +110,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -135,6 +135,8 @@ MonoBehaviour:
   _cameraRotateDownButton: 274
   _cameraRotateLeftButton: 276
   _cameraRotateRightButton: 275
+  _FlyUpButton: 32
+  _FlyDownButton: 306
 --- !u!114 &6319292497268089395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1abc18bb3f478e4478ed826682184766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 10
+  _rotationSpeed: 20
   _maxXRotation: 85
 --- !u!114 &6319292497268089394
 MonoBehaviour:
@@ -174,6 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c77486732211ab4faa0a10793030f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _range: 1.25
+  GravityMultiplier: 1
 --- !u!1 &6319292498647917783
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +189,7 @@ GameObject:
   - component: {fileID: 6319292498647917786}
   - component: {fileID: 6319292498647917781}
   - component: {fileID: 6319292498647917780}
+  - component: {fileID: 4425127541433987014}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -257,3 +262,17 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6319292498647917783}
   m_Enabled: 1
+--- !u!114 &4425127541433987014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6319292498647917783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1abc18bb3f478e4478ed826682184766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 20
+  _maxXRotation: 85
