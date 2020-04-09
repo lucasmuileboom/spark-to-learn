@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
     private MoveObject _moveObject;
     private RotateObject _rotateObject;
 
-    void Start()
+    private void Start()
     {
         _inputManager = GetComponent<InputManager>();
         _moveObject = GetComponent<MoveObject>();
@@ -23,19 +23,19 @@ public class PlayerManager : MonoBehaviour
     {
         Vector3 _playerVelocity = new Vector3();
 
-        if(_inputManager._moveForwardButtonDown()) 
+        if(_inputManager.MoveForwardButtonDown()) 
         {
             _playerVelocity += this.transform.forward;
         }
-        if(_inputManager._moveBackwardButtonDown()) 
+        if(_inputManager.MoveBackwardButtonDown()) 
         {
             _playerVelocity -= this.transform.forward;
         }
-        if(_inputManager._moveRightButtonDown()) 
+        if(_inputManager.MoveRightButtonDown()) 
         {
             _playerVelocity += this.transform.right;
         }
-        if(_inputManager._moveLeftButtonDown()) 
+        if(_inputManager.MoveLeftButtonDown()) 
         {
             _playerVelocity -= this.transform.right;
         }
@@ -46,19 +46,19 @@ public class PlayerManager : MonoBehaviour
     {
         Vector3 _playerRotation = new Vector3();
         
-        if(_inputManager._cameraRotateUpButtonDown()) 
+        if(_inputManager.CameraRotateUpButtonDown()) 
         {
             _playerRotation.x -= 1;
         }
-        if(_inputManager._cameraRotateDownButtonDown()) 
+        if(_inputManager.CameraRotateDownButtonDown()) 
         {
             _playerRotation.x += 1;
         }
-        if(_inputManager._cameraRotateRightButtonDown()) 
+        if(_inputManager.CameraRotateRightButtonDown()) 
         {
             _playerRotation.y += 1;
         }
-        if(_inputManager._cameraRotateLeftButtonDown()) 
+        if(_inputManager.CameraRotateLeftButtonDown()) 
         {
             _playerRotation.y -= 1;
         }

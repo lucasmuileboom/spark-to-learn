@@ -7,7 +7,7 @@ public class MoveObject : MonoBehaviour
     [SerializeField] private float _movementSpeed;
     private Rigidbody _rigidbody;
 
-    void Start()
+    private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
     }

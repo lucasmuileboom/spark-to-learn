@@ -4,49 +4,49 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField] KeyCode _moveForwardButton;
-    [SerializeField] KeyCode _moveBackwardButton;
-    [SerializeField] KeyCode _moveLeftButton;
-    [SerializeField] KeyCode _moveRightButton;
+    [SerializeField] private KeyCode _moveForwardButton;
+    [SerializeField] private KeyCode _moveBackwardButton;
+    [SerializeField] private KeyCode _moveLeftButton;
+    [SerializeField] private KeyCode _moveRightButton;
 
-    [SerializeField] KeyCode _cameraRotateUpButton;
-    [SerializeField] KeyCode _cameraRotateDownButton;
-    [SerializeField] KeyCode _cameraRotateLeftButton;
-    [SerializeField] KeyCode _cameraRotateRightButton;
+    [SerializeField] private KeyCode _cameraRotateUpButton;
+    [SerializeField] private KeyCode _cameraRotateDownButton;
+    [SerializeField] private KeyCode _cameraRotateLeftButton;
+    [SerializeField] private KeyCode _cameraRotateRightButton;
 
-    public bool _moveForwardButtonDown() 
+    public bool MoveForwardButtonDown() 
     {
-        return isButtonDown(_moveForwardButton);
+        return IsButtonDown(_moveForwardButton);
     }
-    public bool _moveBackwardButtonDown()
+    public bool MoveBackwardButtonDown()
     {
-        return isButtonDown(_moveBackwardButton);
+        return IsButtonDown(_moveBackwardButton);
     }
-    public bool _moveLeftButtonDown() 
+    public bool MoveLeftButtonDown() 
     {
-        return isButtonDown(_moveLeftButton);
+        return IsButtonDown(_moveLeftButton);
     }
-    public bool _moveRightButtonDown() 
+    public bool MoveRightButtonDown() 
     {
-        return isButtonDown(_moveRightButton);
+        return IsButtonDown(_moveRightButton);
     }
-    public bool _cameraRotateUpButtonDown() 
+    public bool CameraRotateUpButtonDown() 
     {
-        return isButtonDown(_cameraRotateUpButton);
+        return IsButtonDown(_cameraRotateUpButton);
     }
-    public bool _cameraRotateDownButtonDown() 
+    public bool CameraRotateDownButtonDown() 
     {
-        return isButtonDown(_cameraRotateDownButton);
+        return IsButtonDown(_cameraRotateDownButton);
     }
-    public bool _cameraRotateLeftButtonDown() 
+    public bool CameraRotateLeftButtonDown() 
     {
-        return isButtonDown(_cameraRotateLeftButton);
+        return IsButtonDown(_cameraRotateLeftButton);
     }
-    public bool _cameraRotateRightButtonDown() 
+    public bool CameraRotateRightButtonDown() 
     {
-        return isButtonDown(_cameraRotateRightButton);
+        return IsButtonDown(_cameraRotateRightButton);
     }
-    private bool isButtonDown(KeyCode _keycode) 
+    private bool IsButtonDown(KeyCode _keycode) 
     {
         return Input.GetKey(_keycode);
     }
