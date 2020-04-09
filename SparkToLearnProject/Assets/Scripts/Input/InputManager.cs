@@ -46,8 +46,8 @@ public class InputManager : MonoBehaviour
     {
         return IsButtonDown(_cameraRotateRightButton);
     }
-    private bool IsButtonDown(KeyCode _keycode) 
+    private bool IsButtonDown(KeyCode keycode) 
     {
-        return Input.GetKey(_keycode);
+        return Input.GetKey(keycode);
     }
 }

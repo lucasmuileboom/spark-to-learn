@@ -11,8 +11,8 @@ public class MoveObject : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
     }
-    public void GiveRigidbodyVelocity(Vector3 _velocity) 
+    public void GiveRigidbodyVelocity(Vector3 velocity) 
     {
-        _rigidbody.velocity = _velocity * _movementSpeed;
+        _rigidbody.velocity = velocity * _movementSpeed;
     }
 }
