@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/lucas.unity
+- path: Assets/Scenes/ObjectMaking/ObjectMakingScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
