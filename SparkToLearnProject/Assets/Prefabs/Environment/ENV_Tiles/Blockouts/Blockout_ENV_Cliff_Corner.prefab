@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4906191300298577302}
   - component: {fileID: 4129040276509929376}
   - component: {fileID: 7670128424776389465}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blockout_ENV_Cliff_Corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

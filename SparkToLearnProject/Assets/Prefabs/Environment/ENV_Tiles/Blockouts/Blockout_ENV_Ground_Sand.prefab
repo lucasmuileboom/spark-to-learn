@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7019921628658352246}
   - component: {fileID: 2031338077859641920}
   - component: {fileID: 5696009350825871033}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blockout_ENV_Ground_Sand
   m_TagString: Untagged
   m_Icon: {fileID: 0}

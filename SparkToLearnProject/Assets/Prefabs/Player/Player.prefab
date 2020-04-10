@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6319292497268089422}
   - component: {fileID: 6319292497268089417}
   - component: {fileID: 6319292497268089392}
+  - component: {fileID: 2321769669076269370}
   - component: {fileID: 6319292497268089395}
   - component: {fileID: 6319292497268089393}
   - component: {fileID: 6319292497268089394}
@@ -135,8 +136,32 @@ MonoBehaviour:
   _cameraRotateDownButton: 274
   _cameraRotateLeftButton: 276
   _cameraRotateRightButton: 275
-  _FlyUpButton: 32
-  _FlyDownButton: 306
+  _flyUpButton: 0
+  _flyDownButton: 0
+  _spawnObject: 32
+  _rotateObjectLeft: 276
+  _rotateObjectRight: 275
+--- !u!114 &2321769669076269370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6319292497268089416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4170c31cc5191b84cb574f36682827c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotateSpeed: 1
+  _inputManager: {fileID: 6319292497268089392}
+  _testObject: {fileID: 9020827154903722085, guid: fe151efa589fde44d83b1a4bcaca6b62,
+    type: 3}
+  _playerManager: {fileID: 0}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  _camera: {fileID: 0}
 --- !u!114 &6319292497268089395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542147e5b1167824da8e550b278c083d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 4
+  _movementSpeed: 8
 --- !u!114 &6319292497268089393
 MonoBehaviour:
   m_ObjectHideFlags: 0

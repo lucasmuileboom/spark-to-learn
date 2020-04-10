@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3632867329028260066}
   - component: {fileID: 7013794559693028379}
   - component: {fileID: 2193226155439391401}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blockout__ENV_Walkway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
