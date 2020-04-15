@@ -5,9 +5,9 @@ using UnityEngine;
 public class ObjectSpawnManager : MonoBehaviour
 {
     [SerializeField] private float _rotateSpeed;
+    [SerializeField] private ItemListCycle _items;
 
     [SerializeField] private InputManager _inputManager;
-    [SerializeField] private GameObject _testObject;
     [SerializeField] private PlayerManager _playerManager;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private GameObject _camera;
@@ -21,7 +21,7 @@ public class ObjectSpawnManager : MonoBehaviour
         _placeActive = _inputManager.SpawnObjectButtonPress();
         if (!_placingProcess && _placeActive)
         {
-            _currentObject = _testObject;
+            _currentObject = _items.GetItem().ObjectReference;
             _placingProcess = true;
             StartCoroutine(ObjectSpawner.HighlightObjectOnRaycastHit(_camera, _currentObject, BreakConditionPreview, _layerMask));
         }
