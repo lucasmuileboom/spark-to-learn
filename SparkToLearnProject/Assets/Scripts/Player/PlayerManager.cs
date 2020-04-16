@@ -12,8 +12,12 @@ public class PlayerManager : MonoBehaviour
     private RotateObject _rotateObjectPlayer;
     private RotateObject _rotateObjectcamera;
 
-    private int _layerMask = 1 << 9;
+    private int _layerMask = 1 << 8;
     private bool GravityIsOn = true;
+
+    [SerializeField] private ToggleUiActive _toggleUiActive;
+    [SerializeField] private SetText _setText;
+    [SerializeField] private ItemListCycle _itemListCycle;
 
 
     private void Start()
@@ -27,6 +31,8 @@ public class PlayerManager : MonoBehaviour
     {
         PlayerVelocity();
         PlayerRotation();
+        Skils();
+        BuildMenuArrows();
         if (!GravityIsOn) 
         {
             CheckGravity();
@@ -75,26 +81,12 @@ public class PlayerManager : MonoBehaviour
     {
         Vector3 _playerRotation = new Vector3();
         Vector3 _cameraRotation = new Vector3();
-        
-        if(_inputManager.CameraRotateUpButtonDown()) 
-        {
-            _cameraRotation.x -= 1;
-        }
-        if(_inputManager.CameraRotateDownButtonDown()) 
-        {
-            _cameraRotation.x += 1;
-        }
-        if(_inputManager.CameraRotateRightButtonDown()) 
-        {
-            _playerRotation.y += 1;
-        }
-        if(_inputManager.CameraRotateLeftButtonDown()) 
-        {
-            _playerRotation.y -= 1;
-        }
+
+        _cameraRotation.x = -Input.GetAxis("Mouse Y");
+        _playerRotation.y = Input.GetAxis("Mouse X");
+
         _rotateObjectPlayer.AddRotationToObject(_playerRotation);
         _rotateObjectcamera.AddRotationToObject(_cameraRotation);
-
     }
     private void CheckGravity()
     {
@@ -113,5 +105,42 @@ public class PlayerManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+    private void Skils()
+    {
+        if (_inputManager.Skil1ButtonDown())
+        {
+            _toggleUiActive.SetUi(true);
+            _setText.Settext(0);
+        }
+        else if (_inputManager.Skil2ButtonDown())
+        {
+            _toggleUiActive.SetUi(false);
+            _setText.Settext(1);
+        }
+        else if (_inputManager.Skil3ButtonDown())
+        {
+            _toggleUiActive.SetUi(false);
+            _setText.Settext(2);
+        }
+        else if (_inputManager.Skil4ButtonDown())
+        {
+            _toggleUiActive.SetUi(false);
+            _setText.Settext(3);
+        }
+    }
+    private void BuildMenuArrows()
+    {
+        if (_itemListCycle.gameObject.activeSelf) 
+        {
+            if (_inputManager.MenuDownButtonDown())
+            {
+                _itemListCycle.NextItem();
+            }
+            else if (_inputManager.MenuUpButtonDown())
+            {
+                _itemListCycle.PreviousItem();
+            }
+        }         
     }
 }
