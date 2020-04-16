@@ -9,10 +9,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private KeyCode _moveLeftButton;
     [SerializeField] private KeyCode _moveRightButton;
 
-    [SerializeField] private KeyCode _cameraRotateUpButton;
-    [SerializeField] private KeyCode _cameraRotateDownButton;
-    [SerializeField] private KeyCode _cameraRotateLeftButton;
-    [SerializeField] private KeyCode _cameraRotateRightButton;
+    [SerializeField] private KeyCode _cameraMoveButtonDown;
 
     [SerializeField] private KeyCode _flyUpButton;
     [SerializeField] private KeyCode _flyDownButton;
@@ -21,6 +18,8 @@ public class InputManager : MonoBehaviour
 
     [SerializeField] private KeyCode _rotateObjectLeft;
     [SerializeField] private KeyCode _rotateObjectRight;
+
+    //Movement
 
     public bool MoveForwardButtonDown() 
     {
@@ -38,22 +37,17 @@ public class InputManager : MonoBehaviour
     {
         return IsButtonDown(_moveRightButton);
     }
-    public bool CameraRotateUpButtonDown() 
+
+    //Camera
+
+
+    public bool CameraMoveButtonDown()
     {
-        return IsButtonDown(_cameraRotateUpButton);
+        return IsButtonDown(_cameraMoveButtonDown);
     }
-    public bool CameraRotateDownButtonDown() 
-    {
-        return IsButtonDown(_cameraRotateDownButton);
-    }
-    public bool CameraRotateLeftButtonDown() 
-    {
-        return IsButtonDown(_cameraRotateLeftButton);
-    }
-    public bool CameraRotateRightButtonDown() 
-    {
-        return IsButtonDown(_cameraRotateRightButton);
-    }
+
+    //Fly
+
     public bool FlyUpButtonDown()
     {
         return IsButtonDown(_flyUpButton);
@@ -62,6 +56,9 @@ public class InputManager : MonoBehaviour
     {
         return IsButtonDown(_flyDownButton);
     }
+
+    //SpawnObject
+
     public bool SpawnObjectButtonDown()
     {
         return IsButtonDown(_spawnObject);
@@ -70,6 +67,9 @@ public class InputManager : MonoBehaviour
     {
         return IsButtonPress(_spawnObject);
     }
+
+    //RotateObject
+
     public bool RotateObjectLeftButtonDown()
     {
         return IsButtonDown(_rotateObjectLeft);
@@ -78,6 +78,7 @@ public class InputManager : MonoBehaviour
     {
         return IsButtonDown(_rotateObjectRight);
     }
+
     private bool IsButtonPress(KeyCode keycode)
     {
         return Input.GetKeyDown(keycode);

@@ -8,7 +8,7 @@ public class ObjectSpawnManager : MonoBehaviour
     [SerializeField] private ItemListCycle _items;
 
     [SerializeField] private InputManager _inputManager;
-    [SerializeField] private PlayerManager _playerManager;
+    //[SerializeField] private PlayerManager _playerManager;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private GameObject _camera;
 
@@ -31,10 +31,10 @@ public class ObjectSpawnManager : MonoBehaviour
     {
         if (_placeActive)
         {
-            if (_playerManager != null)
+            /*if (_playerManager != null)
             {
                 _playerManager.enabled = false;
-            }
+            }*/
             StartCoroutine(ObjectSpawner.RotateObject(spawnedObject, _inputManager.RotateObjectLeftButtonDown, _inputManager.RotateObjectRightButtonDown, 0.5f, BreakConditionRotating));
             return true;
         }
@@ -46,7 +46,7 @@ public class ObjectSpawnManager : MonoBehaviour
         if (_placeActive)
         {
             ObjectSpawner.Instantiate(rotatedObject);
-            _playerManager.enabled = true;
+            //_playerManager.enabled = true;
             _placingProcess = false;
             return true;
         }

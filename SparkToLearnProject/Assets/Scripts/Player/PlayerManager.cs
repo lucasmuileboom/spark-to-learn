@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviour
     private RotateObject _rotateObjectPlayer;
     private RotateObject _rotateObjectcamera;
 
-    private int _layerMask = 1 << 9;
+    private int _layerMask = 1 << 8;
     private bool GravityIsOn = true;
 
 
@@ -73,27 +73,18 @@ public class PlayerManager : MonoBehaviour
     }
     private void PlayerRotation() 
     {
-        Vector3 _playerRotation = new Vector3();
-        Vector3 _cameraRotation = new Vector3();
-        
-        if(_inputManager.CameraRotateUpButtonDown()) 
+        if (_inputManager.CameraMoveButtonDown())
         {
-            _cameraRotation.x -= 1;
+             Vector3 _playerRotation = new Vector3();
+             Vector3 _cameraRotation = new Vector3();
+
+             _cameraRotation.x = -Input.GetAxis("Mouse Y");
+             _playerRotation.y = Input.GetAxis("Mouse X"); 
+
+             _rotateObjectPlayer.AddRotationToObject(_playerRotation);
+             _rotateObjectcamera.AddRotationToObject(_cameraRotation);
         }
-        if(_inputManager.CameraRotateDownButtonDown()) 
-        {
-            _cameraRotation.x += 1;
-        }
-        if(_inputManager.CameraRotateRightButtonDown()) 
-        {
-            _playerRotation.y += 1;
-        }
-        if(_inputManager.CameraRotateLeftButtonDown()) 
-        {
-            _playerRotation.y -= 1;
-        }
-        _rotateObjectPlayer.AddRotationToObject(_playerRotation);
-        _rotateObjectcamera.AddRotationToObject(_cameraRotation);
+
 
     }
     private void CheckGravity()
