@@ -17,7 +17,6 @@ public class ItemListCycle : MonoBehaviour
 
     private int _index;
 
-    // Start is called before the first frame update
     void Start()
     {
         _index = (_startIndexIsHalfLength) ? _items.Count/2 : 1;

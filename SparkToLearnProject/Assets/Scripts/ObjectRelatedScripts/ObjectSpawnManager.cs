@@ -15,7 +15,7 @@ public class ObjectSpawnManager : MonoBehaviour
     private GameObject _currentObject;
     private bool _placingProcess = false;
     private bool _placeActive = false;
-    // Update is called once per frame
+
     void Update()
     {
         _placeActive = _inputManager.SpawnObjectButtonPress();
@@ -29,7 +29,6 @@ public class ObjectSpawnManager : MonoBehaviour
 
     private bool BreakConditionPreview(GameObject spawnedObject)
     {
-        Debug.Log(_placeActive);
         if (_placeActive)
         {
             if (_playerManager != null)
