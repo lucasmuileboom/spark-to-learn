@@ -98,11 +98,11 @@ public class InputManager : MonoBehaviour
 
     public bool MenuDownButtonDown()
     {
-        return IsButtonDown(_menuDownButton);
+        return IsButtonPress(_menuDownButton);
     }
     public bool MenuUpButtonDown()
     {
-        return IsButtonDown(_menuUpButton);
+        return IsButtonPress(_menuUpButton);
     }
     
 
