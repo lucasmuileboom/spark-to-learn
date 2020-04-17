@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] private float _range;
+    [SerializeField] private float _raycastGroundRange;
+    [SerializeField] private Vector3[] _raycastGroundOffset;
+    [SerializeField] private float _raycastRampRange;
     [SerializeField] private float GravityMultiplier;
 
     private InputManager _inputManager;
@@ -12,9 +14,12 @@ public class PlayerManager : MonoBehaviour
     private RotateObject _rotateObjectPlayer;
     private RotateObject _rotateObjectcamera;
 
-    private int _layerMask = 1 << 8;
+    private int _layerMaskGround = 1 << 8;
+    private int _layerMaskRamp = 1 << 9;
     private bool GravityIsOn = true;
+    private RaycastHit _hitRamp;
 
+    [SerializeField] private GameObject[] ess;
 
     private void Start()
     {
@@ -22,6 +27,10 @@ public class PlayerManager : MonoBehaviour
         _moveObject = GetComponent<MoveObject>();
         _rotateObjectPlayer = GetComponent<RotateObject>();
         _rotateObjectcamera = Camera.main.GetComponent<RotateObject>();
+        print(ess[0].transform.eulerAngles.y);
+        print(ess[1].transform.eulerAngles.y);
+        print(ess[2].transform.eulerAngles.y);
+        print(ess[3].transform.eulerAngles.y);
     }
     private void Update() 
     {
@@ -52,6 +61,11 @@ public class PlayerManager : MonoBehaviour
         {
             _playerVelocity -= this.transform.right;
         }
+
+        _playerVelocity.Normalize();
+
+        _playerVelocity = Quaternion.Euler(RampRotation()) * _playerVelocity;
+
         if (_inputManager.FlyUpButtonDown())
         {
             _playerVelocity += this.transform.up;
@@ -60,9 +74,7 @@ public class PlayerManager : MonoBehaviour
         if (_inputManager.FlyDownButtonDown())
         {
             _playerVelocity -= this.transform.up;
-        }       
-
-        _playerVelocity.Normalize();
+        }
 
         if (GravityIsOn)
         {
@@ -75,14 +87,22 @@ public class PlayerManager : MonoBehaviour
     {
         if (_inputManager.CameraMoveButtonDown())
         {
-             Vector3 _playerRotation = new Vector3();
-             Vector3 _cameraRotation = new Vector3();
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
 
-             _cameraRotation.x = -Input.GetAxis("Mouse Y");
-             _playerRotation.y = Input.GetAxis("Mouse X"); 
+            Vector3 _playerRotation = new Vector3();
+            Vector3 _cameraRotation = new Vector3();
 
-             _rotateObjectPlayer.AddRotationToObject(_playerRotation);
-             _rotateObjectcamera.AddRotationToObject(_cameraRotation);
+            _cameraRotation.x = -Input.GetAxis("Mouse Y");
+            _playerRotation.y = Input.GetAxis("Mouse X");
+
+            _rotateObjectPlayer.AddRotationToObject(_playerRotation);
+            _rotateObjectcamera.AddRotationToObject(_cameraRotation);
+        }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
 
 
@@ -98,11 +118,54 @@ public class PlayerManager : MonoBehaviour
     {
         RaycastHit _hit;
 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out _hit, _range, _layerMask))
+        if (Physics.Raycast(transform.position, -Vector3.up , out _hit, _raycastGroundRange, _layerMaskGround))
         {
             //Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * _range, Color.yellow);
             return true;
         }
         return false;
+    }
+    private bool OnRamp()
+    {
+        RaycastHit _hit;
+        for (int i = 0; i < _raycastGroundOffset.Length; i++) 
+        {
+            if (Physics.Raycast(transform.position + _raycastGroundOffset[i], -Vector3.up, out _hit, _raycastRampRange, _layerMaskRamp))
+            {
+                _hitRamp = _hit;
+                GravityIsOn = false;
+                return true;
+            }
+        }       
+        return false;
+    }
+    public Vector3 RampRotation() 
+    {
+        if (!OnRamp())
+        {
+            print("no ramp");
+            return new Vector3(0, 0, 0);
+        }
+        print("ja ramp");
+        print(_hitRamp.collider.transform.eulerAngles.y);
+
+        if (_hitRamp.collider.transform.eulerAngles.y >= 89 && _hitRamp.collider.transform.eulerAngles.y <= 91) 
+        {
+            return new Vector3(0, 0, -45);
+        }
+        else if (_hitRamp.collider.transform.eulerAngles.y >= 269 && _hitRamp.collider.transform.eulerAngles.y <= 271)
+        {
+            return new Vector3(0, 0, 45);
+        }
+        else if (_hitRamp.collider.transform.eulerAngles.y >= 179 && _hitRamp.collider.transform.eulerAngles.y <= 181)
+        {
+            return new Vector3(-45, 0, 0);
+        }
+        else if (_hitRamp.collider.transform.eulerAngles.y >= 359 || _hitRamp.collider.transform.eulerAngles.y <= 1)
+        {
+            return new Vector3(45, 0, 0);
+        }
+
+        return new Vector3(0,0,0);
     }
 }
