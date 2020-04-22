@@ -6,6 +6,7 @@ public class ObjectSpawnManager : MonoBehaviour
 {
     [SerializeField] private float _rotateSpeed;
     [SerializeField] private ItemListCycle _spawnableItems;
+    [SerializeField] private SceneManager _sceneManager;
 
     [SerializeField] private InputManager _inputManager;
     [SerializeField] private PlayerManager _playerManager;
@@ -45,7 +46,9 @@ public class ObjectSpawnManager : MonoBehaviour
     {
         if (_placeActive)
         {
-            ObjectSpawner.Instantiate(rotatedObject);
+            ItemDetails details = rotatedObject.GetComponent<ItemDetails>();
+            details.InstantiateSelf(rotatedObject.transform);
+            _sceneManager.AddObject(details);
             _playerManager.enabled = true;
             _placingProcess = false;
             return true;

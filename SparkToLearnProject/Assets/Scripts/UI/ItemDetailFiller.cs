@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class ItemDetailFiller : MonoBehaviour
 {
@@ -26,5 +27,16 @@ public class ItemDetailFiller : MonoBehaviour
         _image.sprite = item.Thumbnail;
         _name.text = item.Name;
         _description.text = item.Description;
+    }
+
+    public void SetButtonActions(ItemEvent editEvent, ItemEvent replaceEvent, ItemEvent deleteEvent)
+    {
+        Debug.Log(_item);
+        if (_item != null)
+        {
+            _editButton.onClick.AddListener(() => editEvent?.Invoke(_item));
+            _replaceButton.onClick.AddListener(() => replaceEvent?.Invoke(_item));
+            _deleteButton.onClick.AddListener(() => deleteEvent?.Invoke(_item));
+        }
     }
 }
