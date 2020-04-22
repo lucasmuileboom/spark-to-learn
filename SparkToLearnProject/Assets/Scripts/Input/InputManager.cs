@@ -14,6 +14,14 @@ public class InputManager : MonoBehaviour
     [SerializeField] private KeyCode _cameraRotateLeftButton;
     [SerializeField] private KeyCode _cameraRotateRightButton;
 
+    [SerializeField] private KeyCode _flyUpButton;
+    [SerializeField] private KeyCode _flyDownButton;
+
+    [SerializeField] private KeyCode _spawnObject;
+
+    [SerializeField] private KeyCode _rotateObjectLeft;
+    [SerializeField] private KeyCode _rotateObjectRight;
+
     public bool MoveForwardButtonDown() 
     {
         return IsButtonDown(_moveForwardButton);
@@ -45,6 +53,34 @@ public class InputManager : MonoBehaviour
     public bool CameraRotateRightButtonDown() 
     {
         return IsButtonDown(_cameraRotateRightButton);
+    }
+    public bool FlyUpButtonDown()
+    {
+        return IsButtonDown(_flyUpButton);
+    }
+    public bool FlyDownButtonDown()
+    {
+        return IsButtonDown(_flyDownButton);
+    }
+    public bool SpawnObjectButtonDown()
+    {
+        return IsButtonDown(_spawnObject);
+    }
+    public bool SpawnObjectButtonPress()
+    {
+        return IsButtonPress(_spawnObject);
+    }
+    public bool RotateObjectLeftButtonDown()
+    {
+        return IsButtonDown(_rotateObjectLeft);
+    }
+    public bool RotateObjectRightButtonDown()
+    {
+        return IsButtonDown(_rotateObjectRight);
+    }
+    private bool IsButtonPress(KeyCode keycode)
+    {
+        return Input.GetKeyDown(keycode);
     }
     private bool IsButtonDown(KeyCode keycode) 
     {
