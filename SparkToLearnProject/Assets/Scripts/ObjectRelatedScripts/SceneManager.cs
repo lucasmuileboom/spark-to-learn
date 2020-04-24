@@ -27,41 +27,39 @@ public class SceneManager : MonoBehaviour
         _spawnedObjects = new List<ItemDetails>();
     }
 
-    private void UpdateList()
-    {
-        foreach (Transform item in _container.transform)
-        {
-            Destroy(item.gameObject);
-        }
-
-        int i = 0;
-        _spawnedObjects.ForEach((ItemDetails listItem) => {
-            i++;
-            GameObject uiItem = Instantiate<GameObject>(_itemUI,_container.transform);
-            RectTransform uiTransform = uiItem.GetComponent<RectTransform>();
-
-            uiItem.GetComponent<RectTransform>().anchoredPosition = new Vector2(uiTransform.anchoredPosition.x,
-                -((i-1)*uiTransform.rect.height+_spacing*(i-1)));
-            uiItem.GetComponent<ItemDetailFiller>().FillItemDetails(listItem);
-            uiItem.GetComponent<ItemDetailFiller>().SetButtonActions(_onEdit,_onReplace,_onDelete);
-        });
-    }
-
     public void AddObject(ItemDetails item)
     {
-        if (!_spawnedObjects.Contains(item))
-        {
-            _spawnedObjects.Add(item);
-            UpdateList();
-        }
+        _spawnedObjects.Add(item);
+
+        GameObject uiItem = Instantiate<GameObject>(_itemUI, _container.transform);
+        RectTransform uiTransform = uiItem.GetComponent<RectTransform>();
+
+        uiItem.GetComponent<ItemDetailFiller>().SetItem(item);
+        uiItem.GetComponent<ItemDetailFiller>().FillItemDetails();
+        uiItem.GetComponent<ItemDetailFiller>().SetButtonActions(_onEdit, _onReplace, _onDelete);
+
+        Invoke("ArrangeUI", 0.02f);
     }
 
     public void RemoveObject(ItemDetails item)
     {
-        Debug.Log("Remove");
         item = _spawnedObjects.Find((ItemDetails listItem)=> { return listItem.Instance.GetInstanceID() == item.Instance.GetInstanceID(); });
+        int itemIndex = _spawnedObjects.FindIndex((ItemDetails listItem) => { return listItem.Instance.GetInstanceID() == item.Instance.GetInstanceID(); });
         _spawnedObjects.Remove(item);
+        Destroy(_container.transform.GetChild(itemIndex).gameObject);
         Destroy(item.Instance);
-        UpdateList();
+
+        Invoke("ArrangeUI", 0.02f);
+    }
+
+    private void ArrangeUI()
+    {
+        int i = 0;
+        foreach (RectTransform uiItem in _container.transform)
+        {
+            i++;
+            uiItem.anchoredPosition = new Vector2(uiItem.anchoredPosition.x,
+            -((i - 1) * uiItem.rect.height + _spacing * (i - 1)));
+        }
     }
 }

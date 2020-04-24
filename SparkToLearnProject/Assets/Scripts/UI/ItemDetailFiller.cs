@@ -15,23 +15,20 @@ public class ItemDetailFiller : MonoBehaviour
 
     private ItemDetails _item;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void FillItemDetails(ItemDetails item)
+    public void SetItem(ItemDetails item)
     {
         _item = item;
-        _image.sprite = item.Thumbnail;
-        _name.text = item.Name;
-        _description.text = item.Description;
+    }
+
+    public void FillItemDetails()
+    {
+        _image.sprite = _item.Thumbnail;
+        _name.text = _item.Name;
+        _description.text = _item.Description;
     }
 
     public void SetButtonActions(ItemEvent editEvent, ItemEvent replaceEvent, ItemEvent deleteEvent)
     {
-        Debug.Log(_item);
         if (_item != null)
         {
             _editButton.onClick.AddListener(() => editEvent?.Invoke(_item));
