@@ -109,5 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Capsule
   _objectReference: {fileID: 7587449567176566981}
+  _category: Creature
   _description: The tall yet round capsule!!!
   _thumbnail: {fileID: 21300000, guid: d6c511716c3db3949838afe7fe4e3c29, type: 3}

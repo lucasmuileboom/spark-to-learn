@@ -18,6 +18,13 @@ public class ItemDetails : MonoBehaviour
         private set { _objectReference = ObjectReference; }
     }
 
+    [SerializeField] private string _category;
+    public string Category
+    {
+        get { return _category; }
+        private set { _category = Category; }
+    }
+
     [SerializeField] private string _description;
     public string Description
     {
