@@ -10,10 +10,11 @@ public class ObjectSpawner : MonoBehaviour
     }
 
     //Spawns a object that hovers around the ground as a highlight
-    public static IEnumerator HighlightObjectOnRaycastHit(GameObject orientation, GameObject spawnObject, Func<GameObject,bool> breakCondition, LayerMask mask)
+    public static IEnumerator HighlightObjectOnRaycastHit(GameObject orientation, GameObject spawnObject, Func<bool> RotateLeft, Func<bool> RotateRight, float rotateSpeed, Func<GameObject,bool> breakCondition, LayerMask mask)
     {
         Quaternion hitRotation;
         GameObject highlight = null;
+        float rotated = 0;
         yield return new WaitForEndOfFrame();
 
         while (true)
@@ -27,8 +28,21 @@ public class ObjectSpawner : MonoBehaviour
                 highlight = (highlight == null) ? Instantiate<GameObject>(spawnObject) : highlight;
                 //Rotates the object so it alligns with the surface
                 hitRotation = Quaternion.Euler(hit.normal.x, hit.normal.y, hit.normal.z) * hit.collider.transform.rotation;
-
+                
                 highlight.transform.SetPositionAndRotation(hit.point, hitRotation);
+
+                highlight.transform.RotateAround(highlight.transform.position,highlight.transform.up, rotated);
+
+                //If the left rotation key is pressed and not the right rotation key: rotate left
+                if (RotateLeft() && !RotateRight())
+                {
+                    rotated -= rotateSpeed;
+                }
+                //If the right rotation key is pressed and not the left rotation key: rotate right
+                if (RotateRight() && !RotateLeft())
+                {
+                    rotated += rotateSpeed;
+                }
             }
             yield return new WaitForEndOfFrame();
 
