@@ -10,10 +10,11 @@ public class ObjectSpawner : MonoBehaviour
     }
 
     //Spawns a object that hovers around the ground as a highlight
-    public static IEnumerator HighlightObjectOnRaycastHit(GameObject orientation, GameObject spawnObject, Func<GameObject,bool> breakCondition, LayerMask mask)
+    public static IEnumerator HighlightObjectOnRaycastHit(GameObject orientation, GameObject spawnObject, Func<bool> RotateLeft, Func<bool> RotateRight, float rotateSpeed, Func<GameObject,bool> breakCondition, LayerMask mask)
     {
-        Quaternion hitRotation;
-        GameObject highlight = null;
+        Quaternion _hitRotation;
+        GameObject _highlight = null;
+        float _rotated = 0;
         yield return new WaitForEndOfFrame();
 
         while (true)
@@ -24,16 +25,29 @@ public class ObjectSpawner : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 100, mask))
             {
-                highlight = (highlight == null) ? Instantiate<GameObject>(spawnObject) : highlight;
+                _highlight = (_highlight == null) ? Instantiate<GameObject>(spawnObject) : _highlight;
                 //Rotates the object so it alligns with the surface
-                hitRotation = Quaternion.Euler(hit.normal.x, hit.normal.y, hit.normal.z) * hit.collider.transform.rotation;
+                _hitRotation = Quaternion.Euler(hit.normal.x, hit.normal.y, hit.normal.z) * hit.collider.transform.rotation;
+                
+                _highlight.transform.SetPositionAndRotation(hit.point, _hitRotation);
 
-                highlight.transform.SetPositionAndRotation(hit.point, hitRotation);
+                _highlight.transform.RotateAround(_highlight.transform.position,_highlight.transform.up, _rotated);
+
+                //If the left rotation key is pressed and not the right rotation key: rotate left
+                if (RotateLeft() && !RotateRight())
+                {
+                    _rotated -= rotateSpeed;
+                }
+                //If the right rotation key is pressed and not the left rotation key: rotate right
+                if (RotateRight() && !RotateLeft())
+                {
+                    _rotated += rotateSpeed;
+                }
             }
             yield return new WaitForEndOfFrame();
 
             //If the stop condition is met, then stop coroutine
-            if (breakCondition(highlight))
+            if (breakCondition(_highlight))
             {
                 break;
             }
