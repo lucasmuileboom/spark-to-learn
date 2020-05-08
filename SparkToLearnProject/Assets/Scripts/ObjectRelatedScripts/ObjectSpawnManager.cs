@@ -24,25 +24,11 @@ public class ObjectSpawnManager : MonoBehaviour
         {
             _currentObject = _spawnableItems.GetItem().ObjectReference;
             _placingProcess = true;
-            StartCoroutine(ObjectSpawner.HighlightObjectOnRaycastHit(_camera, _currentObject, BreakConditionPreview, _layerMask));
+            StartCoroutine(ObjectSpawner.HighlightObjectOnRaycastHit(_camera, _currentObject, _inputManager.RotateObjectLeftButtonDown, _inputManager.RotateObjectRightButtonDown, 0.5f, BreakCondition, _layerMask));
         }
     }
 
-    private bool BreakConditionPreview(GameObject spawnedObject)
-    {
-        if (_placeActive)
-        {
-            if (_playerManager != null)
-            {
-                _playerManager.enabled = false;
-            }
-            StartCoroutine(ObjectSpawner.RotateObject(spawnedObject, _inputManager.RotateObjectLeftButtonDown, _inputManager.RotateObjectRightButtonDown, 0.5f, BreakConditionRotating));
-            return true;
-        }
-        else return false;
-    }
-
-    private bool BreakConditionRotating(GameObject rotatedObject)
+    private bool BreakCondition(GameObject rotatedObject)
     {
         if (_placeActive)
         {
