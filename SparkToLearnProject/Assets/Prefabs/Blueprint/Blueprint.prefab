@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blueprintObject: {fileID: 0}
-  _startBlock: {fileID: 7611329072399338429}
+  _startBlock: {fileID: 1456741167197822506}
   _codeblockPrefab: {fileID: 1232923263711735362, guid: f82804d0f2ac5cf4f8c3a7cbc77385e2,
     type: 3}
 --- !u!114 &7611329071604037794
@@ -901,7 +901,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7611329072399338430}
-  - component: {fileID: 7611329072399338429}
+  - component: {fileID: 1456741167197822506}
   m_Layer: 5
   m_Name: StartBlock
   m_TagString: Untagged
@@ -932,7 +932,7 @@ RectTransform:
   m_AnchoredPosition: {x: -400, y: 0}
   m_SizeDelta: {x: 130, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7611329072399338429
+--- !u!114 &1456741167197822506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -941,13 +941,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7611329072399338431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d70348a0d33127d48b5d5bc0f53a7aa1, type: 3}
+  m_Script: {fileID: 11500000, guid: cbca63e8faa3c3540b60e0914a0ed84c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _blockFunction: 0
-  _color: {r: 0, g: 0, b: 0, a: 0}
-  attacher: {fileID: 7611329072418145623}
-  receiver: {fileID: 0}
+  _attacher: {fileID: 7611329072418145623}
 --- !u!1 &7611329072409790791
 GameObject:
   m_ObjectHideFlags: 0

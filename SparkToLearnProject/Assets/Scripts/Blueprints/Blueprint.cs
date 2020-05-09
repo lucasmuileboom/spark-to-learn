@@ -5,7 +5,7 @@ public class Blueprint : MonoBehaviour
     public GameObject blueprintObject;
 
     [SerializeField]
-    private Codeblock _startBlock;
+    private StartCodeblock _startBlock;
 
     [SerializeField]
     private GameObject _codeblockPrefab;
