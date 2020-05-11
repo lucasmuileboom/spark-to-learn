@@ -10,6 +10,8 @@ public class Blueprint : MonoBehaviour
 
     [SerializeField]
     private GameObject _codeblockPrefab;
+    [SerializeField]
+    private GameObject _whenCodeblockPrefab;
 
     /// <summary>
     /// Create a codeblock
@@ -17,6 +19,13 @@ public class Blueprint : MonoBehaviour
     public void InstantiateCodeblock()
     {
         GameObject codeblockInstance = Instantiate(_codeblockPrefab);
+        codeblockInstance.transform.SetParent(transform);
+        codeblockInstance.transform.localScale = new Vector3(1, 1, 1);
+    }
+
+    public void InstantiateWhenCodeblock()
+    {
+        GameObject codeblockInstance = Instantiate(_whenCodeblockPrefab);
         codeblockInstance.transform.SetParent(transform);
         codeblockInstance.transform.localScale = new Vector3(1, 1, 1);
     }

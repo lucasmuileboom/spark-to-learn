@@ -21,7 +21,7 @@ public class Codeblock : MonoBehaviour
     /// </summary>
     public void Execute()
     {
-        _events.Events[_input.GetEvent()].Event.Invoke();
+        _events.Events[_input.GetDropdown()].Event.Invoke();
 
         // Execute next codeblock if one is attached
         if (_attacher.attachedReceiver)

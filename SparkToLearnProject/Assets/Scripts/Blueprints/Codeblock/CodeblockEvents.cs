@@ -7,13 +7,11 @@ public class CodeblockEvents : MonoBehaviour
     private Blueprint _blueprint;
     private CodeblockInput _input;
 
-    public enum EventParameters { Int, Float, Vector3, Color }
-
     [Serializable]
     public struct EventStruct
     {
         public string Name;
-        public EventParameters EventParameter;
+        public CodeblockInput.InputTypes EventParameter;
         public UnityEvent Event;
     }
 
@@ -28,7 +26,7 @@ public class CodeblockEvents : MonoBehaviour
 
     public void Move()
     {
-        _blueprint.Object.transform.Translate(_input.GetVector(), Space.Self);
+        _blueprint.Object.transform.Translate(_input.GetVector(), Space.World);
     }
 
     public void Rotate()
