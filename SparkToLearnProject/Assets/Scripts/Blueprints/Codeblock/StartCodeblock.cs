@@ -5,11 +5,11 @@ public class StartCodeblock : MonoBehaviour
     [SerializeField]
     private CodeblockAttacher _attacher;
 
-    public void ExecuteCodeblock(GameObject obj)
+    public void ExecuteCodeblock()
     {
         if (_attacher.attachedReceiver)
         {
-            _attacher.attachedReceiver.codeblock.ExecuteCodeblock(obj);
+            _attacher.attachedReceiver.codeblock.Execute();
         }
     }
 }

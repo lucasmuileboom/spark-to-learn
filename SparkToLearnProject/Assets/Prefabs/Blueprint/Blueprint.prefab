@@ -446,8 +446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfb4c8348f3a7834783ee2545b2cf7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueprintObject: {fileID: 0}
-  _startBlock: {fileID: 1456741167197822506}
+  Object: {fileID: 0}
+  _startCodeblock: {fileID: 1456741167197822506}
   _codeblockPrefab: {fileID: 1232923263711735362, guid: f82804d0f2ac5cf4f8c3a7cbc77385e2,
     type: 3}
 --- !u!114 &7611329071604037794

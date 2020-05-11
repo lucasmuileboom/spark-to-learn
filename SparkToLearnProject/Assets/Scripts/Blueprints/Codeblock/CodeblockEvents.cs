@@ -4,9 +4,8 @@ using UnityEngine.Events;
 
 public class CodeblockEvents : MonoBehaviour
 {
-    private Codeblock _codeblock;
-    [HideInInspector]
-    public GameObject Object;
+    private Blueprint _blueprint;
+    private CodeblockInput _input;
 
     public enum EventParameters { Int, Float, Vector3, Color }
 
@@ -19,41 +18,43 @@ public class CodeblockEvents : MonoBehaviour
     }
 
     [SerializeField]
-    public EventStruct[] events;
+    public EventStruct[] Events;
 
     private void Start()
     {
-        _codeblock = GetComponent<Codeblock>();
+        _blueprint = transform.parent.GetComponent<Blueprint>();
+        _input = GetComponent<CodeblockInput>();
     }
 
     public void Move()
     {
-        Object.transform.Translate(_codeblock.GetVectorInput(), Space.Self);
+        _blueprint.Object.transform.Translate(_input.GetVector(), Space.Self);
     }
 
     public void Rotate()
     {
-        Object.transform.Rotate(_codeblock.GetVectorInput());
+        _blueprint.Object.transform.Rotate(_input.GetVector());
     }
 
     public void Scale()
     {
-        Object.transform.localScale = _codeblock.GetVectorInput();
+        _blueprint.Object.transform.localScale = _input.GetVector();
     }
 
     public void ChangeColor()
     {
-        Debug.Log("Doing the thing!");
-
         float h;
         float s;
         float v;
-        Color.RGBToHSV(Object.GetComponent<Renderer>().material.color, out h, out s, out v);
+        Color.RGBToHSV(_blueprint.Object.GetComponent<Renderer>().material.color, out h, out s, out v);
 
-        Debug.Log(_codeblock.ColorInput());
+        if (s == 0)
+        {
+            s = 1;
+        }
 
-        h = _codeblock.ColorInput();
+        h = _input.GetColor();
 
-        Object.GetComponent<Renderer>().material.color = Color.HSVToRGB(h, s, v);
+        _blueprint.Object.GetComponent<Renderer>().material.color = Color.HSVToRGB(h, s, v);
     }
 }

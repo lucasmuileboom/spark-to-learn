@@ -1,98 +1,53 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class Codeblock : MonoBehaviour
 {
-    [SerializeField]
-    private Dropdown _eventDropdown;
-
-    private CodeblockEvents _codeblockEvents;
+    private CodeblockEvents _events;
+    private CodeblockInput _input;
 
     [SerializeField]
     private CodeblockAttacher _attacher;
     [SerializeField]
     private CodeblockReceiver _receiver;
 
-    [Header("Vector UI")]
-    [SerializeField]
-    private GameObject _vectorInput;
-    [SerializeField]
-    private InputField _xInput;
-    [SerializeField]
-    private InputField _yInput;
-    [SerializeField]
-    private InputField _zInput;
-
-    [Header("Color UI")]
-    [SerializeField]
-    private GameObject _colorInput;
-    [SerializeField]
-    private Slider _colorSlider;
-
     private void Start()
     {
-        _codeblockEvents = GetComponent<CodeblockEvents>();
-
-        for(int i = 0; i < _codeblockEvents.events.Length; i++)
-        {
-            _eventDropdown.options.Add(new Dropdown.OptionData() { text = _codeblockEvents.events[i].Name });
-        }
-
-        SetCodeblockEvent();
+        _events = GetComponent<CodeblockEvents>();
+        _input = GetComponent<CodeblockInput>();
     }
 
-    public void ExecuteCodeblock(GameObject obj)
+    /// <summary>
+    /// Run the selected event
+    /// </summary>
+    public void Execute()
     {
-        _codeblockEvents.Object = obj;
-        _codeblockEvents.events[_eventDropdown.value].Event.Invoke();
+        _events.Events[_input.GetEvent()].Event.Invoke();
 
+        // Execute next codeblock if one is attached
         if (_attacher.attachedReceiver)
         {
-            _attacher.attachedReceiver.codeblock.ExecuteCodeblock(obj);
+            _attacher.attachedReceiver.codeblock.Execute();
         }
     }
 
     /// <summary>
-    /// Get the input for vectors
+    /// Detach both ends of this codeblock
     /// </summary>
-    /// <returns>Vector3</returns>
-    public Vector3 GetVectorInput()
-    {
-        return new Vector3(float.Parse(_xInput.text), float.Parse(_yInput.text), float.Parse(_zInput.text));
-    }
-
-    /// <summary>
-    /// Get the input for colors
-    /// </summary>
-    /// <returns>Color</returns>
-    public float ColorInput()
-    {
-        return _colorSlider.value;
-    }
-
-    public void SetCodeblockEvent()
-    {
-        _vectorInput.SetActive(false);
-        _colorInput.SetActive(false);
-
-        switch (_codeblockEvents.events[_eventDropdown.value].EventParameter)
-        {
-            case CodeblockEvents.EventParameters.Vector3:
-                _vectorInput.SetActive(true);
-                break;
-            case CodeblockEvents.EventParameters.Color:
-                _colorInput.SetActive(true);
-                break;
-        }
-    }
-
-    public void RemoveCodeBlock()
+    public void Detach()
     {
         _attacher.Detach();
         if (_receiver.attacher)
         {
             _receiver.attacher.Detach();
         }
+    }
+
+    /// <summary>
+    /// Detach and remove this codeblock
+    /// </summary>
+    public void Remove()
+    {
+        Detach();
 
         Destroy(gameObject);
     }

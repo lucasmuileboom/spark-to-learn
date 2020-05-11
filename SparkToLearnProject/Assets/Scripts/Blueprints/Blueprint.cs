@@ -2,14 +2,18 @@
 
 public class Blueprint : MonoBehaviour
 {
-    public GameObject blueprintObject;
+    [HideInInspector]
+    public GameObject Object;
 
     [SerializeField]
-    private StartCodeblock _startBlock;
+    private StartCodeblock _startCodeblock;
 
     [SerializeField]
     private GameObject _codeblockPrefab;
 
+    /// <summary>
+    /// Create a codeblock
+    /// </summary>
     public void InstantiateCodeblock()
     {
         GameObject codeblockInstance = Instantiate(_codeblockPrefab);
@@ -17,8 +21,11 @@ public class Blueprint : MonoBehaviour
         codeblockInstance.transform.localScale = new Vector3(1, 1, 1);
     }
 
+    /// <summary>
+    /// Start the blueprint
+    /// </summary>
     public void ExecuteBlueprint()
     {
-        _startBlock.ExecuteCodeblock(blueprintObject);
+        _startCodeblock.ExecuteCodeblock();
     }
 }

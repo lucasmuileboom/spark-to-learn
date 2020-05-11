@@ -12,7 +12,7 @@ public class BlueprintObject : MonoBehaviour
         GameObject blueprintInstance = Instantiate(_blueprintPrefab, FindObjectOfType<Canvas>().transform);
         blueprintInstance.SetActive(false);
         blueprintInstance.name = "Blueprint - " + gameObject.name;
-        blueprintInstance.GetComponent<Blueprint>().blueprintObject = gameObject;
+        blueprintInstance.GetComponent<Blueprint>().Object = gameObject;
 
         _blueprint = blueprintInstance;
     }
