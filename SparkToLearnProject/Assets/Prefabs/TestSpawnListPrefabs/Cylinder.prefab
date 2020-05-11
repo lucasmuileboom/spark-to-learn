@@ -109,5 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Cylinder
   _objectReference: {fileID: 1725650459524423265}
+  _category: Building
   _description: Round yet flat!!!
   _thumbnail: {fileID: 21300000, guid: 8e1177621a38bb347806c7526d523dd4, type: 3}

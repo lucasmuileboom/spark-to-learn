@@ -18,6 +18,13 @@ public class ItemDetails : MonoBehaviour
         private set { _objectReference = ObjectReference; }
     }
 
+    [SerializeField] private string _category;
+    public string Category
+    {
+        get { return _category; }
+        private set { _category = Category; }
+    }
+
     [SerializeField] private string _description;
     public string Description
     {
@@ -30,5 +37,18 @@ public class ItemDetails : MonoBehaviour
     {
         get { return _thumbnail; }
         private set { _thumbnail = Thumbnail; }
+    }
+
+    private GameObject _instance;
+    public GameObject Instance
+    {
+        get { return _instance; }
+        private set { _instance = Instance; }
+    }
+
+    public GameObject InstantiateSelf(Transform spawnPoint)
+    {
+        _instance = (_instance) ? _instance : Instantiate<GameObject>(_objectReference,spawnPoint.position, spawnPoint.rotation);
+        return _instance;
     }
 }
