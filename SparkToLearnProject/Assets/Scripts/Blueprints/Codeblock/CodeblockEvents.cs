@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class CodeblockEvents : MonoBehaviour
 {
     private Codeblock _codeblock;
+    [HideInInspector]
     public GameObject Object;
 
     public enum EventParameters { Int, Float, Vector3, Color }
@@ -27,14 +28,12 @@ public class CodeblockEvents : MonoBehaviour
 
     public void Move()
     {
-        Object.transform.position = new Vector3(Object.transform.position.x + _codeblock.GetVectorInput().x
-            , Object.transform.position.y + _codeblock.GetVectorInput().y
-            , Object.transform.position.z + _codeblock.GetVectorInput().z);
+        Object.transform.Translate(_codeblock.GetVectorInput(), Space.Self);
     }
 
     public void Rotate()
     {
-        Object.transform.rotation = Quaternion.Euler(_codeblock.GetVectorInput());
+        Object.transform.Rotate(_codeblock.GetVectorInput());
     }
 
     public void Scale()
@@ -42,8 +41,19 @@ public class CodeblockEvents : MonoBehaviour
         Object.transform.localScale = _codeblock.GetVectorInput();
     }
 
-    public void Color()
+    public void ChangeColor()
     {
-        Object.GetComponent<Renderer>().material.color = _codeblock.ColorInput();
+        Debug.Log("Doing the thing!");
+
+        float h;
+        float s;
+        float v;
+        Color.RGBToHSV(Object.GetComponent<Renderer>().material.color, out h, out s, out v);
+
+        Debug.Log(_codeblock.ColorInput());
+
+        h = _codeblock.ColorInput();
+
+        Object.GetComponent<Renderer>().material.color = Color.HSVToRGB(h, s, v);
     }
 }

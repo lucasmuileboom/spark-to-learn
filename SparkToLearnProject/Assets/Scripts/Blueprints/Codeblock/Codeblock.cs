@@ -27,7 +27,7 @@ public class Codeblock : MonoBehaviour
     [SerializeField]
     private GameObject _colorInput;
     [SerializeField]
-    private Dropdown _colorDropdown;
+    private Slider _colorSlider;
 
     private void Start()
     {
@@ -65,24 +65,9 @@ public class Codeblock : MonoBehaviour
     /// Get the input for colors
     /// </summary>
     /// <returns>Color</returns>
-    public Color ColorInput()
+    public float ColorInput()
     {
-        Color c = Color.white;
-
-        switch (_colorDropdown.value)
-        {
-            case 0:
-                c = Color.red;
-                break;
-            case 1:
-                c = Color.green;
-                break;
-            case 2:
-                c = Color.blue;
-                break;
-        }
-
-        return c;
+        return _colorSlider.value;
     }
 
     public void SetCodeblockEvent()
