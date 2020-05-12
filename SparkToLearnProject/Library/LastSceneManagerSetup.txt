@@ -1,9 +1,13 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/ENV_Island.unity
   isLoaded: 1
   isActive: 0
   isSubScene: 0
 - path: Assets/Scenes/Human_Scale.unity
+=======
+- path: Assets/Scenes/ObjectMaking/SceneManagerComplete.unity
+>>>>>>> origin/develop
   isLoaded: 1
   isActive: 1
   isSubScene: 0
