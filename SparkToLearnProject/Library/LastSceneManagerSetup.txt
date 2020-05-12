@@ -1,21 +1,25 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/Blockout_Faunal_Horse_V1.unity
-  isLoaded: 0
+- path: Assets/Scenes/ENV_Island.unity
+  isLoaded: 1
   isActive: 0
   isSubScene: 0
 - path: Assets/Scenes/Human_Scale.unity
-=======
-- path: Assets/Scenes/ObjectMaking/ObjectMakingScene.unity
->>>>>>> 5d947e6d00a1d6482ddcd49c84aacbb6f7d6bce3
   isLoaded: 1
   isActive: 1
   isSubScene: 0
-- path: Assets/Scenes/SampleScene.unity
+- path: Assets/Scenes/Post_Processing.unity
   isLoaded: 1
   isActive: 0
   isSubScene: 0
-- path: Assets/Scenes/Blockout_Environment.unity
+- path: Assets/Scenes/Water.unity
+  isLoaded: 0
+  isActive: 0
+  isSubScene: 0
+- path: Assets/Scenes/Water_Plane_Yaro_Only.unity
+  isLoaded: 1
+  isActive: 0
+  isSubScene: 0
+- path: Assets/Scenes/Highlight Objects.unity
   isLoaded: 1
   isActive: 0
   isSubScene: 0
