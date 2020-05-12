@@ -28,7 +28,8 @@ public class CodeblockWhens : MonoBehaviour
         _input = GetComponent<CodeblockInput>();
 
         Whens = new List<WhenClass>();
-        Whens.Add(new WhenClass("Key", CodeblockInput.InputTypes.Char, () => { try { return Input.GetKey(_input.GetChar().ToString().ToLower()); } catch { return false; } }));
+        Whens.Add(new WhenClass("Key Held", CodeblockInput.InputTypes.Char, () => { try { return Input.GetKey(_input.GetChar().ToString().ToLower()); } catch { return false; } }));
+        Whens.Add(new WhenClass("Key Press", CodeblockInput.InputTypes.Char, () => { try { return Input.GetKeyDown(_input.GetChar().ToString().ToLower()); } catch { return false; } }));
     }
 
     private void Start()
