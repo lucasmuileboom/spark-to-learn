@@ -1020,7 +1020,7 @@ MonoBehaviour:
   _xInput: {fileID: 5535007029953532322}
   _yInput: {fileID: 5776286600577261328}
   _zInput: {fileID: 4704825644326747014}
-  _keyCodeInput: {fileID: 1039044204107565611}
+  _keyCodeInput: {fileID: 3404535507226809104}
   _inputButton: {fileID: 1885221505823846496}
   _colorInput: {fileID: 3510105342821406298}
   _colorSlider: {fileID: 1320403609810876759}

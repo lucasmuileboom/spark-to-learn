@@ -10,7 +10,7 @@ public class BlueprintObject : MonoBehaviour
     private void Start()
     {
         // Instantiate and setup the blueprint
-        GameObject blueprintInstance = Instantiate(_blueprintPrefab, GameObject.FindGameObjectWithTag("BlueprintCanvas").transform);
+        GameObject blueprintInstance = Instantiate(_blueprintPrefab, FindObjectOfType<Canvas>().transform);
         blueprintInstance.name = "Blueprint - " + gameObject.name;
         blueprintInstance.GetComponent<Blueprint>().Object = gameObject;
 

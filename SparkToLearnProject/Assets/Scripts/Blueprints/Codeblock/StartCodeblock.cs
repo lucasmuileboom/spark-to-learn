@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class StartCodeblock : MonoBehaviour
 {
@@ -7,11 +6,11 @@ public class StartCodeblock : MonoBehaviour
     private CodeblockAttacher _attacher;
 
     [SerializeField]
-    private Toggle repeatToggle;
+    private bool _repeat;
 
     private void Update()
     {
-        if (repeatToggle.isOn)
+        if (_repeat)
         {
             ExecuteCodeblock();
         }
