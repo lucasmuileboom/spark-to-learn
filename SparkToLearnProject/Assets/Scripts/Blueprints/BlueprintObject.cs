@@ -9,6 +9,7 @@ public class BlueprintObject : MonoBehaviour
 
     private void Start()
     {
+        // Instantiate and setup the blueprint
         GameObject blueprintInstance = Instantiate(_blueprintPrefab, GameObject.FindGameObjectWithTag("BlueprintCanvas").transform);
         blueprintInstance.name = "Blueprint - " + gameObject.name;
         blueprintInstance.GetComponent<Blueprint>().Object = gameObject;
@@ -19,6 +20,7 @@ public class BlueprintObject : MonoBehaviour
 
     private void OnMouseDown()
     {
+        // Show this object's blueprint when clicked
         _blueprint.Show();
     }
 }

@@ -8,6 +8,7 @@ public class CodeblockInput : MonoBehaviour
     private CodeblockEvents _events;
     private CodeblockWhens _whens;
 
+    #region UI Variables
     [Header("Event UI")]
     [SerializeField]
     private Dropdown _dropdown;
@@ -39,6 +40,7 @@ public class CodeblockInput : MonoBehaviour
     private GameObject _audioInput;
     [SerializeField]
     private Dropdown _clipDropdown;
+    #endregion
 
     private void Start()
     {
@@ -123,7 +125,7 @@ public class CodeblockInput : MonoBehaviour
         }
     }
 
-
+    #region Input Getters
     public int GetDropdown()
     {
         return _dropdown.value;
@@ -148,4 +150,5 @@ public class CodeblockInput : MonoBehaviour
     {
         return _clipDropdown.value;
     }
+    #endregion
 }

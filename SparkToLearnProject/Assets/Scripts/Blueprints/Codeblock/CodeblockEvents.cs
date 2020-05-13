@@ -24,6 +24,7 @@ public class CodeblockEvents : MonoBehaviour
         _input = GetComponent<CodeblockInput>();
     }
 
+    #region Events
     public void Move()
     {
         _blueprint.Object.transform.Translate(_input.GetVector(), Space.World);
@@ -60,4 +61,5 @@ public class CodeblockEvents : MonoBehaviour
     {
         AudioPlayer.PlayClip(_input.GetClip());
     }
+    #endregion
 }

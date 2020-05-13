@@ -15,6 +15,7 @@ public class AudioPlayer : MonoBehaviour
 
     private void Awake()
     {
+        // Create the custom audio directory if it does not exist
         if (!Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic), "SparkToLearn")))
         {
             Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic), "SparkToLearn"));
@@ -26,8 +27,14 @@ public class AudioPlayer : MonoBehaviour
         UpdateFiles();
     }
 
+    /// <summary>
+    /// Clear the files and clips and fill them with audio files contained in the file directory
+    /// </summary>
     public static void UpdateFiles()
     {
+        Files.Clear();
+        _clips.Clear();
+
         string[] files;
         files = Directory.GetFiles(_fileDirectory);
 

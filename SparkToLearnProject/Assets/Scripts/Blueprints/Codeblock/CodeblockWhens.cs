@@ -25,20 +25,18 @@ public class CodeblockWhens : MonoBehaviour
 
     private void Awake()
     {
+        _whenCodeblock = GetComponent<WhenCodeblock>();
         _input = GetComponent<CodeblockInput>();
 
+        // Create a list of if statements to be selected from the codeblock
         Whens = new List<WhenClass>();
         Whens.Add(new WhenClass("Key Press", CodeblockInput.InputTypes.KeyCode, () => { try { return Input.GetKeyDown(_input.GetKeyCode()); } catch { return false; } }));
         Whens.Add(new WhenClass("Key Held", CodeblockInput.InputTypes.KeyCode, () => { try { return Input.GetKey(_input.GetKeyCode()); } catch { return false; } }));
     }
 
-    private void Start()
-    {
-        _whenCodeblock = GetComponent<WhenCodeblock>();
-    }
-
     private void Update()
     {
+        // Check for the selected when and if true execute
         if (Whens[_input.GetDropdown()].WhenFunc.Invoke())
         {
             _whenCodeblock.Execute();

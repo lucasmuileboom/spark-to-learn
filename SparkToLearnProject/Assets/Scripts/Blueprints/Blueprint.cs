@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class Blueprint : MonoBehaviour
 {
@@ -21,6 +20,7 @@ public class Blueprint : MonoBehaviour
         _canvasGroup = GetComponent<CanvasGroup>();
     }
 
+    // Show and hide the blueprints using canvas group so code within can still run
     public void Show()
     {
         _canvasGroup.alpha = 1;
@@ -34,7 +34,7 @@ public class Blueprint : MonoBehaviour
     }
 
     /// <summary>
-    /// Create a codeblock
+    /// Create an event codeblock
     /// </summary>
     public void InstantiateCodeblock()
     {
@@ -43,6 +43,9 @@ public class Blueprint : MonoBehaviour
         codeblockInstance.transform.localScale = new Vector3(1, 1, 1);
     }
 
+    /// <summary>
+    /// Create a when codeblock
+    /// </summary>
     public void InstantiateWhenCodeblock()
     {
         GameObject codeblockInstance = Instantiate(_whenCodeblockPrefab);

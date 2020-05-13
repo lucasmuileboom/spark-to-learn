@@ -19,6 +19,7 @@ public class InputButton : MonoBehaviour
     {
         if (_waitingForInput)
         {
+            // Get the next key pressed
             foreach (KeyCode vKey in System.Enum.GetValues(typeof(KeyCode)))
             {
                 if (Input.GetKey(vKey))
