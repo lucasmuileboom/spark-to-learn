@@ -19,6 +19,7 @@ public class CodeblockAttacher : MonoBehaviour, IDragHandler, IBeginDragHandler,
     {
         if (attachedReceiver)
         {
+            // Draw the line from the attacher to the receiver
             Vector2 linePosition = new Vector2(attachedReceiver.gameObject.transform.position.x - transform.position.x + ((attachedReceiver.gameObject.transform.position.x - transform.position.x) / 6), attachedReceiver.gameObject.transform.position.y - transform.position.y + ((attachedReceiver.gameObject.transform.position.y - transform.position.y) / 6));
 
             _lineRenderer.Points[1] = linePosition;
