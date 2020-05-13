@@ -13,15 +13,19 @@ public class PlayerManager : MonoBehaviour
     private MoveObject _moveObject;
     private RotateObject _rotateObjectPlayer;
     private RotateObject _rotateObjectcamera;
-
+    
     private int _layerMaskGround = 1 << 8;
     private int _layerMaskRamp = 1 << 9;
     private bool GravityIsOn = true;
+    public bool CanRotate = true;
+    public bool CanUseSkils = true;
     private RaycastHit _hitRamp;
 
-    [SerializeField] private ToggleUiActive _toggleUiActive;
+    [SerializeField] private ToggleUiActive[] _toggleUiActive;
     [SerializeField] private SetText _setText;
     [SerializeField] private ItemListCycle _itemListCycle;
+    [SerializeField] private LockCursor _lockCursor;
+    [SerializeField] private ObjectSpawnManager _ObjectSpawnManager;
 
 
     private void Start()
@@ -34,8 +38,14 @@ public class PlayerManager : MonoBehaviour
     private void Update() 
     {
         PlayerVelocity();
-        PlayerRotation();
-        Skils();
+        if (CanRotate)
+        {
+            PlayerRotation();
+        }
+        if (CanUseSkils) 
+        { 
+            Skils();
+        }        
         BuildMenuArrows();
         if (!GravityIsOn)
         {
@@ -160,23 +170,39 @@ public class PlayerManager : MonoBehaviour
     {
         if (_inputManager.Skil1ButtonDown())
         {
-            _toggleUiActive.SetUi(true);
+            _toggleUiActive[0].SetUi(true);
+            _toggleUiActive[1].SetUi(false);
+            _toggleUiActive[2].SetUi(false);
             _setText.Settext(0);
+            _lockCursor.toggleCursor(true);
+            _ObjectSpawnManager.enabled = false;
         }
         else if (_inputManager.Skil2ButtonDown())
         {
-            _toggleUiActive.SetUi(false);
+            _toggleUiActive[0].SetUi(false);
+            _toggleUiActive[1].SetUi(true);
+            _toggleUiActive[2].SetUi(false);
             _setText.Settext(1);
+            _lockCursor.toggleCursor(false);
+            _ObjectSpawnManager.enabled = true;
         }
         else if (_inputManager.Skil3ButtonDown())
         {
-            _toggleUiActive.SetUi(false);
+            _toggleUiActive[0].SetUi(false);
+            _toggleUiActive[1].SetUi(false);
+            _toggleUiActive[2].SetUi(true);
             _setText.Settext(2);
+            _lockCursor.toggleCursor(false);
+            _ObjectSpawnManager.enabled = false;
         }
         else if (_inputManager.Skil4ButtonDown())
         {
-            _toggleUiActive.SetUi(false);
+            _toggleUiActive[0].SetUi(false);
+            _toggleUiActive[1].SetUi(false);
+            _toggleUiActive[2].SetUi(false);
             _setText.Settext(3);
+            _lockCursor.toggleCursor(false);
+            _ObjectSpawnManager.enabled = false;
         }
     }
     private void BuildMenuArrows()

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6615721482880027760}
   - component: {fileID: 3548409775871813305}
   - component: {fileID: 3867446160134502531}
+  - component: {fileID: 1336620635301583541}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -112,3 +113,17 @@ MonoBehaviour:
   _category: Creature
   _description: The tall yet round capsule!!!
   _thumbnail: {fileID: 21300000, guid: d6c511716c3db3949838afe7fe4e3c29, type: 3}
+--- !u!114 &1336620635301583541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7587449567176566981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28abda6515a174f4e896134c9f2d47fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
+    type: 3}

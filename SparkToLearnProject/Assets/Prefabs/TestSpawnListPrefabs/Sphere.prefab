@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2105550130800525580}
   - component: {fileID: 7078963068559013009}
   - component: {fileID: 8764610954586093024}
+  - component: {fileID: -5015742825265938400}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -111,3 +112,17 @@ MonoBehaviour:
   _category: Creature
   _description: It's completely round!!!
   _thumbnail: {fileID: 21300000, guid: 797c41dd640fc7e41bc2989e4a7faca0, type: 3}
+--- !u!114 &-5015742825265938400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6456736098479556231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28abda6515a174f4e896134c9f2d47fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
+    type: 3}
