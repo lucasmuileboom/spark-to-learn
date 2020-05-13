@@ -55,4 +55,9 @@ public class CodeblockEvents : MonoBehaviour
 
         _blueprint.Object.GetComponent<Renderer>().material.color = Color.HSVToRGB(h, s, v);
     }
+
+    public void PlayClip()
+    {
+        AudioPlayer.PlayClip(_input.GetClip());
+    }
 }

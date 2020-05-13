@@ -14,6 +14,7 @@ public class BlueprintObject : MonoBehaviour
         blueprintInstance.GetComponent<Blueprint>().Object = gameObject;
 
         _blueprint = blueprintInstance.GetComponent<Blueprint>();
+        _blueprint.Hide();
     }
 
     private void OnMouseDown()

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class CodeblockInput : MonoBehaviour
 {
-    public enum InputTypes { Int, Float, Vector3, String, Char, Color }
+    public enum InputTypes { Int, Float, Vector3, String, KeyCode, Color, Audio }
 
     private CodeblockEvents _events;
     private CodeblockWhens _whens;
@@ -22,17 +22,23 @@ public class CodeblockInput : MonoBehaviour
     [SerializeField]
     private InputField _zInput;
 
-    [Header("Char UI")]
+    [Header("KeyCode UI")]
     [SerializeField]
-    private GameObject _charInput;
+    private GameObject _keyCodeInput;
     [SerializeField]
-    private InputField _charField;
+    private InputButton _inputButton;
 
     [Header("Color UI")]
     [SerializeField]
     private GameObject _colorInput;
     [SerializeField]
     private Slider _colorSlider;
+
+    [Header("Audio UI")]
+    [SerializeField]
+    private GameObject _audioInput;
+    [SerializeField]
+    private Dropdown _clipDropdown;
 
     private void Start()
     {
@@ -64,12 +70,14 @@ public class CodeblockInput : MonoBehaviour
     }
 
     /// <summary>
-    /// Set the required input method active and disable others
+    /// Set the required input method active and disable others for events
     /// </summary>
     public void SetEvent()
     {
         _vectorInput.SetActive(false);
         _colorInput.SetActive(false);
+        _keyCodeInput.SetActive(false);
+        _audioInput.SetActive(false);
 
         switch (_events.Events[_dropdown.value].EventParameter)
         {
@@ -79,13 +87,24 @@ public class CodeblockInput : MonoBehaviour
             case InputTypes.Color:
                 _colorInput.SetActive(true);
                 break;
+            case InputTypes.KeyCode:
+                _keyCodeInput.SetActive(true);
+                break;
+            case InputTypes.Audio:
+                _audioInput.SetActive(true);
+                break;
         }
     }
 
+    /// <summary>
+    /// Set the required input method active and disable others for whens
+    /// </summary>
     public void SetWhens()
     {
         _vectorInput.SetActive(false);
         _colorInput.SetActive(false);
+        _keyCodeInput.SetActive(false);
+        _audioInput.SetActive(false);
 
         switch (_whens.Whens[_dropdown.value].InputType)
         {
@@ -94,6 +113,12 @@ public class CodeblockInput : MonoBehaviour
                 break;
             case InputTypes.Color:
                 _colorInput.SetActive(true);
+                break;
+            case InputTypes.KeyCode:
+                _keyCodeInput.SetActive(true);
+                break;
+            case InputTypes.Audio:
+                _audioInput.SetActive(true);
                 break;
         }
     }
@@ -109,14 +134,18 @@ public class CodeblockInput : MonoBehaviour
         return new Vector3(float.Parse(_xInput.text), float.Parse(_yInput.text), float.Parse(_zInput.text));
     }
 
-
-    public char GetChar()
+    public KeyCode GetKeyCode()
     {
-        return char.Parse(_charField.text);
+        return (_inputButton.SelectedKeyCode);
     }
 
     public float GetColor()
     {
         return _colorSlider.value;
+    }
+
+    public int GetClip()
+    {
+        return _clipDropdown.value;
     }
 }
