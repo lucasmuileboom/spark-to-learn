@@ -840,6 +840,7 @@ GameObject:
   - component: {fileID: 7611329071604037796}
   - component: {fileID: 7611329071604037795}
   - component: {fileID: 7611329071604037794}
+  - component: {fileID: 4964078325837635472}
   m_Layer: 5
   m_Name: Blueprint
   m_TagString: Untagged
@@ -902,6 +903,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &4964078325837635472
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7611329071604037797}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7611329071881863363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,7 +1229,7 @@ GameObject:
   - component: {fileID: 7611329072396722487}
   - component: {fileID: 7611329072396722472}
   m_Layer: 5
-  m_Name: CloseButton
+  m_Name: HideButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1321,9 +1334,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7611329071604037797}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 7611329071604037795}
+        m_MethodName: Hide
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
