@@ -68070,6 +68070,26 @@ PrefabInstance:
       propertyPath: _layerMask.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 2321769669076269370, guid: a89734486d5649544bbaa6b5bec4fcb8,
+        type: 3}
+      propertyPath: _correctHighlight
+      value: 
+      objectReference: {fileID: 2100000, guid: d5791a917f93176408c1c3157584087a, type: 2}
+    - target: {fileID: 2321769669076269370, guid: a89734486d5649544bbaa6b5bec4fcb8,
+        type: 3}
+      propertyPath: _incorrectHighlight
+      value: 
+      objectReference: {fileID: 2100000, guid: 1b4fc5df7c8e21e4ca64142dd8cd7600, type: 2}
+    - target: {fileID: 6319292497268089392, guid: a89734486d5649544bbaa6b5bec4fcb8,
+        type: 3}
+      propertyPath: _rotateObjectLeft
+      value: 257
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319292497268089392, guid: a89734486d5649544bbaa6b5bec4fcb8,
+        type: 3}
+      propertyPath: _rotateObjectRight
+      value: 259
+      objectReference: {fileID: 0}
     - target: {fileID: 6319292497268089416, guid: a89734486d5649544bbaa6b5bec4fcb8,
         type: 3}
       propertyPath: m_Name
@@ -83805,6 +83825,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5693982725560334443, guid: 7034a04273f3c7b4ea2c261085796ec7,
         type: 3}
+      propertyPath: _onEdit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693982725560334443, guid: 7034a04273f3c7b4ea2c261085796ec7,
+        type: 3}
       propertyPath: _itemUI
       value: 
       objectReference: {fileID: 6388219032906028217, guid: d4d8339d83d4f83498c3609445bbe89f,
@@ -83813,6 +83838,31 @@ PrefabInstance:
         type: 3}
       propertyPath: _startCategory
       value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693982725560334443, guid: 7034a04273f3c7b4ea2c261085796ec7,
+        type: 3}
+      propertyPath: _onEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693982725560334443, guid: 7034a04273f3c7b4ea2c261085796ec7,
+        type: 3}
+      propertyPath: _onEdit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693982725560334443, guid: 7034a04273f3c7b4ea2c261085796ec7,
+        type: 3}
+      propertyPath: _onEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 144775098}
+    - target: {fileID: 5693982725560334443, guid: 7034a04273f3c7b4ea2c261085796ec7,
+        type: 3}
+      propertyPath: _onEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EditObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693982725560334443, guid: 7034a04273f3c7b4ea2c261085796ec7,
+        type: 3}
+      propertyPath: _onEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5693982725626482176, guid: 7034a04273f3c7b4ea2c261085796ec7,
         type: 3}

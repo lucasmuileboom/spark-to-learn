@@ -8,12 +8,16 @@ public class ObjectSpawnManager : MonoBehaviour
     [SerializeField] private ItemListCycle _spawnableItems;
     [SerializeField] private SceneManager _sceneManager;
 
+    [SerializeField] private Material _correctHighlight;
+    [SerializeField] private Material _incorrectHighlight;
+
     [SerializeField] private InputManager _inputManager;
     [SerializeField] private PlayerManager _playerManager;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private GameObject _camera;
 
     private GameObject _currentObject;
+    private MeshRenderer _originalMat;
     private bool _placingProcess = false;
     private bool _placeActive = false;
 
@@ -24,7 +28,8 @@ public class ObjectSpawnManager : MonoBehaviour
         {
             _currentObject = _spawnableItems.GetItem().ObjectReference;
             _placingProcess = true;
-            StartCoroutine(ObjectSpawner.HighlightObjectOnRaycastHit(_camera, _currentObject, _inputManager.RotateObjectLeftButtonDown, _inputManager.RotateObjectRightButtonDown, 0.5f, BreakCondition, _layerMask));
+            _originalMat = _currentObject.GetComponent<MeshRenderer>();
+            StartCoroutine(ObjectSpawner.HighlightObjectOnRaycastHit(_camera, _currentObject, _inputManager.RotateObjectLeftButtonDown, _inputManager.RotateObjectRightButtonDown, 0.5f, BreakCondition, _layerMask, _correctHighlight, _incorrectHighlight));
         }
     }
 
@@ -33,7 +38,9 @@ public class ObjectSpawnManager : MonoBehaviour
         if (_placeActive)
         {
             ItemDetails details = rotatedObject.GetComponent<ItemDetails>();
-            details.InstantiateSelf(rotatedObject.transform);
+            rotatedObject.GetComponent<Collider>().isTrigger = false;
+            rotatedObject.GetComponent<MeshRenderer>().material = _originalMat.sharedMaterial;
+            details.SetInstance(rotatedObject);
             _sceneManager.AddObject(details);
             _playerManager.enabled = true;
             _placingProcess = false;
