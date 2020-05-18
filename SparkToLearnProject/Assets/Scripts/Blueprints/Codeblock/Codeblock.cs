@@ -1,99 +1,53 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class Codeblock : MonoBehaviour
 {
-    [SerializeField]
-    private Dropdown _functionDropdown;
+    private CodeblockEvents _events;
+    private CodeblockInput _input;
 
     [SerializeField]
-    private GameObject _colorInput;
+    private CodeblockAttacher _attacher;
     [SerializeField]
-    private Dropdown _colorDropdown;
+    private CodeblockReceiver _receiver;
 
-    [SerializeField]
-    private GameObject _vectorInput;
-    [SerializeField]
-    private InputField xInput;
-    [SerializeField]
-    private InputField yInput;
-    [SerializeField]
-    private InputField zInput;
-
-    private enum BlockFunction { Start, ChangeColor, Move, Scale, Rotate }
-
-    [SerializeField]
-    private BlockFunction _blockFunction;
-
-    [SerializeField]
-    private CodeblockAttacher attacher;
-    [SerializeField]
-    private CodeblockReceiver receiver;
-
-    public void ExecuteCodeblock(GameObject obj)
+    private void Start()
     {
-        switch(_blockFunction)
+        _events = GetComponent<CodeblockEvents>();
+        _input = GetComponent<CodeblockInput>();
+    }
+
+    /// <summary>
+    /// Run the selected event
+    /// </summary>
+    public void Execute()
+    {
+        _events.Events[_input.GetDropdown()].Event.Invoke();
+
+        // Execute next codeblock if one is attached
+        if (_attacher.attachedReceiver)
         {
-            case BlockFunction.Start:
-                Debug.Log("Starting blueprint");
-                break;
-            case BlockFunction.ChangeColor:
-                Color c = Color.white;
-
-                switch (_colorDropdown.value)
-                {
-                    case 0:
-                        c = Color.red;
-                        break;
-                    case 1:
-                        c = Color.green;
-                        break;
-                    case 2:
-                        c = Color.blue;
-                        break;
-                }
-
-                obj.GetComponent<Renderer>().material.color = c;
-                break;
-            case BlockFunction.Move:
-                obj.transform.position = new Vector3(int.Parse(xInput.text), int.Parse(yInput.text), int.Parse(zInput.text));
-                break;
-            case BlockFunction.Scale:
-                obj.transform.localScale = new Vector3(int.Parse(xInput.text), int.Parse(yInput.text), int.Parse(zInput.text));
-                break;
-            case BlockFunction.Rotate:
-                obj.transform.rotation = Quaternion.Euler(new Vector3(int.Parse(xInput.text), int.Parse(yInput.text), int.Parse(zInput.text)));
-                break;
-        }
-
-        if (attacher.attachedReceiver)
-        {
-            attacher.attachedReceiver.codeblock.ExecuteCodeblock(obj);
+            _attacher.attachedReceiver.codeblock.Execute();
         }
     }
 
-    public void SetCodeblockFunction(int i)
+    /// <summary>
+    /// Detach both ends of this codeblock
+    /// </summary>
+    public void Detach()
     {
-        _blockFunction = (BlockFunction)_functionDropdown.value+1;
-
-        if(_blockFunction == BlockFunction.ChangeColor)
+        _attacher.Detach();
+        if (_receiver.attacher)
         {
-            _colorInput.SetActive(true);
-            _vectorInput.SetActive(false);
-        } else
-        {
-            _colorInput.SetActive(false);
-            _vectorInput.SetActive(true);
+            _receiver.attacher.Detach();
         }
     }
 
-    public void RemoveCodeBlock()
+    /// <summary>
+    /// Detach and remove this codeblock
+    /// </summary>
+    public void Remove()
     {
-        attacher.Detach();
-        if (receiver.attacher)
-        {
-            receiver.attacher.Detach();
-        }
+        Detach();
 
         Destroy(gameObject);
     }

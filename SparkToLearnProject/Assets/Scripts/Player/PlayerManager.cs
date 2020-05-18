@@ -4,20 +4,33 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    [SerializeField] private float _range;
+    [SerializeField] private float GravityMultiplier;
+
     private InputManager _inputManager;
     private MoveObject _moveObject;
-    private RotateObject _rotateObject;
+    private RotateObject _rotateObjectPlayer;
+    private RotateObject _rotateObjectcamera;
+
+    private int _layerMask = 1 << 9;
+    private bool GravityIsOn = true;
+
 
     private void Start()
     {
         _inputManager = GetComponent<InputManager>();
         _moveObject = GetComponent<MoveObject>();
-        _rotateObject = GetComponent<RotateObject>();
+        _rotateObjectPlayer = GetComponent<RotateObject>();
+        _rotateObjectcamera = Camera.main.GetComponent<RotateObject>();
     }
     private void Update() 
     {
         PlayerVelocity();
         PlayerRotation();
+        if (!GravityIsOn) 
+        {
+            CheckGravity();
+        }        
     }
     private void PlayerVelocity() 
     {
@@ -39,20 +52,37 @@ public class PlayerManager : MonoBehaviour
         {
             _playerVelocity -= this.transform.right;
         }
+        if (_inputManager.FlyUpButtonDown())
+        {
+            _playerVelocity += this.transform.up;
+            GravityIsOn = false;
+        }
+        if (_inputManager.FlyDownButtonDown())
+        {
+            _playerVelocity -= this.transform.up;
+        }       
+
         _playerVelocity.Normalize();
+
+        if (GravityIsOn)
+        {
+            _playerVelocity -= this.transform.up * GravityMultiplier;
+        }
+
         _moveObject.GiveRigidbodyVelocity(_playerVelocity);
     }
     private void PlayerRotation() 
     {
         Vector3 _playerRotation = new Vector3();
+        Vector3 _cameraRotation = new Vector3();
         
         if(_inputManager.CameraRotateUpButtonDown()) 
         {
-            _playerRotation.x -= 1;
+            _cameraRotation.x -= 1;
         }
         if(_inputManager.CameraRotateDownButtonDown()) 
         {
-            _playerRotation.x += 1;
+            _cameraRotation.x += 1;
         }
         if(_inputManager.CameraRotateRightButtonDown()) 
         {
@@ -62,7 +92,26 @@ public class PlayerManager : MonoBehaviour
         {
             _playerRotation.y -= 1;
         }
-        _playerRotation.Normalize();
-        _rotateObject.AddRotationToObject(_playerRotation);
+        _rotateObjectPlayer.AddRotationToObject(_playerRotation);
+        _rotateObjectcamera.AddRotationToObject(_cameraRotation);
+
+    }
+    private void CheckGravity()
+    {
+        if (OnGround())
+        {
+            GravityIsOn = true;
+        }
+    }
+    private bool OnGround() 
+    {
+        RaycastHit _hit;
+
+        if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out _hit, _range, _layerMask))
+        {
+            //Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * _range, Color.yellow);
+            return true;
+        }
+        return false;
     }
 }
