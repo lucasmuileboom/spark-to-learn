@@ -19,7 +19,10 @@ public class CodeblockAttacher : MonoBehaviour, IDragHandler, IBeginDragHandler,
     {
         if (attachedReceiver)
         {
-            Vector2 linePosition = new Vector2(attachedReceiver.gameObject.transform.position.x - transform.position.x + ((attachedReceiver.gameObject.transform.position.x - transform.position.x) / 6), attachedReceiver.gameObject.transform.position.y - transform.position.y + ((attachedReceiver.gameObject.transform.position.y - transform.position.y) / 6));
+            // Draw the line from the attacher to the receiver
+            float xDistance = attachedReceiver.gameObject.transform.position.x - transform.position.x;
+            float yDistance = attachedReceiver.gameObject.transform.position.y - transform.position.y;
+            Vector2 linePosition = new Vector2(xDistance / _canvas.scaleFactor, yDistance / _canvas.scaleFactor);
 
             _lineRenderer.Points[1] = linePosition;
 
@@ -52,7 +55,9 @@ public class CodeblockAttacher : MonoBehaviour, IDragHandler, IBeginDragHandler,
 
     public void OnDrag(PointerEventData eventData)
     {
-        _lineRenderer.Points[1] += eventData.delta / _canvas.scaleFactor;
+        float xDistance = Input.mousePosition.x - transform.position.x;
+        float yDistance = Input.mousePosition.y - transform.position.y;
+        _lineRenderer.Points[1] = new Vector2(xDistance / _canvas.scaleFactor, yDistance / _canvas.scaleFactor);
         _lineRenderer.SetVerticesDirty();
     }
 

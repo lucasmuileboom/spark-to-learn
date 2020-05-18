@@ -5,20 +5,22 @@ public class BlueprintObject : MonoBehaviour
     [SerializeField]
     private GameObject _blueprintPrefab;
 
-    private GameObject _blueprint;
+    public Blueprint Blueprint { get; private set; }
 
     private void Start()
     {
+        // Instantiate and setup the blueprint
         GameObject blueprintInstance = Instantiate(_blueprintPrefab, FindObjectOfType<Canvas>().transform);
-        blueprintInstance.SetActive(false);
         blueprintInstance.name = "Blueprint - " + gameObject.name;
-        blueprintInstance.GetComponent<Blueprint>().blueprintObject = gameObject;
+        blueprintInstance.GetComponent<Blueprint>().Object = gameObject;
 
-        _blueprint = blueprintInstance;
+        Blueprint = blueprintInstance.GetComponent<Blueprint>();
+        Blueprint.Hide();
     }
 
     private void OnMouseDown()
     {
-        _blueprint.SetActive(true);
+        // Show this object's blueprint when clicked
+        Blueprint.Show();
     }
 }

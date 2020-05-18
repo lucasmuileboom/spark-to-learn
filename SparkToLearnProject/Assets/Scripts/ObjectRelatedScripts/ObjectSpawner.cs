@@ -10,10 +10,12 @@ public class ObjectSpawner : MonoBehaviour
     }
 
     //Spawns a object that hovers around the ground as a highlight
-    public static IEnumerator HighlightObjectOnRaycastHit(GameObject orientation, GameObject spawnObject, Func<bool> RotateLeft, Func<bool> RotateRight, float rotateSpeed, Func<GameObject,bool> breakCondition, LayerMask mask)
+    public static IEnumerator HighlightObjectOnRaycastHit(GameObject orientation, GameObject spawnObject, Func<bool> RotateLeft, Func<bool> RotateRight, float rotateSpeed, Func<GameObject,bool> breakCondition, LayerMask mask, Material correctSpawnMaterial, Material incorrectSpawnMaterial)
     {
-        Quaternion _hitRotation;
         GameObject _highlight = null;
+        MeshRenderer _currentMat = null;
+        ItemDetails _item = null;
+        Quaternion _hitRotation;
         float _rotated = 0;
         yield return new WaitForEndOfFrame();
 
@@ -26,6 +28,8 @@ public class ObjectSpawner : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100, mask))
             {
                 _highlight = (_highlight == null) ? Instantiate<GameObject>(spawnObject) : _highlight;
+                _item = (_item == null && _highlight != null) ? _highlight.GetComponent<ItemDetails>() : _item;
+                
                 //Rotates the object so it alligns with the surface
                 _hitRotation = Quaternion.Euler(hit.normal.x, hit.normal.y, hit.normal.z) * hit.collider.transform.rotation;
                 
@@ -33,6 +37,24 @@ public class ObjectSpawner : MonoBehaviour
 
                 _highlight.transform.RotateAround(_highlight.transform.position,_highlight.transform.up, _rotated);
 
+                _currentMat = _highlight.GetComponent<MeshRenderer>();
+
+                if (_highlight != null)
+                {
+                    _highlight.GetComponent<Collider>().isTrigger = true;
+                }
+                if(_item != null)
+                {
+                    if (_item.IsTriggerTouching())
+                    {
+                        _currentMat.material = incorrectSpawnMaterial;
+                    }
+                    else
+                    {
+                        _currentMat.material = correctSpawnMaterial;
+                    }
+                }
+                
                 //If the left rotation key is pressed and not the right rotation key: rotate left
                 if (RotateLeft() && !RotateRight())
                 {
@@ -47,9 +69,12 @@ public class ObjectSpawner : MonoBehaviour
             yield return new WaitForEndOfFrame();
 
             //If the stop condition is met, then stop coroutine
-            if (breakCondition(_highlight))
+            if (_currentMat.sharedMaterial == correctSpawnMaterial)
             {
-                break;
+                if (breakCondition(_highlight))
+                {
+                    break;
+                }
             }
         }
     }
