@@ -8,19 +8,19 @@ public class Screenshot : MonoBehaviour
 
     private void Awake()
     {
-        screenshotPath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + "\\SparkToLearn";
+        screenshotPath = Path.Combine(Application.dataPath, @"..\", "Screenshots");
+
+        // Create screenshot path if it doesn't exist
+        if (!Directory.Exists(screenshotPath))
+        {
+            Directory.CreateDirectory(screenshotPath);
+        }
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F11))
         {
-            // Create screenshot path if it doesn't exist
-            if (!Directory.Exists(screenshotPath))
-            {
-                Directory.CreateDirectory(screenshotPath);
-            }
-
             // Get date and format to be compatible with file naming
             string screenshotDate = DateTime.Now.ToString("dd/MM/yyyy H:mm:ss");
             screenshotDate = screenshotDate.Replace("/", "-");
