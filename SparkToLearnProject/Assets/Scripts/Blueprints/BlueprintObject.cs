@@ -4,6 +4,7 @@ public class BlueprintObject : MonoBehaviour
 {
     [SerializeField]
     private GameObject _blueprintPrefab;
+    private CursorManager _cursorManager;
 
     public Blueprint Blueprint { get; private set; }
 
@@ -16,11 +17,15 @@ public class BlueprintObject : MonoBehaviour
 
         Blueprint = blueprintInstance.GetComponent<Blueprint>();
         Blueprint.Hide();
+
+        _cursorManager = GameObject.Find("Canvas").GetComponent<CursorManager>();
     }
 
     private void OnMouseDown()
     {
         // Show this object's blueprint when clicked
         Blueprint.Show();
+
+        _cursorManager.toggleCursor(true);
     }
 }
