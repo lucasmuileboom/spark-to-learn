@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class turnofCursor : MonoBehaviour
+public class TurnofCursor : MonoBehaviour
 {
-    private CursorManager _CursorManager;
+    private CursorManager _cursorManager;
     private void Start()
     {
-        _CursorManager = GameObject.Find("Canvas").GetComponent<CursorManager>();
+        _cursorManager = GameObject.Find("Canvas").GetComponent<CursorManager>();
     }
     public void toggleCursor()
     {
-        _CursorManager.toggleCursor(false);
+        _cursorManager.toggleCursor(false);
     }
 }

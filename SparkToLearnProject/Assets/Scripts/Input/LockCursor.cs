@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LockCursor : MonoBehaviour
 {
-    [SerializeField] private PlayerManager _PlayerManager;
+    [SerializeField] private PlayerManager _playerManager;
     private void Start()
     {
         Cursor.visible = false;
@@ -13,7 +13,7 @@ public class LockCursor : MonoBehaviour
     public void toggleCursor(bool Cursoron)
     {
         Cursor.visible = Cursoron;
-        _PlayerManager.CanRotate = !Cursoron;
+        _playerManager._canRotate = !Cursoron;
         if (!Cursoron)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -21,8 +21,6 @@ public class LockCursor : MonoBehaviour
         else 
         {
             Cursor.lockState = CursorLockMode.None;
-        }
-        
+        }        
     }
-
 }

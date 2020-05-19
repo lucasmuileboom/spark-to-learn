@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float _raycastGroundRange;
     [SerializeField] private Vector3[] _raycastGroundOffset;
     [SerializeField] private float _raycastRampRange;
-    [SerializeField] private float GravityMultiplier;
+    [SerializeField] private float _gravityMultiplier;
 
     private InputManager _inputManager;
     private MoveObject _moveObject;
@@ -16,16 +16,16 @@ public class PlayerManager : MonoBehaviour
     
     private int _layerMaskGround = 1 << 8;
     private int _layerMaskRamp = 1 << 9;
-    private bool GravityIsOn = true;
-    public bool CanRotate = true;
-    public bool CanUseSkils = true;
+    private bool _gravityIsOn = true;
+    public bool _canRotate = true;
+    public bool _canUseSkils = true;
     private RaycastHit _hitRamp;
 
     [SerializeField] private ToggleUiActive[] _toggleUiActive;
     [SerializeField] private SetText _setText;
     [SerializeField] private ItemListCycle _itemListCycle;
     [SerializeField] private LockCursor _lockCursor;
-    [SerializeField] private ObjectSpawnManager _ObjectSpawnManager;
+    [SerializeField] private ObjectSpawnManager _objectSpawnManager;
 
 
     private void Start()
@@ -38,16 +38,16 @@ public class PlayerManager : MonoBehaviour
     private void Update() 
     {
         PlayerVelocity();
-        if (CanRotate)
+        if (_canRotate)
         {
             PlayerRotation();
         }
-        if (CanUseSkils) 
+        if (_canUseSkils) 
         { 
             Skils();
         }        
         BuildMenuArrows();
-        if (!GravityIsOn)
+        if (!_gravityIsOn)
         {
             CheckGravity();
         }
@@ -80,16 +80,16 @@ public class PlayerManager : MonoBehaviour
         if (_inputManager.FlyUpButtonDown())
         {
             _playerVelocity += this.transform.up;
-            GravityIsOn = false;
+            _gravityIsOn = false;
         }
         if (_inputManager.FlyDownButtonDown())
         {
             _playerVelocity -= this.transform.up;
         }
 
-        if (GravityIsOn)
+        if (_gravityIsOn)
         {
-            _playerVelocity -= this.transform.up * GravityMultiplier;
+            _playerVelocity -= this.transform.up * _gravityMultiplier;
         }
 
         _moveObject.GiveRigidbodyVelocity(_playerVelocity);
@@ -109,7 +109,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (OnGround())
         {
-            GravityIsOn = true;
+            _gravityIsOn = true;
         }
     }
     private bool OnGround()
@@ -131,7 +131,7 @@ public class PlayerManager : MonoBehaviour
             if (Physics.Raycast(transform.position + _raycastGroundOffset[i], -Vector3.up, out _hit, _raycastRampRange, _layerMaskRamp))
             {
                 _hitRamp = _hit;
-                GravityIsOn = false;
+                _gravityIsOn = false;
                 return true;
             }
         }
@@ -176,7 +176,7 @@ public class PlayerManager : MonoBehaviour
             _toggleUiActive[3].SetUi(false);
             _setText.Settext(0);
             _lockCursor.toggleCursor(true);
-            _ObjectSpawnManager.enabled = false;
+            _objectSpawnManager.enabled = false;
         }
         else if (_inputManager.Skil2ButtonDown())
         {
@@ -186,7 +186,7 @@ public class PlayerManager : MonoBehaviour
             _toggleUiActive[3].SetUi(false);
             _setText.Settext(1);
             _lockCursor.toggleCursor(false);
-            _ObjectSpawnManager.enabled = true;
+            _objectSpawnManager.enabled = true;
         }
         else if (_inputManager.Skil3ButtonDown())
         {
@@ -196,7 +196,7 @@ public class PlayerManager : MonoBehaviour
             _toggleUiActive[3].SetUi(false);
             _setText.Settext(2);
             _lockCursor.toggleCursor(false);
-            _ObjectSpawnManager.enabled = false;
+            _objectSpawnManager.enabled = false;
         }
         else if (_inputManager.Skil4ButtonDown())
         {
@@ -206,7 +206,7 @@ public class PlayerManager : MonoBehaviour
             _toggleUiActive[3].SetUi(true);
             _setText.Settext(3);
             _lockCursor.toggleCursor(false);
-            _ObjectSpawnManager.enabled = false;
+            _objectSpawnManager.enabled = false;
         }
     }
     private void BuildMenuArrows()
