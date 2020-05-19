@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class turnofCursor : MonoBehaviour
 {
-    [SerializeField] private CursorManager _CursorManager;
+    private CursorManager _CursorManager;
     private void Start()
     {
         _CursorManager = GameObject.Find("Canvas").GetComponent<CursorManager>();
     }
-        public void toggleCursor()
+    public void toggleCursor()
     {
         _CursorManager.toggleCursor(false);
     }

@@ -19,7 +19,7 @@ public class Screenshot : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F11))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             // Get date and format to be compatible with file naming
             string screenshotDate = DateTime.Now.ToString("dd/MM/yyyy H:mm:ss");

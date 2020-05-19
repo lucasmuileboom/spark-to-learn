@@ -173,6 +173,7 @@ public class PlayerManager : MonoBehaviour
             _toggleUiActive[0].SetUi(true);
             _toggleUiActive[1].SetUi(false);
             _toggleUiActive[2].SetUi(false);
+            _toggleUiActive[3].SetUi(false);
             _setText.Settext(0);
             _lockCursor.toggleCursor(true);
             _ObjectSpawnManager.enabled = false;
@@ -182,6 +183,7 @@ public class PlayerManager : MonoBehaviour
             _toggleUiActive[0].SetUi(false);
             _toggleUiActive[1].SetUi(true);
             _toggleUiActive[2].SetUi(false);
+            _toggleUiActive[3].SetUi(false);
             _setText.Settext(1);
             _lockCursor.toggleCursor(false);
             _ObjectSpawnManager.enabled = true;
@@ -191,6 +193,7 @@ public class PlayerManager : MonoBehaviour
             _toggleUiActive[0].SetUi(false);
             _toggleUiActive[1].SetUi(false);
             _toggleUiActive[2].SetUi(true);
+            _toggleUiActive[3].SetUi(false);
             _setText.Settext(2);
             _lockCursor.toggleCursor(false);
             _ObjectSpawnManager.enabled = false;
@@ -200,6 +203,7 @@ public class PlayerManager : MonoBehaviour
             _toggleUiActive[0].SetUi(false);
             _toggleUiActive[1].SetUi(false);
             _toggleUiActive[2].SetUi(false);
+            _toggleUiActive[3].SetUi(true);
             _setText.Settext(3);
             _lockCursor.toggleCursor(false);
             _ObjectSpawnManager.enabled = false;
