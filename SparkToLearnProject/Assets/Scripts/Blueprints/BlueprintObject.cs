@@ -6,7 +6,7 @@ public class BlueprintObject : MonoBehaviour
     private GameObject _blueprintPrefab;
     private CursorManager _CursorManager;
 
-    private Blueprint _blueprint;
+    public Blueprint Blueprint { get; private set; }
 
     private void Start()
     {
@@ -15,8 +15,8 @@ public class BlueprintObject : MonoBehaviour
         blueprintInstance.name = "Blueprint - " + gameObject.name;
         blueprintInstance.GetComponent<Blueprint>().Object = gameObject;
 
-        _blueprint = blueprintInstance.GetComponent<Blueprint>();
-        _blueprint.Hide();
+        Blueprint = blueprintInstance.GetComponent<Blueprint>();
+        Blueprint.Hide();
 
         _CursorManager = GameObject.Find("Canvas").GetComponent<CursorManager>();
     }
@@ -24,7 +24,8 @@ public class BlueprintObject : MonoBehaviour
     private void OnMouseDown()
     {
         // Show this object's blueprint when clicked
-        _blueprint.Show();
+        Blueprint.Show();
+
         _CursorManager.toggleCursor(true);
     }
 }

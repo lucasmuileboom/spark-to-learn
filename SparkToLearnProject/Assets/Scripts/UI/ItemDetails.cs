@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class ItemDetails : MonoBehaviour
 {
+    private bool _triggerTouch, _nonTriggerTouch = false;
+
+    private void Start()
+    {
+        Rigidbody _rb = gameObject.GetComponent<Rigidbody>();
+        if (gameObject.GetComponent<Rigidbody>() == null)
+        {
+            _rb = gameObject.AddComponent<Rigidbody>();
+        }
+        _rb.isKinematic = true;
+        _rb.useGravity = false;
+    }
+
+
     [SerializeField] private string _name;
     public string Name
     {
@@ -46,9 +60,58 @@ public class ItemDetails : MonoBehaviour
         private set { _instance = Instance; }
     }
 
-    public GameObject InstantiateSelf(Transform spawnPoint)
+    public void SetInstance(GameObject instance)
     {
-        _instance = (_instance) ? _instance : Instantiate<GameObject>(_objectReference,spawnPoint.position, spawnPoint.rotation);
-        return _instance;
+        _instance = (_instance) ? _instance : instance;
+    }
+
+    public bool IsTriggerTouching()
+    {
+        return _triggerTouch;
+    }
+    public bool IsNonTriggerTouching()
+    {
+        return _nonTriggerTouch;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Prop")
+        {
+            _nonTriggerTouch = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Prop")
+        {
+            _nonTriggerTouch = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject.tag);
+        if (other.gameObject.tag == "Prop")
+        {
+            _triggerTouch = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+       if(other.gameObject.tag == "Prop")
+        {
+            _triggerTouch = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Prop")
+        {
+            _triggerTouch = false;
+        }
     }
 }
