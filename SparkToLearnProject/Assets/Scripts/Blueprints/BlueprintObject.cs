@@ -5,6 +5,7 @@ public class BlueprintObject : MonoBehaviour
     [SerializeField]
     private GameObject _blueprintPrefab;
     private CursorManager _cursorManager;
+    [SerializeField] private Renderer _shaderRenderen;
 
     public Blueprint Blueprint { get; private set; }
 
@@ -17,6 +18,7 @@ public class BlueprintObject : MonoBehaviour
 
         Blueprint = blueprintInstance.GetComponent<Blueprint>();
         Blueprint.Hide();
+        Blueprint._shaderRenderen = _shaderRenderen;
 
         _cursorManager = GameObject.Find("Canvas").GetComponent<CursorManager>();
     }

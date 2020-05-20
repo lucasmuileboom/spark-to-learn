@@ -2,10 +2,13 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(SetColorShader))]
+
 public class CodeblockEvents : MonoBehaviour
 {
     private Blueprint _blueprint;
     private CodeblockInput _input;
+    private SetColorShader _setColorShader;
 
     [Serializable]
     public struct EventStruct
@@ -22,6 +25,8 @@ public class CodeblockEvents : MonoBehaviour
     {
         _blueprint = transform.parent.GetComponent<Blueprint>();
         _input = GetComponent<CodeblockInput>();
+
+        _setColorShader = GetComponent<SetColorShader>();
     }
 
     #region Events
@@ -42,19 +47,27 @@ public class CodeblockEvents : MonoBehaviour
 
     public void ChangeColor()
     {
-        float h;
-        float s;
-        float v;
-        Color.RGBToHSV(_blueprint.Object.GetComponent<Renderer>().material.color, out h, out s, out v);
+        Color[] _Colors;
+        _Colors = new Color[3];
 
-        if (s == 0)
+        for (int i = 0; i < 3; i++)
         {
-            s = 1;
+            float h;
+            float s;
+            float v;
+            Color.RGBToHSV(_setColorShader.GetColor(i), out h, out s, out v);
+            
+            if (s == 0)
+            {
+                s = 1;
+            }
+
+            h = _input.GetColor(i);
+
+            _Colors[i] = Color.HSVToRGB(h, s, v);
         }
-
-        h = _input.GetColor();
-
-        _blueprint.Object.GetComponent<Renderer>().material.color = Color.HSVToRGB(h, s, v);
+        _setColorShader.SetColor(_Colors[0], _Colors[1], _Colors[2]);
+        //_blueprint.Object.GetComponent<Renderer>().material.color = Color.HSVToRGB(h, s, v);
     }
 
     public void PlayClip()

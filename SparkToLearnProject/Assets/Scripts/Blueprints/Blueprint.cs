@@ -15,6 +15,8 @@ public class Blueprint : MonoBehaviour
 
     private CanvasGroup _canvasGroup;
 
+    public Renderer _shaderRenderen;
+
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
@@ -41,6 +43,7 @@ public class Blueprint : MonoBehaviour
         GameObject codeblockInstance = Instantiate(_codeblockPrefab);
         codeblockInstance.transform.SetParent(transform);
         codeblockInstance.transform.localScale = new Vector3(1, 1, 1);
+        codeblockInstance.GetComponent<SetColorShader>().SetUpColorChanger(_shaderRenderen);
     }
 
     /// <summary>
