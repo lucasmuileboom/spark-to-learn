@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour
     private RaycastHit _hitRamp;
 
     [SerializeField] private ToggleUiActive[] _toggleUiActive;
-    [SerializeField] private SetText _setText;
+    [SerializeField] private SetButtonPressedUI _setButtonPressedUI;
     [SerializeField] private ItemListCycle _itemListCycle;
     [SerializeField] private LockCursor _lockCursor;
     [SerializeField] private ObjectSpawnManager _objectSpawnManager;
@@ -174,7 +174,7 @@ public class PlayerManager : MonoBehaviour
             _toggleUiActive[1].SetUi(false);
             _toggleUiActive[2].SetUi(false);
             _toggleUiActive[3].SetUi(false);
-            _setText.Settext(0);
+            _setButtonPressedUI.Settext(0);
             _lockCursor.toggleCursor(true);
             _objectSpawnManager.enabled = false;
         }
@@ -184,7 +184,7 @@ public class PlayerManager : MonoBehaviour
             _toggleUiActive[1].SetUi(true);
             _toggleUiActive[2].SetUi(false);
             _toggleUiActive[3].SetUi(false);
-            _setText.Settext(1);
+            _setButtonPressedUI.Settext(1);
             _lockCursor.toggleCursor(false);
             _objectSpawnManager.enabled = true;
         }
@@ -194,7 +194,7 @@ public class PlayerManager : MonoBehaviour
             _toggleUiActive[1].SetUi(false);
             _toggleUiActive[2].SetUi(true);
             _toggleUiActive[3].SetUi(false);
-            _setText.Settext(2);
+            _setButtonPressedUI.Settext(2);
             _lockCursor.toggleCursor(false);
             _objectSpawnManager.enabled = false;
         }
@@ -204,7 +204,7 @@ public class PlayerManager : MonoBehaviour
             _toggleUiActive[1].SetUi(false);
             _toggleUiActive[2].SetUi(false);
             _toggleUiActive[3].SetUi(true);
-            _setText.Settext(3);
+            _setButtonPressedUI.Settext(3);
             _lockCursor.toggleCursor(false);
             _objectSpawnManager.enabled = false;
         }
