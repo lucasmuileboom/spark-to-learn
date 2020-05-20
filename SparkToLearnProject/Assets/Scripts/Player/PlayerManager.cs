@@ -19,6 +19,7 @@ public class PlayerManager : MonoBehaviour
     private bool _gravityIsOn = true;
     public bool _canRotate = true;
     public bool _canUseSkils = true;
+    public bool _canEdit = false;
     private RaycastHit _hitRamp;
 
     [SerializeField] private ToggleUiActive[] _toggleUiActive;
@@ -177,6 +178,7 @@ public class PlayerManager : MonoBehaviour
             _setButtonPressedUI.Settext(0);
             _lockCursor.toggleCursor(true);
             _objectSpawnManager.enabled = false;
+            _canEdit = false;
         }
         else if (_inputManager.Skil2ButtonDown())
         {
@@ -187,6 +189,7 @@ public class PlayerManager : MonoBehaviour
             _setButtonPressedUI.Settext(1);
             _lockCursor.toggleCursor(false);
             _objectSpawnManager.enabled = true;
+            _canEdit = false;
         }
         else if (_inputManager.Skil3ButtonDown())
         {
@@ -197,6 +200,7 @@ public class PlayerManager : MonoBehaviour
             _setButtonPressedUI.Settext(2);
             _lockCursor.toggleCursor(false);
             _objectSpawnManager.enabled = false;
+            _canEdit = true;
         }
         else if (_inputManager.Skil4ButtonDown())
         {
@@ -207,6 +211,7 @@ public class PlayerManager : MonoBehaviour
             _setButtonPressedUI.Settext(3);
             _lockCursor.toggleCursor(false);
             _objectSpawnManager.enabled = false;
+            _canEdit = false;
         }
     }
     private void BuildMenuArrows()
