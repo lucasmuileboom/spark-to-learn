@@ -22,8 +22,8 @@ public class InputManager : MonoBehaviour
     [SerializeField] private KeyCode _rotateObjectLeft;
     [SerializeField] private KeyCode _rotateObjectRight;
 
-    [SerializeField] private KeyCode _menuUpButton;
-    [SerializeField] private KeyCode _menuDownButton;
+    //[SerializeField] private KeyCode _menuUpButton;
+    //[SerializeField] private KeyCode _menuDownButton;
 
     //Movement
 
@@ -98,11 +98,11 @@ public class InputManager : MonoBehaviour
 
     public bool MenuDownButtonDown()
     {
-        return IsButtonPress(_menuDownButton);
+        return Input.GetAxis("Mouse ScrollWheel") < 0f;
     }
     public bool MenuUpButtonDown()
     {
-        return IsButtonPress(_menuUpButton);
+        return Input.GetAxis("Mouse ScrollWheel") > 0f;
     }
     
 
