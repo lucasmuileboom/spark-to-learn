@@ -14,12 +14,12 @@ public class SetColorShader : MonoBehaviour
     private bool _isEnvironment = false;
     private bool _isProp = false;
 
-    public void SetUpColorChanger(Renderer ShaderRenderer, bool isEnvironment, bool isProp, Renderer environmentRenderen)
+    public void SetUpColorChanger(Renderer shaderRenderer, bool isEnvironment, bool isProp, Renderer environmentRenderen)
     {
         _isEnvironment = isEnvironment;
         _isProp = isProp;
 
-        _meshRenderer = ShaderRenderer;
+        _meshRenderer = shaderRenderer;
 
         if (!isProp)
         {

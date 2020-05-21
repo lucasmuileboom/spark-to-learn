@@ -10,8 +10,8 @@ public class BlueprintObject : MonoBehaviour
     [SerializeField] private Renderer _shaderRenderen;
     [SerializeField] private Renderer _environmentRenderen;
 
-    [SerializeField] private bool isProp;
-    [SerializeField] private bool isEnvironment;
+    [SerializeField] private bool _isProp;
+    [SerializeField] private bool _isEnvironment;
 
     public Blueprint Blueprint { get; private set; }
 
@@ -26,8 +26,8 @@ public class BlueprintObject : MonoBehaviour
         Blueprint.Hide();
         Blueprint._shaderRenderen = _shaderRenderen;
         Blueprint._environmentRenderen = _environmentRenderen;
-        Blueprint._isEnvironment = isEnvironment;
-        Blueprint._isProp = isProp;
+        Blueprint._isEnvironment = _isEnvironment;
+        Blueprint._isProp = _isProp;
 
         _cursorManager = GameObject.Find("Canvas").GetComponent<CursorManager>();
     }
