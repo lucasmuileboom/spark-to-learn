@@ -4,24 +4,21 @@ using UnityEngine;
 
 public class AutoAddToSceneManager : MonoBehaviour
 {
-    private static int priorityTurn = 0;
+    private static int _priorityTurn = 0;
+
     [SerializeField] private SceneManager _sceneManager = null;
     [SerializeField] private ItemDetails _itemDetails = null;
-    [SerializeField] [Range(0,10)] private int priority = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-         
-    }
+    [SerializeField] [Range(0,10)] private int _priority = 0;
 
-    // Update is called once per frame
+    private bool _triggered = false;
+
     void Update()
     {
-        if (_sceneManager != null && _itemDetails != null && priorityTurn == priority)
+        if (_sceneManager != null && _itemDetails != null && _priorityTurn >= _priority && !_triggered)
         {
-            Debug.Log(_itemDetails.Category);
             _sceneManager.AddObject(_itemDetails);
-            priorityTurn++;
+            _triggered = true;
+            _priorityTurn++;
         }
     }
 }
