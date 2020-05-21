@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -15,13 +15,14 @@ public class AudioPlayer : MonoBehaviour
 
     private void Awake()
     {
+        _fileDirectory = Path.Combine(Application.dataPath, @"..\", "Clips");
+
         // Create the custom audio directory if it does not exist
-        if (!Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic), "SparkToLearn")))
+        if (!Directory.Exists(_fileDirectory))
         {
-            Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic), "SparkToLearn"));
+            Directory.CreateDirectory(_fileDirectory);
         }
 
-        _fileDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic), "SparkToLearn");
         _audioSource = GetComponent<AudioSource>();
 
         UpdateFiles();
