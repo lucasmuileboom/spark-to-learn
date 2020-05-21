@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &562257283800639414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3573276303304349093}
+  m_Layer: 0
+  m_Name: ENV_Ground_Sand_Sharp_Corner_Water
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3573276303304349093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562257283800639414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.983097, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7588421337549618284}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3185674201645848438
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3573276303304349093}
+    m_Modifications:
+    - target: {fileID: -8648644667835311316, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e62161890cca474ebc25b850a737564, type: 2}
+    - target: {fileID: -6168627905631222271, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e62161890cca474ebc25b850a737564, type: 2}
+    - target: {fileID: -4216859302048453862, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.2737367e-15
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c884aae52a61c8b48972525ad0faaae5, type: 2}
+    - target: {fileID: -927199367670048503, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_Name
+      value: ENV_Ground_Sand_Sharp_Corner_Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 725819865439412561, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 725819865439412561, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.38725913
+      objectReference: {fileID: 0}
+    - target: {fileID: 725819865439412561, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9219709
+      objectReference: {fileID: 0}
+    - target: {fileID: 725819865439412561, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.555
+      objectReference: {fileID: 0}
+    - target: {fileID: 725819865439412561, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.575
+      objectReference: {fileID: 0}
+    - target: {fileID: 725819865439412561, guid: 89a54917935e4574e8a9f478cf7bae85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -45.568
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -830397068576494739, guid: 89a54917935e4574e8a9f478cf7bae85, type: 3}
+    - {fileID: -6168627905631222271, guid: 89a54917935e4574e8a9f478cf7bae85, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 89a54917935e4574e8a9f478cf7bae85, type: 3}
+--- !u!4 &7588421337549618284 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 89a54917935e4574e8a9f478cf7bae85,
+    type: 3}
+  m_PrefabInstance: {fileID: 3185674201645848438}
+  m_PrefabAsset: {fileID: 0}

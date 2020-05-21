@@ -29,9 +29,13 @@ public class ItemDetailFiller : MonoBehaviour
 
     public void SetButtonActions(ItemEvent editEvent, ItemEvent replaceEvent, ItemEvent deleteEvent)
     {
-        if (_item != null)
+        if(_replaceButton == null && _deleteButton == null && _item != null)
         {
             _editButton.onClick.AddListener(() => editEvent?.Invoke(_item));
+            return;
+        }
+        if (_item != null)
+        {
             _replaceButton.onClick.AddListener(() => replaceEvent?.Invoke(_item));
             _deleteButton.onClick.AddListener(() => deleteEvent?.Invoke(_item));
         }
