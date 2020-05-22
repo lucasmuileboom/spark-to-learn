@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7326082509730631839}
   - component: {fileID: 6568787081891928686}
   - component: {fileID: 7620185681977584376}
+  - component: {fileID: -8532478384114030519}
   m_Layer: 0
   m_Name: Tree_Hollow_v1
   m_TagString: Untagged
@@ -127,3 +128,21 @@ MonoBehaviour:
   _sceneManager: {fileID: 0}
   _itemDetails: {fileID: 6568787081891928686}
   _priority: 5
+--- !u!114 &-8532478384114030519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5260770704159266680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28abda6515a174f4e896134c9f2d47fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
+    type: 3}
+  _shaderRenderen: {fileID: 5854350871657440164}
+  _environmentRenderen: {fileID: 0}
+  _isProp: 1
+  _isEnvironment: 0

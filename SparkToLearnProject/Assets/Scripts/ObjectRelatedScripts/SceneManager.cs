@@ -17,10 +17,8 @@ public class SceneManager : MonoBehaviour
     [SerializeField] private GameObject _editOnlyItemUI;
     [SerializeField][Range(0,15)] private float _spacing = 7.5f;
 
-    /*
-     * Uncomment when CursorManager is merged with develop
+
     [SerializeField] private CursorManager _CursorManager;
-    */
     [SerializeField] private ItemEvent _onEdit;
     [SerializeField] private ItemEvent _onReplace;
     [SerializeField] private ItemEvent _onDelete;
@@ -71,13 +69,11 @@ public class SceneManager : MonoBehaviour
 
     public void EditObject(ItemDetails item)
     {
-        Blueprint _blueprint = item.gameObject.GetComponent<Blueprint>();
+
+        Blueprint _blueprint = item.gameObject.GetComponent<BlueprintObject>().Blueprint;
 
         _blueprint.Show();
-        /*
-         * Uncomment when CursorManager is merged with develop
         _CursorManager.toggleCursor(true);
-        */
     }
 
     public void SwitchCategory(string category)

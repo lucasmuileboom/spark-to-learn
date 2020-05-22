@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 657157395590606913}
   - component: {fileID: 7989356035080678589}
   - component: {fileID: 4583249155593375163}
+  - component: {fileID: -5118685574047856321}
   m_Layer: 0
   m_Name: Tree_v2
   m_TagString: Untagged
@@ -115,6 +116,24 @@ MonoBehaviour:
   _sceneManager: {fileID: 0}
   _itemDetails: {fileID: 7989356035080678589}
   _priority: 5
+--- !u!114 &-5118685574047856321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234662668546131101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28abda6515a174f4e896134c9f2d47fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
+    type: 3}
+  _shaderRenderen: {fileID: 657157395590606913}
+  _environmentRenderen: {fileID: 0}
+  _isProp: 1
+  _isEnvironment: 0
 --- !u!1 &7918457823809184635
 GameObject:
   m_ObjectHideFlags: 0

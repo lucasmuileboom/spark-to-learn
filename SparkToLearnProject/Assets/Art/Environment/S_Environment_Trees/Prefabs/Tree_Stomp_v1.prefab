@@ -66,6 +66,7 @@ GameObject:
   - component: {fileID: 7056524678072356030}
   - component: {fileID: 2341244027810618320}
   - component: {fileID: 6879682789218335035}
+  - component: {fileID: 4321537853414429136}
   m_Layer: 0
   m_Name: Tree_Stomp_v1
   m_TagString: Untagged
@@ -167,3 +168,21 @@ MonoBehaviour:
   _sceneManager: {fileID: 0}
   _itemDetails: {fileID: 2341244027810618320}
   _priority: 5
+--- !u!114 &4321537853414429136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8777825471696336994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28abda6515a174f4e896134c9f2d47fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
+    type: 3}
+  _shaderRenderen: {fileID: 7056524678072356030}
+  _environmentRenderen: {fileID: 0}
+  _isProp: 1
+  _isEnvironment: 0

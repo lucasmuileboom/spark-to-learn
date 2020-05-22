@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4916062114552719173}
   - component: {fileID: 8497359418466000774}
   - component: {fileID: 8843909535833505206}
+  - component: {fileID: 3339089307410531351}
   m_Layer: 0
   m_Name: Tree_Lolipop_V1
   m_TagString: Untagged
@@ -113,3 +114,21 @@ MonoBehaviour:
   _sceneManager: {fileID: 0}
   _itemDetails: {fileID: 8497359418466000774}
   _priority: 5
+--- !u!114 &3339089307410531351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6630858304073077657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28abda6515a174f4e896134c9f2d47fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
+    type: 3}
+  _shaderRenderen: {fileID: 4916062114552719173}
+  _environmentRenderen: {fileID: 0}
+  _isProp: 1
+  _isEnvironment: 0
