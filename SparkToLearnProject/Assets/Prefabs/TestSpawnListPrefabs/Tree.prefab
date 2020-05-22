@@ -72,7 +72,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7077088407125001981}
+  - {fileID: 2100000, guid: 66aff36fde3edef4985786c977422a36, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,6 +155,10 @@ MonoBehaviour:
   _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
     type: 3}
   _canBeClicked: 1
+  _shaderRenderen: {fileID: 2890753068795011711}
+  _environmentRenderen: {fileID: 0}
+  _isProp: 1
+  _isEnvironment: 0
 --- !u!43 &-5144283872968726608
 Mesh:
   m_ObjectHideFlags: 0

@@ -221,7 +221,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: e60e7942d7d7d5c478d29bb86ed766ed, type: 3}
+  - {fileID: 2100000, guid: 66aff36fde3edef4985786c977422a36, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -257,6 +257,10 @@ MonoBehaviour:
   _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
     type: 3}
   _canBeClicked: 1
+  _shaderRenderen: {fileID: 5796882542210156762}
+  _environmentRenderen: {fileID: 0}
+  _isProp: 1
+  _isEnvironment: 0
 --- !u!114 &-6439664112926428512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: horse
   _objectReference: {fileID: 5210242529702427654}
-  _category: Creature
+  _category: Flora
   _description: horse
   _thumbnail: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!64 &-3892700672925323417
