@@ -28,7 +28,7 @@ public class ObjectSpawnManager : MonoBehaviour
             _currentObject = _spawnableItems.GetItem().ObjectReference;
             _placingProcess = true;
             _originalMat = _currentObject.GetComponent<MeshRenderer>();
-            StartCoroutine(ObjectSpawner.HighlightObjectOnRaycastHit(_camera, _currentObject, _inputManager.RotateObjectLeftButtonDown, _inputManager.RotateObjectRightButtonDown, 0.5f, BreakConditionSpawn, _layerMask, _correctHighlight, _incorrectHighlight));
+            StartCoroutine(ObjectSpawner.HighlightObjectOnRaycastHit(_camera, _currentObject, _inputManager.RotateObjectLeftButtonDown, _inputManager.RotateObjectRightButtonDown, _rotateSpeed, BreakConditionSpawn, _layerMask, _correctHighlight, _incorrectHighlight));
         }
     }
 

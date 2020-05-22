@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 6816862067573942082}
   - component: {fileID: 8260358645231142346}
   - component: {fileID: 8434654939490509367}
+  - component: {fileID: 6341540009589668610}
   m_Layer: 0
   m_Name: Tree_Leafberk_v1
   m_TagString: Untagged
@@ -199,6 +200,24 @@ MonoBehaviour:
   _sceneManager: {fileID: 0}
   _itemDetails: {fileID: 8260358645231142346}
   _priority: 5
+--- !u!114 &6341540009589668610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548316881585870161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28abda6515a174f4e896134c9f2d47fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
+    type: 3}
+  _shaderRenderen: {fileID: 6019816793136042436}
+  _environmentRenderen: {fileID: 0}
+  _isProp: 1
+  _isEnvironment: 0
 --- !u!1001 &5747542744790397896
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class AutoAddToSceneManager : MonoBehaviour
     {
         if (_sceneManager != null && _itemDetails != null && _priorityTurn >= _priority && !_triggered)
         {
+            _itemDetails.SetInstance(gameObject);
             _sceneManager.AddObject(_itemDetails);
             _triggered = true;
             _priorityTurn++;

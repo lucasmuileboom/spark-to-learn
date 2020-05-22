@@ -156,8 +156,8 @@ MonoBehaviour:
     type: 3}
   _shaderRenderen: {fileID: 2890753068795011711}
   _environmentRenderen: {fileID: 0}
-  isProp: 1
-  isEnvironment: 0
+  _isProp: 1
+  _isEnvironment: 0
 --- !u!43 &-5144283872968726608
 Mesh:
   m_ObjectHideFlags: 0

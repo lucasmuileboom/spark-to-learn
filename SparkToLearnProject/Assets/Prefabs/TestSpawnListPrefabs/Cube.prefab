@@ -145,5 +145,5 @@ MonoBehaviour:
     type: 3}
   _shaderRenderen: {fileID: 9190438695968543048}
   _environmentRenderen: {fileID: 0}
-  isProp: 1
-  isEnvironment: 0
+  _isProp: 1
+  _isEnvironment: 0
