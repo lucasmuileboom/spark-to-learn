@@ -50,7 +50,7 @@ public class SceneManager : MonoBehaviour
     public void AddObject(ItemDetails item)
     {
         string category = "Default";
-        Debug.Log(item);
+
         if (_spawnedObjects.ContainsKey(item.Category) || _spawnedObjects.Count == 0) category = item.Category;
         
         _spawnedObjects[category].Add(item);
@@ -69,7 +69,7 @@ public class SceneManager : MonoBehaviour
 
     public void EditObject(ItemDetails item)
     {
-
+        Debug.Log("Edit");
         Blueprint _blueprint = item.gameObject.GetComponent<BlueprintObject>().Blueprint;
 
         _blueprint.Show();
