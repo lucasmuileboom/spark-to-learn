@@ -467,6 +467,72 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4993857210448940860, guid: bb3fe459953748c4eb7ee6bd001da086,
+        type: 3}
+      propertyPath: _foundationPrefab
+      value: 
+      objectReference: {fileID: 6319281893791091070, guid: f71dc588c99f63c4cbe779912ff7513a,
+        type: 3}
+    - target: {fileID: 4993857210448940860, guid: bb3fe459953748c4eb7ee6bd001da086,
+        type: 3}
+      propertyPath: _wallCorner
+      value: 
+      objectReference: {fileID: 628237170347873346, guid: df16781845f5ebe4aa55740b8282ead2,
+        type: 3}
+    - target: {fileID: 4993857210448940860, guid: bb3fe459953748c4eb7ee6bd001da086,
+        type: 3}
+      propertyPath: Walls.Array.data[0].Prefab
+      value: 
+      objectReference: {fileID: 3402239049546901340, guid: b4eff9ce149ab514b8a10bf3ea92aa3a,
+        type: 3}
+    - target: {fileID: 4993857210448940860, guid: bb3fe459953748c4eb7ee6bd001da086,
+        type: 3}
+      propertyPath: Walls.Array.data[1].Prefab
+      value: 
+      objectReference: {fileID: 4779892745820919924, guid: 0f7c28aef5edcad44903eb0dbd9c6d77,
+        type: 3}
+    - target: {fileID: 4993857210448940860, guid: bb3fe459953748c4eb7ee6bd001da086,
+        type: 3}
+      propertyPath: Walls.Array.data[2].Prefab
+      value: 
+      objectReference: {fileID: 4864991637263899822, guid: 1b5620d68894ce14cb8013397eaa3c07,
+        type: 3}
+    - target: {fileID: 4993857210448940860, guid: bb3fe459953748c4eb7ee6bd001da086,
+        type: 3}
+      propertyPath: Walls.Array.data[3].Prefab
+      value: 
+      objectReference: {fileID: 4481923928207832869, guid: 97e900865b6a40d498ad6d828a0013db,
+        type: 3}
+    - target: {fileID: 4993857210448940860, guid: bb3fe459953748c4eb7ee6bd001da086,
+        type: 3}
+      propertyPath: Walls.Array.data[4].Prefab
+      value: 
+      objectReference: {fileID: 3665432303376610476, guid: 7a3ec9f35e60cf14cb0609a70327faf3,
+        type: 3}
+    - target: {fileID: 4993857210448940860, guid: bb3fe459953748c4eb7ee6bd001da086,
+        type: 3}
+      propertyPath: Walls.Array.data[5].Prefab
+      value: 
+      objectReference: {fileID: 3496083798628584106, guid: 51627d08055d5e443866d7463421192c,
+        type: 3}
+    - target: {fileID: 4993857210448940860, guid: bb3fe459953748c4eb7ee6bd001da086,
+        type: 3}
+      propertyPath: _roofCenterPrefab
+      value: 
+      objectReference: {fileID: 1713189968042522495, guid: e59d806594060c94ebba46750f324b46,
+        type: 3}
+    - target: {fileID: 4993857210448940860, guid: bb3fe459953748c4eb7ee6bd001da086,
+        type: 3}
+      propertyPath: _roofEdgePrefab
+      value: 
+      objectReference: {fileID: 453714087116968115, guid: 91cf58956481ce94fa18588055f6ff15,
+        type: 3}
+    - target: {fileID: 4993857210448940860, guid: bb3fe459953748c4eb7ee6bd001da086,
+        type: 3}
+      propertyPath: _roofCornerPrefab
+      value: 
+      objectReference: {fileID: 7866626379291726582, guid: 88caf19b44d232d44b8db0fc3a3e2455,
+        type: 3}
     - target: {fileID: 4993857210448940861, guid: bb3fe459953748c4eb7ee6bd001da086,
         type: 3}
       propertyPath: m_LocalPosition.x
