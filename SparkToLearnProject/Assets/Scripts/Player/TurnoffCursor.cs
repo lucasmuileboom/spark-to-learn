@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurnofCursor : MonoBehaviour
+public class TurnoffCursor : MonoBehaviour
 {
     private CursorManager _cursorManager;
     private void Start()
