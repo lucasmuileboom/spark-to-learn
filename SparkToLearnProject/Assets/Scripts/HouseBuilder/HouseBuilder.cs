@@ -14,11 +14,12 @@ public class HouseBuilder : MonoBehaviour
     public int Width = 2;
     private int _lastWidth;
 
+    private Material _materialInstance;
+
     private Transform _foundationParent;
     [Header("Foundation"), SerializeField]
     private GameObject _foundationPrefab;
     private GameObject[,] _foundationArray;
-    private Material _foundationMaterial;
 
     [Serializable]
     public struct WallStruct
@@ -35,8 +36,6 @@ public class HouseBuilder : MonoBehaviour
     public WallStruct[] Walls;
     private int[] _lengthWalls;
     private int[] _widthWalls;
-    private Material _wallMaterial;
-    private Material _windowMaterial;
 
     private Transform _roofParent;
     [Header("Roof"), SerializeField]
@@ -46,7 +45,6 @@ public class HouseBuilder : MonoBehaviour
     [SerializeField]
     private GameObject _roofCenterPrefab;
     private GameObject[,] _roofArray;
-    private Material _roofMaterial;
 
     private BoxCollider _collider;
 
@@ -57,9 +55,11 @@ public class HouseBuilder : MonoBehaviour
         _lengthWalls = new int[4];
         _widthWalls = new int[4];
 
+        // Create material instance
+        _materialInstance = Instantiate(_foundationPrefab.GetComponent<Renderer>().sharedMaterial);
+
         InstantiateEditor();
         InstantiateParents();
-        InstantiateMaterials();
         BuildHouse();
 
         _lastLength = Length;
@@ -108,24 +108,6 @@ public class HouseBuilder : MonoBehaviour
         _roofParent.parent = transform;
     }
 
-    /// <summary>
-    /// Create instance of materials to enable material editing individually per house
-    /// </summary>
-    private void InstantiateMaterials()
-    {
-        // Create foundation material instance
-        _foundationMaterial = Instantiate(_foundationPrefab.GetComponent<Renderer>().sharedMaterial);
-
-        // Create wall material instance
-        _wallMaterial = Instantiate(Walls[0].Prefab.GetComponentInChildren<Renderer>().sharedMaterial);
-
-        // Create window material instance
-        _windowMaterial = Instantiate(Walls[4].Prefab.GetComponentInChildren<Renderer>().sharedMaterial);
-
-        // Create roof material instance
-        _roofMaterial = Instantiate(_roofCornerPrefab.GetComponent<Renderer>().sharedMaterial);
-    }
-
     public void SetWalls(int[] walls, bool isLength)
     {
         if (isLength)
@@ -163,7 +145,7 @@ public class HouseBuilder : MonoBehaviour
                 _foundationArray[l, w] = Instantiate(_foundationPrefab, new Vector3(5 * l, 0, 5 * w), Quaternion.identity, _foundationParent);
                 _foundationArray[l, w].name = "Foundation (" + l + " - " + w + ")";
                 // Assign material
-                _foundationArray[l, w].GetComponent<Renderer>().material = _foundationMaterial;
+                _foundationArray[l, w].GetComponent<Renderer>().material = _materialInstance;
             }
         }
     }
@@ -216,24 +198,14 @@ public class HouseBuilder : MonoBehaviour
                     // Instantiate the roof
                     GameObject wall = Instantiate(wallPiece, new Vector3(5 * l, 0, 5 * w), rotation, _wallParent);
 
-                    Material mat;
-                    if (wall.name.Contains("Window"))
-                    {
-                        mat = _windowMaterial;
-                    }
-                    else
-                    {
-                        mat = _wallMaterial;
-                    }
-
                     // Assign material
                     if (wall.GetComponent<Renderer>())
                     {
-                        wall.GetComponent<Renderer>().material = mat;
+                        wall.GetComponent<Renderer>().material = _materialInstance;
                     }
                     else
                     {
-                        wall.GetComponentInChildren<Renderer>().material = mat;
+                        wall.GetComponentInChildren<Renderer>().material = _materialInstance;
                     }
                 }
             }
@@ -290,11 +262,11 @@ public class HouseBuilder : MonoBehaviour
                 // Assign material
                 if (_roofArray[l, w].GetComponent<Renderer>())
                 {
-                    _roofArray[l, w].GetComponent<Renderer>().material = _roofMaterial;
+                    _roofArray[l, w].GetComponent<Renderer>().material = _materialInstance;
                 }
                 else
                 {
-                    _roofArray[l, w].GetComponentInChildren<Renderer>().material = _roofMaterial;
+                    _roofArray[l, w].GetComponentInChildren<Renderer>().material = _materialInstance;
                 }
             }
         }
@@ -320,7 +292,7 @@ public class HouseBuilder : MonoBehaviour
         float h;
         float s;
         float v;
-        Color.RGBToHSV(_foundationMaterial.GetColor("_Mask" + colorIndex + "_color"), out h, out s, out v);
+        Color.RGBToHSV(_materialInstance.GetColor("_Mask" + colorIndex + "_color"), out h, out s, out v);
 
         if (s == 0)
         {
@@ -329,9 +301,6 @@ public class HouseBuilder : MonoBehaviour
 
         h = newH;
 
-        _foundationMaterial.SetColor("_Mask" + colorIndex + "_color", Color.HSVToRGB(h, s, v));
-        _wallMaterial.SetColor("_Mask" + colorIndex + "_color", Color.HSVToRGB(h, s, v));
-        _windowMaterial.SetColor("_Mask" + colorIndex + "_color", Color.HSVToRGB(h, s, v));
-        _roofMaterial.SetColor("_Mask" + colorIndex + "_color", Color.HSVToRGB(h, s, v));
+        _materialInstance.SetColor("_Mask" + colorIndex + "_color", Color.HSVToRGB(h, s, v));
     }
 }
