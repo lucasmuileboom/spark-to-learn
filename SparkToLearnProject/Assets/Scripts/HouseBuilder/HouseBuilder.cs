@@ -142,7 +142,7 @@ public class HouseBuilder : MonoBehaviour
         {
             for (int w = 0; w < Width; w++)
             {
-                _foundationArray[l, w] = Instantiate(_foundationPrefab, new Vector3(5 * l, 0, 5 * w), Quaternion.identity, _foundationParent);
+                _foundationArray[l, w] = Instantiate(_foundationPrefab, new Vector3(transform.position.x + 5 * l, transform.position.y, transform.position.z + 5 * w), Quaternion.identity, _foundationParent);
                 _foundationArray[l, w].name = "Foundation (" + l + " - " + w + ")";
                 // Assign material
                 _foundationArray[l, w].GetComponent<Renderer>().material = _materialInstance;
@@ -196,7 +196,7 @@ public class HouseBuilder : MonoBehaviour
                     }
 
                     // Instantiate the roof
-                    GameObject wall = Instantiate(wallPiece, new Vector3(5 * l, 0, 5 * w), rotation, _wallParent);
+                    GameObject wall = Instantiate(wallPiece, new Vector3(transform.position.x + 5 * l, transform.position.y, transform.position.z + 5 * w), rotation, _wallParent);
 
                     // Assign material
                     if (wall.GetComponent<Renderer>())
@@ -256,7 +256,7 @@ public class HouseBuilder : MonoBehaviour
                 }
 
                 // Instantiate the roof
-                _roofArray[l, w] = Instantiate(roofPiece, new Vector3(5 * l, 0, 5 * w), rotation, _roofParent);
+                _roofArray[l, w] = Instantiate(roofPiece, new Vector3(transform.position.x + 5 * l, transform.position.y, transform.position.z + 5 * w), rotation, _roofParent);
                 _roofArray[l, w].name = "Roof (" + l + " - " + w + ")";
 
                 // Assign material
