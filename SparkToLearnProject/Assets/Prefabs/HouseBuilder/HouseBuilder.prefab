@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4993857210448940863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4993857210448940861}
+  - component: {fileID: 4993857210448940860}
+  - component: {fileID: 4993857210448940850}
+  m_Layer: 0
+  m_Name: HouseBuilder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4993857210448940861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4993857210448940863}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4993857210448940860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4993857210448940863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a296987fe531d4a8163d68c4ae3d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _editorPrefab: {fileID: 9089512663002010046, guid: e8912a5bab0c13940a939cf2bdbe512c,
+    type: 3}
+  Length: 2
+  Width: 2
+  _foundationPrefab: {fileID: 4378829547686536173, guid: f71dc588c99f63c4cbe779912ff7513a,
+    type: 3}
+  _wallCorner: {fileID: 4435191189704847908, guid: df16781845f5ebe4aa55740b8282ead2,
+    type: 3}
+  Walls:
+  - Prefab: {fileID: 7139267758037633007, guid: b4eff9ce149ab514b8a10bf3ea92aa3a,
+      type: 3}
+    Name: Wall 1
+    Image: {fileID: 21300000, guid: 323806aca2b4aef4c889361efc3f8367, type: 3}
+  - Prefab: {fileID: 7754867512253825866, guid: 0f7c28aef5edcad44903eb0dbd9c6d77,
+      type: 3}
+    Name: Wall 2
+    Image: {fileID: 21300000, guid: 19b2091e2b6890a4ca0ded4343dc9bbb, type: 3}
+  - Prefab: {fileID: 305060132351551619, guid: 1b5620d68894ce14cb8013397eaa3c07, type: 3}
+    Name: Wall 3
+    Image: {fileID: 21300000, guid: b460851ae9d302043a9746e3b639dcd4, type: 3}
+  - Prefab: {fileID: 7573089424691676619, guid: 97e900865b6a40d498ad6d828a0013db,
+      type: 3}
+    Name: Window 1
+    Image: {fileID: 21300000, guid: c755de29ef45e4a4684ceb108b578cbb, type: 3}
+  - Prefab: {fileID: 8716696295299808930, guid: 7a3ec9f35e60cf14cb0609a70327faf3,
+      type: 3}
+    Name: Window 2
+    Image: {fileID: 21300000, guid: c3e064a2b1a50274bb82da3b2d25feeb, type: 3}
+  - Prefab: {fileID: 1621614510797319690, guid: 51627d08055d5e443866d7463421192c,
+      type: 3}
+    Name: Window 3
+    Image: {fileID: 21300000, guid: 29c1cdcf4c1c2314a892f04c49544642, type: 3}
+  - Prefab: {fileID: 967166700704599017, guid: 2ab0de1d18eb0ac4d8f7553ac7b5c992, type: 3}
+    Name: Door
+    Image: {fileID: 21300000, guid: ca48998a82cdf7e49aa9441cd783a20e, type: 3}
+  _roofCornerPrefab: {fileID: 1452200586593230050, guid: 88caf19b44d232d44b8db0fc3a3e2455,
+    type: 3}
+  _roofEdgePrefab: {fileID: 1140069833559590996, guid: 0f256f784d4167947a8d24b0cc3461e9,
+    type: 3}
+  _roofCenterPrefab: {fileID: 7682021194296352706, guid: e59d806594060c94ebba46750f324b46,
+    type: 3}
+--- !u!65 &4993857210448940850
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4993857210448940863}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 11, z: 10}
+  m_Center: {x: 2.5, y: 5.5, z: 2.5}
