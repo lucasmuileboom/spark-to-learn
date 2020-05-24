@@ -33,7 +33,8 @@ public class CodeblockInput : MonoBehaviour
     [SerializeField]
     private GameObject _colorInput;
     [SerializeField]
-    private Slider _colorSlider;
+    private Slider[] _colorSlider;
+
 
     [Header("Audio UI")]
     [SerializeField]
@@ -141,9 +142,9 @@ public class CodeblockInput : MonoBehaviour
         return (_inputButton.SelectedKeyCode);
     }
 
-    public float GetColor()
+    public float GetColor(int i)
     {
-        return _colorSlider.value;
+        return _colorSlider[i].value;
     }
 
     public int GetClip()

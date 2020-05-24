@@ -9,10 +9,10 @@ public class InputManager : MonoBehaviour
     [SerializeField] private KeyCode _moveLeftButton;
     [SerializeField] private KeyCode _moveRightButton;
 
-    [SerializeField] private KeyCode _cameraRotateUpButton;
-    [SerializeField] private KeyCode _cameraRotateDownButton;
-    [SerializeField] private KeyCode _cameraRotateLeftButton;
-    [SerializeField] private KeyCode _cameraRotateRightButton;
+    [SerializeField] private KeyCode _skil1Button;
+    [SerializeField] private KeyCode _skil2Button;
+    [SerializeField] private KeyCode _skil3Button;
+    [SerializeField] private KeyCode _skil4Button;
 
     [SerializeField] private KeyCode _flyUpButton;
     [SerializeField] private KeyCode _flyDownButton;
@@ -21,6 +21,11 @@ public class InputManager : MonoBehaviour
 
     [SerializeField] private KeyCode _rotateObjectLeft;
     [SerializeField] private KeyCode _rotateObjectRight;
+
+    //[SerializeField] private KeyCode _menuUpButton;
+    //[SerializeField] private KeyCode _menuDownButton;
+
+    //Movement
 
     public bool MoveForwardButtonDown() 
     {
@@ -38,22 +43,26 @@ public class InputManager : MonoBehaviour
     {
         return IsButtonDown(_moveRightButton);
     }
-    public bool CameraRotateUpButtonDown() 
+
+    //skils
+    public bool Skil1ButtonDown()
     {
-        return IsButtonDown(_cameraRotateUpButton);
+        return IsButtonDown(_skil1Button);
     }
-    public bool CameraRotateDownButtonDown() 
+    public bool Skil2ButtonDown()
     {
-        return IsButtonDown(_cameraRotateDownButton);
+        return IsButtonDown(_skil2Button);
     }
-    public bool CameraRotateLeftButtonDown() 
+    public bool Skil3ButtonDown()
     {
-        return IsButtonDown(_cameraRotateLeftButton);
+        return IsButtonDown(_skil3Button);
     }
-    public bool CameraRotateRightButtonDown() 
+    public bool Skil4ButtonDown()
     {
-        return IsButtonDown(_cameraRotateRightButton);
+        return IsButtonDown(_skil4Button);
     }
+    //Fly
+
     public bool FlyUpButtonDown()
     {
         return IsButtonDown(_flyUpButton);
@@ -62,6 +71,9 @@ public class InputManager : MonoBehaviour
     {
         return IsButtonDown(_flyDownButton);
     }
+
+    //SpawnObject
+
     public bool SpawnObjectButtonDown()
     {
         return IsButtonDown(_spawnObject);
@@ -70,6 +82,9 @@ public class InputManager : MonoBehaviour
     {
         return IsButtonPress(_spawnObject);
     }
+
+    //RotateObject
+
     public bool RotateObjectLeftButtonDown()
     {
         return IsButtonDown(_rotateObjectLeft);
@@ -78,6 +93,19 @@ public class InputManager : MonoBehaviour
     {
         return IsButtonDown(_rotateObjectRight);
     }
+
+    //menu
+
+    public bool MenuDownButtonDown()
+    {
+        return Input.GetAxis("Mouse ScrollWheel") < 0f;
+    }
+    public bool MenuUpButtonDown()
+    {
+        return Input.GetAxis("Mouse ScrollWheel") > 0f;
+    }
+    
+
     private bool IsButtonPress(KeyCode keycode)
     {
         return Input.GetKeyDown(keycode);

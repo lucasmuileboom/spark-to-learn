@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5155996325546210594}
   - component: {fileID: 246395401898644646}
   - component: {fileID: 1691520772420614231}
+  - component: {fileID: 6995966151404690871}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Prop
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 66aff36fde3edef4985786c977422a36, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -129,3 +130,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6995966151404690871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725650459524423265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28abda6515a174f4e896134c9f2d47fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
+    type: 3}
+  _shaderRenderen: {fileID: 4346834942111341193}
+  _environmentRenderen: {fileID: 0}
+  _isProp: 1
+  _isEnvironment: 0

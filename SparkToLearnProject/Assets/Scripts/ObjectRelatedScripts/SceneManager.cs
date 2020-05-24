@@ -14,18 +14,19 @@ public class SceneManager : MonoBehaviour
 
     [SerializeField] private GameObject _container;
     [SerializeField] private GameObject _itemUI;
+    [SerializeField] private GameObject _editOnlyItemUI;
     [SerializeField][Range(0,15)] private float _spacing = 7.5f;
 
-    /*
-     * Uncomment when CursorManager is merged with develop
+
     [SerializeField] private CursorManager _CursorManager;
-    */
     [SerializeField] private ItemEvent _onEdit;
     [SerializeField] private ItemEvent _onReplace;
     [SerializeField] private ItemEvent _onDelete;
 
     [SerializeField] private string _startCategory;
     [SerializeField] private List<string> _categories;
+    [SerializeField] private List<bool> _editOnly;
+
     private string _currentCategory;
 
     void Start()
@@ -50,7 +51,7 @@ public class SceneManager : MonoBehaviour
     {
         string category = "Default";
 
-        if (_spawnedObjects.ContainsKey(item.Category)) category = item.Category;
+        if (_spawnedObjects.ContainsKey(item.Category) || _spawnedObjects.Count == 0) category = item.Category;
         
         _spawnedObjects[category].Add(item);
 
@@ -68,27 +69,27 @@ public class SceneManager : MonoBehaviour
 
     public void EditObject(ItemDetails item)
     {
-        Blueprint _blueprint = item.gameObject.GetComponent<Blueprint>();
+        Debug.Log("Edit");
+        Blueprint _blueprint = item.gameObject.GetComponent<BlueprintObject>().Blueprint;
 
         _blueprint.Show();
-        /*
-         * Uncomment when CursorManager is merged with develop
         _CursorManager.toggleCursor(true);
-        */
     }
 
     public void SwitchCategory(string category)
     {
         if (category == _currentCategory) return;
-        
+
+        GameObject _uiItem = (_editOnly[_categories.IndexOf(category)] == true) ? _editOnlyItemUI : _itemUI;
+
         foreach (RectTransform item in _container.transform)
         {
             Destroy(item.gameObject);
         }
-
+        
         foreach (ItemDetails item in _spawnedObjects[category])
         {
-            GameObject uiItem = Instantiate<GameObject>(_itemUI, _container.transform);
+            GameObject uiItem = Instantiate<GameObject>(_uiItem, _container.transform);
             RectTransform uiTransform = uiItem.GetComponent<RectTransform>();
 
             uiItem.GetComponent<ItemDetailFiller>().SetItem(item);

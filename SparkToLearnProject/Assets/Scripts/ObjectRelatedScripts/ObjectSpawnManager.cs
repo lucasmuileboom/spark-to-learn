@@ -20,7 +20,6 @@ public class ObjectSpawnManager : MonoBehaviour
     private MeshRenderer _originalMat;
     private bool _placingProcess = false;
     private bool _placeActive = false;
-
     void Update()
     {
         _placeActive = _inputManager.SpawnObjectButtonPress();
@@ -29,11 +28,33 @@ public class ObjectSpawnManager : MonoBehaviour
             _currentObject = _spawnableItems.GetItem().ObjectReference;
             _placingProcess = true;
             _originalMat = _currentObject.GetComponent<MeshRenderer>();
-            StartCoroutine(ObjectSpawner.HighlightObjectOnRaycastHit(_camera, _currentObject, _inputManager.RotateObjectLeftButtonDown, _inputManager.RotateObjectRightButtonDown, 0.5f, BreakCondition, _layerMask, _correctHighlight, _incorrectHighlight));
+            StartCoroutine(ObjectSpawner.HighlightObjectOnRaycastHit(_camera, _currentObject, _inputManager.RotateObjectLeftButtonDown, _inputManager.RotateObjectRightButtonDown, _rotateSpeed, BreakConditionSpawn, _layerMask, _correctHighlight, _incorrectHighlight));
         }
     }
 
-    private bool BreakCondition(GameObject rotatedObject)
+    public void MoveObject(ItemDetails item)
+    {
+        if (!_placingProcess)
+        {
+            _placingProcess = true;
+            StartCoroutine(ObjectSpawner.RepositionObject(_camera, item.Instance, _inputManager.RotateObjectLeftButtonDown, _inputManager.RotateObjectRightButtonDown, 0.5f, BreakConditionMove, _layerMask, _correctHighlight, _incorrectHighlight));
+        }
+    }
+
+    private bool BreakConditionMove(GameObject movedObject)
+    {
+        if (_placeActive)
+        {
+            movedObject.GetComponent<Collider>().isTrigger = false;
+            movedObject.GetComponent<MeshRenderer>().material = _originalMat.sharedMaterial;
+            _playerManager.enabled = true;
+            _placingProcess = false;
+            return true;
+        }
+        else return false;
+    }
+
+    private bool BreakConditionSpawn(GameObject rotatedObject)
     {
         if (_placeActive)
         {
