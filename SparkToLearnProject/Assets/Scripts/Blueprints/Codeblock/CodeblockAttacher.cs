@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CodeblockAttacher : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class CodeblockAttacher : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
     private UILineRenderer _lineRenderer;
     private Canvas _canvas;
@@ -93,5 +93,10 @@ public class CodeblockAttacher : MonoBehaviour, IDragHandler, IBeginDragHandler,
         List<RaycastResult> raysastResults = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, raysastResults);
         return raysastResults;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Detach();
     }
 }

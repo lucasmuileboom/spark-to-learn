@@ -3,6 +3,9 @@
 public class WallsBlock : MonoBehaviour
 {
     [SerializeField]
+    private HouseEditor _editor;
+
+    [SerializeField]
     private bool _isLength;
 
     [SerializeField]
@@ -38,6 +41,6 @@ public class WallsBlock : MonoBehaviour
             }
         }
 
-        transform.parent.GetComponent<HouseEditor>().Builder.SetWalls(walls, _isLength);
+        _editor.Builder.SetWalls(walls, _isLength);
     }
 }

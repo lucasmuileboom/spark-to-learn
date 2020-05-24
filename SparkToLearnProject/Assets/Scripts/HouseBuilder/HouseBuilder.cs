@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class HouseBuilder : MonoBehaviour
 {
@@ -19,10 +20,19 @@ public class HouseBuilder : MonoBehaviour
     private GameObject[,] _foundationArray;
     private Material _foundationMaterial;
 
+    [Serializable]
+    public struct WallStruct
+    {
+        public GameObject Prefab;
+        public string Name;
+        public Sprite Image;
+    }
+
     private Transform _wallParent;
     [Header("Walls"), SerializeField]
     private GameObject _wallCorner;
-    public GameObject[] WallPrefabs;
+    //public GameObject[] WallPrefabs;
+    public WallStruct[] Walls;
     private int[] _lengthWalls;
     private int[] _widthWalls;
     private Material _wallMaterial;
@@ -80,6 +90,7 @@ public class HouseBuilder : MonoBehaviour
     {
         _editor = Instantiate(_editorPrefab, FindObjectOfType<Canvas>().transform);
         _editor.GetComponent<HouseEditor>().Builder = this;
+        _editor.SetActive(false);
     }
 
     private void InstantiateParents()
@@ -106,10 +117,10 @@ public class HouseBuilder : MonoBehaviour
         _foundationMaterial = Instantiate(_foundationPrefab.GetComponent<Renderer>().sharedMaterial);
 
         // Create wall material instance
-        _wallMaterial = Instantiate(WallPrefabs[0].GetComponentInChildren<Renderer>().sharedMaterial);
+        _wallMaterial = Instantiate(Walls[0].Prefab.GetComponentInChildren<Renderer>().sharedMaterial);
 
         // Create window material instance
-        _windowMaterial = Instantiate(WallPrefabs[4].GetComponentInChildren<Renderer>().sharedMaterial);
+        _windowMaterial = Instantiate(Walls[4].Prefab.GetComponentInChildren<Renderer>().sharedMaterial);
 
         // Create roof material instance
         _roofMaterial = Instantiate(_roofCornerPrefab.GetComponent<Renderer>().sharedMaterial);
@@ -170,7 +181,7 @@ public class HouseBuilder : MonoBehaviour
                 if (l == 0 || w == 0 || l == Length - 1 || w == Width - 1)
                 {
                     // Determine the right roof piece
-                    GameObject wallPiece = WallPrefabs[0];
+                    GameObject wallPiece = Walls[0].Prefab;
                     if ((l == 0 && w == 0) || (l == 0 && w == Width - 1) || (l == Length - 1 && w == 0) || (l == Length - 1 && w == Width - 1))
                     {
                         wallPiece = _wallCorner;
@@ -179,11 +190,11 @@ public class HouseBuilder : MonoBehaviour
                     {
                         if (w == 0 || w == Width - 1)
                         {
-                            wallPiece = WallPrefabs[_lengthWalls[l - 1]];
+                            wallPiece = Walls[_lengthWalls[l - 1]].Prefab;
                         }
                         else if (l == 0 || l == Length - 1)
                         {
-                            wallPiece = WallPrefabs[_widthWalls[w - 1]];
+                            wallPiece = Walls[_widthWalls[w - 1]].Prefab;
                         }
                     }
 

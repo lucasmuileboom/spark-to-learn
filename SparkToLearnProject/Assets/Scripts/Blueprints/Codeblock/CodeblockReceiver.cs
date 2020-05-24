@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class CodeblockReceiver : MonoBehaviour
+public class CodeblockReceiver : MonoBehaviour, IPointerClickHandler
 {
     public Codeblock codeblock;
 
@@ -21,8 +22,15 @@ public class CodeblockReceiver : MonoBehaviour
 
     public void RemoveAttacher()
     {
-        this.attacher = null;
-
+        attacher = null;
         OnDetach.Invoke();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (attacher != null)
+        {
+            attacher.Detach();
+        }
     }
 }

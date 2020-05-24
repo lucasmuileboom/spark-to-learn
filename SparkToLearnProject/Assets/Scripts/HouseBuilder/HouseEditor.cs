@@ -25,7 +25,7 @@ public class HouseEditor : MonoBehaviour
 
     private void Start()
     {
-        _wallList.PopulateList(Builder.WallPrefabs);
+        _wallList.PopulateList(Builder.Walls);
 
         AddSizeListeners();
         AddColorListeners();
