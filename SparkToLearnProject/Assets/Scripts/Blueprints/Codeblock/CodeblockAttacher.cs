@@ -32,6 +32,12 @@ public class CodeblockAttacher : MonoBehaviour, IDragHandler, IBeginDragHandler,
 
     public void Attach(CodeblockReceiver receiver)
     {
+        if (receiver.transform.parent == transform.parent)
+        {
+            Detach();
+            return;
+        }
+
         if (receiver.AllowMultipleReceivers || receiver.attacher == null)
         {
             attachedReceiver = receiver;
