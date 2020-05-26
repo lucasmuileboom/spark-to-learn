@@ -20,10 +20,12 @@ public class Blueprint : MonoBehaviour
 
     private CanvasGroup _canvasGroup;
 
-    public Renderer _shaderRenderen;
-    public Renderer _environmentRenderen;
-    public bool _isProp;
-    public bool _isEnvironment;
+    public Renderer shaderRenderen;
+    public Renderer environmentRenderen;
+    public bool isProp;
+    public bool isEnvironment;
+    public bool useLeavesMat;
+    public Renderer leavesRenderen;
 
     private void Awake()
     {
@@ -64,7 +66,7 @@ public class Blueprint : MonoBehaviour
 
         _zoomUI.AddZoomable(codeblockInstance.transform);
 
-        codeblockInstance.GetComponent<SetColorShader>().SetUpColorChanger(_shaderRenderen, _isEnvironment, _isProp, _environmentRenderen);
+        codeblockInstance.GetComponent<SetColorShader>().SetUpColorChanger(shaderRenderen, isEnvironment, isProp, useLeavesMat , environmentRenderen , leavesRenderen);
     }
 
     /// <summary>
