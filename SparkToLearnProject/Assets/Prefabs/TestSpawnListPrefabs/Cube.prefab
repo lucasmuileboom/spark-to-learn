@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
     type: 3}
+  _canBeClicked: 1
   _shaderRenderen: {fileID: 9190438695968543048}
   _environmentRenderen: {fileID: 0}
   _isProp: 1

@@ -330,6 +330,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
     type: 3}
+  _shaderRenderen: {fileID: 0}
+  _environmentRenderen: {fileID: 0}
+  _isProp: 0
+  _isEnvironment: 0
 --- !u!65 &531436304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -452,10 +456,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1300, y: 600}
+  m_ReferenceResolution: {x: 964, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

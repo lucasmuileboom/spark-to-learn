@@ -7,6 +7,10 @@ public class BlueprintObject : MonoBehaviour
     [SerializeField]
     private GameObject _blueprintPrefab;
     private CursorManager _cursorManager;
+    private PlayerManager _playerManager;
+
+    [SerializeField] private bool _canBeClicked;
+
     [SerializeField] private Renderer _shaderRenderen;
     [SerializeField] private Renderer _environmentRenderen;
 
@@ -30,13 +34,17 @@ public class BlueprintObject : MonoBehaviour
         Blueprint._isProp = _isProp;
 
         _cursorManager = GameObject.Find("Canvas").GetComponent<CursorManager>();
+        _playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
     }
 
     private void OnMouseDown()
     {
         // Show this object's blueprint when clicked
-        Blueprint.Show();
+        if (_canBeClicked && _playerManager._canEdit) 
+        {
+            Blueprint.Show();
 
-        _cursorManager.toggleCursor(true);
+            _cursorManager.toggleCursor(true);
+        }
     }
 }

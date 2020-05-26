@@ -66,7 +66,7 @@ public class ObjectSpawnManager : MonoBehaviour
             for (int i = 0; i < details.Mesh.Count; i++)
             {
                 Debug.Log(_originalMat[i].name);
-                details.Mesh[i].material = _originalMat[i]; 
+                details.Mesh[i].material = _originalMat[i];
             }
             _playerManager.enabled = true;
             _placingProcess = false;
