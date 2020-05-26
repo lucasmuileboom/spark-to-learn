@@ -17,9 +17,9 @@ public class PlayerManager : MonoBehaviour
     private int _layerMaskGround = 1 << 8;
     private int _layerMaskRamp = 1 << 9;
     private bool _gravityIsOn = true;
-    public bool _canRotate = true;
-    public bool _canUseSkils = true;
-    public bool _canEdit = false;
+    public bool canRotate = true;
+    public bool canUseSkils = true;
+    public bool canEdit = false;
     private RaycastHit _hitRamp;
 
     [SerializeField] private ToggleUiActive[] _toggleUiActive;
@@ -39,11 +39,11 @@ public class PlayerManager : MonoBehaviour
     private void Update() 
     {
         PlayerVelocity();
-        if (_canRotate)
+        if (canRotate)
         {
             PlayerRotation();
         }
-        if (_canUseSkils) 
+        if (canUseSkils) 
         { 
             Skils();
         }        
@@ -178,7 +178,7 @@ public class PlayerManager : MonoBehaviour
             _setButtonPressedUI.Settext(0);
             _lockCursor.toggleCursor(true);
             _objectSpawnManager.enabled = false;
-            _canEdit = false;
+            canEdit = false;
         }
         else if (_inputManager.Skil2ButtonDown())
         {
@@ -189,7 +189,7 @@ public class PlayerManager : MonoBehaviour
             _setButtonPressedUI.Settext(1);
             _lockCursor.toggleCursor(false);
             _objectSpawnManager.enabled = true;
-            _canEdit = false;
+            canEdit = false;
         }
         else if (_inputManager.Skil3ButtonDown())
         {
@@ -200,7 +200,7 @@ public class PlayerManager : MonoBehaviour
             _setButtonPressedUI.Settext(2);
             _lockCursor.toggleCursor(false);
             _objectSpawnManager.enabled = false;
-            _canEdit = true;
+            canEdit = true;
         }
         else if (_inputManager.Skil4ButtonDown())
         {
@@ -211,7 +211,7 @@ public class PlayerManager : MonoBehaviour
             _setButtonPressedUI.Settext(3);
             _lockCursor.toggleCursor(false);
             _objectSpawnManager.enabled = false;
-            _canEdit = false;
+            canEdit = false;
         }
     }
     private void BuildMenuArrows()
