@@ -209,6 +209,18 @@ public class PlayerManager : MonoBehaviour
             _objectSpawnManager.enabled = false;
         }
     }
+
+    public void ActivateSkill2()
+    {
+        _toggleUiActive[0].SetUi(false);
+        _toggleUiActive[1].SetUi(true);
+        _toggleUiActive[2].SetUi(false);
+        _toggleUiActive[3].SetUi(false);
+        _setButtonPressedUI.Settext(1);
+        _lockCursor.toggleCursor(false);
+        _objectSpawnManager.enabled = true;
+    }
+
     private void BuildMenuArrows()
     {
         if (_itemListCycle.gameObject.activeSelf) 
