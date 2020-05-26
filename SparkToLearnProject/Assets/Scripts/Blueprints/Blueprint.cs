@@ -27,10 +27,22 @@ public class Blueprint : MonoBehaviour
     public bool useLeavesMat;
     public Renderer leavesRenderen;
 
+    [SerializeField]
+    private GameObject _colorBlock;
+
     private void Awake()
     {
         _zoomUI = GetComponent<ZoomUI>();
         _canvasGroup = GetComponent<CanvasGroup>();
+    }
+
+    private void Start()
+    {
+        if (_colorBlock != null)
+        {
+            _zoomUI.AddZoomable(_colorBlock.transform);
+            _colorBlock.GetComponent<SetColorShader>().SetUpColorChanger(_shaderRenderen, _isEnvironment, _isProp, _environmentRenderen);
+        }
     }
 
     private void Update()

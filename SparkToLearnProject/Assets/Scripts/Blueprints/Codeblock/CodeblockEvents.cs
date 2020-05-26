@@ -47,6 +47,8 @@ public class CodeblockEvents : MonoBehaviour
 
     public void ChangeColor()
     {
+        Debug.Log("Coloring");
+
         Color[] _Colors;
         _Colors = new Color[3];
 
