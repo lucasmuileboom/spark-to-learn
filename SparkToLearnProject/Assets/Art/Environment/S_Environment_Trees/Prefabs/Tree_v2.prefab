@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7989356035080678589}
   - component: {fileID: 4583249155593375163}
   - component: {fileID: -5118685574047856321}
+  - component: {fileID: 3365435177994575222}
   m_Layer: 0
   m_Name: Tree_v2
   m_TagString: Untagged
@@ -31,8 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.498037, y: 6.22, z: 5.866973}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1811268344969862111}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -130,60 +130,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
     type: 3}
+  _canBeClicked: 1
   _shaderRenderen: {fileID: 657157395590606913}
   _environmentRenderen: {fileID: 0}
   _isProp: 1
   _isEnvironment: 0
---- !u!1 &7918457823809184635
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1811268344969862111}
-  - component: {fileID: 6585402923932776957}
-  - component: {fileID: 2950490829546926132}
-  m_Layer: 0
-  m_Name: Collider_Boom (esdoorn)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1811268344969862111
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7918457823809184635}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.434, z: -0.185}
-  m_LocalScale: {x: 1, y: 5.869, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2844373905667667598}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6585402923932776957
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7918457823809184635}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &2950490829546926132
+--- !u!65 &3365435177994575222
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7918457823809184635}
+  m_GameObject: {fileID: 1234662668546131101}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 7, z: 1}
+  m_Center: {x: 0, y: 3.5, z: 0}

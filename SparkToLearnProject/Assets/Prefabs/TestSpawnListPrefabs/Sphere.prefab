@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Sphere
   _objectReference: {fileID: 6456736098479556231}
-  _category: Creature
+  _category: Flora
   _description: It's completely round!!!
   _thumbnail: {fileID: 21300000, guid: 797c41dd640fc7e41bc2989e4a7faca0, type: 3}
 --- !u!54 &-1178782577018475260
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
     type: 3}
+  _canBeClicked: 1
   _shaderRenderen: {fileID: 2105550130800525580}
   _environmentRenderen: {fileID: 0}
   _isProp: 1

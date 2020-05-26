@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8497359418466000774}
   - component: {fileID: 8843909535833505206}
   - component: {fileID: 3339089307410531351}
+  - component: {fileID: 3015590726552934686}
   m_Layer: 0
   m_Name: Tree_Lolipop_V1
   m_TagString: Untagged
@@ -31,8 +32,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 176.49115, y: 5.3438106, z: 30.308777}
   m_LocalScale: {x: 1.6948543, y: 1.6948543, z: 1.6948543}
-  m_Children:
-  - {fileID: 508736592251815545}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -129,51 +129,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
     type: 3}
+  _canBeClicked: 1
   _shaderRenderen: {fileID: 4916062114552719173}
   _environmentRenderen: {fileID: 0}
   _isProp: 1
   _isEnvironment: 0
---- !u!1 &9034110312130623838
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 508736592251815545}
-  - component: {fileID: 6404612539683611602}
-  m_Layer: 0
-  m_Name: Colider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &508736592251815545
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9034110312130623838}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7664796325844574602}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6404612539683611602
+--- !u!65 &3015590726552934686
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9034110312130623838}
+  m_GameObject: {fileID: 6630858304073077657}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 4, z: 0.5}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Size: {x: 0.5, y: 4.9, z: 0.5}
+  m_Center: {x: 0, y: 2.45, z: 0}
