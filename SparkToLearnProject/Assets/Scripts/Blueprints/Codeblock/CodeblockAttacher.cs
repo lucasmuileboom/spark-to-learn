@@ -69,7 +69,15 @@ public class CodeblockAttacher : MonoBehaviour, IDragHandler, IBeginDragHandler,
     {
         float xDistance = Input.mousePosition.x - transform.position.x;
         float yDistance = Input.mousePosition.y - transform.position.y;
-        _lineRenderer.Points[1] = new Vector2(xDistance / _canvas.scaleFactor, yDistance / _canvas.scaleFactor);
+        Vector2 linePosition = new Vector2(xDistance / _canvas.scaleFactor, yDistance / _canvas.scaleFactor);
+
+        if (Vector2.Distance(_lineRenderer.Points[0], linePosition) > 20)
+        {
+            _lineRenderer.Points[1] = linePosition;
+        } else
+        {
+            _lineRenderer.Points[1] = Vector2.zero;
+        }
         _lineRenderer.SetVerticesDirty();
     }
 

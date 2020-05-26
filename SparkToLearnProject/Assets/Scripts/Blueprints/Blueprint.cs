@@ -16,6 +16,8 @@ public class Blueprint : MonoBehaviour
     [SerializeField]
     private Transform _codeblockParent;
 
+    private ZoomUI _zoomUI;
+
     private CanvasGroup _canvasGroup;
 
     public Renderer _shaderRenderen;
@@ -25,6 +27,7 @@ public class Blueprint : MonoBehaviour
 
     private void Awake()
     {
+        _zoomUI = GetComponent<ZoomUI>();
         _canvasGroup = GetComponent<CanvasGroup>();
     }
 
@@ -57,7 +60,10 @@ public class Blueprint : MonoBehaviour
         GameObject codeblockInstance = Instantiate(_codeblockPrefab);
         codeblockInstance.transform.SetParent(_codeblockParent);
         codeblockInstance.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
-        codeblockInstance.transform.localScale = new Vector3(1f, 1f, 1);
+        codeblockInstance.transform.localScale = new Vector3(.75f, .75f, 1);
+
+        _zoomUI.AddZoomable(codeblockInstance.transform);
+
         codeblockInstance.GetComponent<SetColorShader>().SetUpColorChanger(_shaderRenderen, _isEnvironment, _isProp, _environmentRenderen);
     }
 
@@ -69,7 +75,9 @@ public class Blueprint : MonoBehaviour
         GameObject codeblockInstance = Instantiate(_whenCodeblockPrefab);
         codeblockInstance.transform.SetParent(_codeblockParent);
         codeblockInstance.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
-        codeblockInstance.transform.localScale = new Vector3(1, 1, 1);
+        codeblockInstance.transform.localScale = new Vector3(.75f, .75f, 1);
+
+        _zoomUI.AddZoomable(codeblockInstance.transform);
     }
 
     /// <summary>

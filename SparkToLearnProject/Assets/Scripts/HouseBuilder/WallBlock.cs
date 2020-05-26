@@ -12,16 +12,24 @@ public class WallBlock : MonoBehaviour
     [SerializeField]
     private Image _image;
 
-    public void SetupCodeblock(int wallIndex, string wallName, Sprite wallSprite)
+    private ZoomUI _zoomUI;
+
+    public void SetupCodeblock(int wallIndex, string wallName, Sprite wallSprite, ZoomUI zoomUI)
     {
         _wallIndex = wallIndex;
         _text.text = wallName;
         _image.sprite = wallSprite;
+        _zoomUI = zoomUI;
+
+        _zoomUI.AddZoomable(transform);
     }
 
     public void DestroyBlock()
     {
         _attacher.Detach();
+
+        _zoomUI.RemoveZoomable(transform);
+
         Destroy(gameObject);
     }
 }
