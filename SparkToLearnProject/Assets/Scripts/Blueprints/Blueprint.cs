@@ -41,7 +41,7 @@ public class Blueprint : MonoBehaviour
         if (_colorBlock != null)
         {
             _zoomUI.AddZoomable(_colorBlock.transform);
-            _colorBlock.GetComponent<SetColorShader>().SetUpColorChanger(_shaderRenderen, _isEnvironment, _isProp, _environmentRenderen);
+            _colorBlock.GetComponent<SetColorShader>().SetUpColorChanger(shaderRenderen, isEnvironment, isProp, useLeavesMat, environmentRenderen, leavesRenderen);
         }
     }
 
