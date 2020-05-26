@@ -1,11 +1,12 @@
 ﻿using System.IO;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
 /// Fills a dropdown with files from AudioPlayer.cs
 /// </summary>
-public class AudioPlayerDropdown : MonoBehaviour
+public class AudioPlayerDropdown : MonoBehaviour, IPointerClickHandler
 {
     private Dropdown _dropdown;
 
@@ -13,10 +14,22 @@ public class AudioPlayerDropdown : MonoBehaviour
     {
         _dropdown = GetComponent<Dropdown>();
 
+        UpdateDropDown();
+    }
+
+    private void UpdateDropDown()
+    {
+        _dropdown.options.Clear();
+
         for (int i = 0; i < AudioPlayer.Files.Count; i++)
         {
             string text = Path.GetFileName(AudioPlayer.Files[i]);
             _dropdown.options.Add(new Dropdown.OptionData() { text = text });
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        UpdateDropDown();
     }
 }
