@@ -31,6 +31,14 @@ public class HouseEditor : MonoBehaviour
         AddColorListeners();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     private void AddSizeListeners()
     {
         _lengthSlider.onValueChanged.AddListener(delegate

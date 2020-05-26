@@ -48,6 +48,7 @@ public class Codeblock : MonoBehaviour
     public void Remove()
     {
         Detach();
+        transform.parent.parent.GetComponent<ZoomUI>().RemoveZoomable(transform);
 
         Destroy(gameObject);
     }

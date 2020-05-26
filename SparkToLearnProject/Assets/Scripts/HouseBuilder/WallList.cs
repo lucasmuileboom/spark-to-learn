@@ -11,6 +11,9 @@ public class WallList : MonoBehaviour
     [SerializeField]
     private GameObject _wallBlockPrefab;
 
+    [SerializeField]
+    private ZoomUI _zoomUI;
+
     public void PopulateList(HouseBuilder.WallStruct[] walls)
     {
         for (int i = 0; i < walls.Length; i++)
@@ -24,7 +27,7 @@ public class WallList : MonoBehaviour
             wallButton.GetComponent<Button>().onClick.AddListener(delegate
             {
                 GameObject wallBlock = Instantiate(_wallBlockPrefab, transform.parent);
-                wallBlock.GetComponent<WallBlock>().SetupCodeblock(index, name, sprite);
+                wallBlock.GetComponent<WallBlock>().SetupCodeblock(index, name, sprite, _zoomUI);
             });
         }
     }
