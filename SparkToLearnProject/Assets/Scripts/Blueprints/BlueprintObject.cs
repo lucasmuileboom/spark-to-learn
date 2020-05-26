@@ -40,7 +40,7 @@ public class BlueprintObject : MonoBehaviour
     private void OnMouseDown()
     {
         // Show this object's blueprint when clicked
-        if (_canBeClicked && _playerManager._canEdit) 
+        if (_canBeClicked && _playerManager.canEdit) 
         {
             Blueprint.Show();
 

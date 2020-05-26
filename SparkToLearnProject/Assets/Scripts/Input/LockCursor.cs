@@ -13,7 +13,7 @@ public class LockCursor : MonoBehaviour
     public void toggleCursor(bool Cursoron)
     {
         Cursor.visible = Cursoron;
-        _playerManager._canRotate = !Cursoron;
+        _playerManager.canRotate = !Cursoron;
         if (!Cursoron)
         {
             Cursor.lockState = CursorLockMode.Locked;
