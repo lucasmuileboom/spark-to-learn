@@ -2302,10 +2302,14 @@ MonoBehaviour:
   _whenCodeblockPrefab: {fileID: 1232923263711735362, guid: 915dcce372e0e554390b732d52cd9500,
     type: 3}
   _codeblockParent: {fileID: 7611329070799583299}
-  _shaderRenderen: {fileID: 0}
-  _environmentRenderen: {fileID: 0}
-  _isProp: 0
-  _isEnvironment: 0
+  shaderRenderen: {fileID: 0}
+  environmentRenderen: {fileID: 0}
+  isProp: 0
+  isEnvironment: 0
+  useLeavesMat: 0
+  leavesRenderen: {fileID: 0}
+  _colorBlock: {fileID: 1232923263711735362, guid: f82804d0f2ac5cf4f8c3a7cbc77385e2,
+    type: 3}
 --- !u!114 &8599909858232135969
 MonoBehaviour:
   m_ObjectHideFlags: 0
