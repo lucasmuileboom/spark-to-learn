@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class CodeblockInput : MonoBehaviour
 {
-    public enum InputTypes { Int, Float, Vector3, String, KeyCode, Color, Audio }
+    public enum InputTypes { Int, Float, Vector3, String, KeyCode, Color, Audio, CappedVector3 }
 
     private CodeblockEvents _events;
     private CodeblockWhens _whens;
@@ -41,6 +41,16 @@ public class CodeblockInput : MonoBehaviour
     private GameObject _audioInput;
     [SerializeField]
     private Dropdown _clipDropdown;
+
+    [Header("Capped Vector UI")]
+    [SerializeField]
+    private GameObject _cappedVectorInput;
+    [SerializeField]
+    private Slider _xSlider;
+    [SerializeField]
+    private Slider _ySlider;
+    [SerializeField]
+    private Slider _zSlider;
     #endregion
 
     private void Start()
@@ -81,6 +91,11 @@ public class CodeblockInput : MonoBehaviour
         _colorInput.SetActive(false);
         _keyCodeInput.SetActive(false);
         _audioInput.SetActive(false);
+        if (GetComponent<CodeblockWhens>())
+        {
+            _cappedVectorInput.SetActive(false);
+        }
+        
 
         switch (_events.Events[_dropdown.value].EventParameter)
         {
@@ -95,6 +110,9 @@ public class CodeblockInput : MonoBehaviour
                 break;
             case InputTypes.Audio:
                 _audioInput.SetActive(true);
+                break;
+            case InputTypes.CappedVector3:
+                _cappedVectorInput.SetActive(true);
                 break;
         }
     }
@@ -150,6 +168,11 @@ public class CodeblockInput : MonoBehaviour
     public int GetClip()
     {
         return _clipDropdown.value;
+    }
+
+    public Vector3 GetCappedVector()
+    {
+        return new Vector3(_xSlider.value, _ySlider.value, _zSlider.value);
     }
     #endregion
 }

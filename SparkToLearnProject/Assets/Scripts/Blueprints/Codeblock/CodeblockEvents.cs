@@ -42,7 +42,7 @@ public class CodeblockEvents : MonoBehaviour
 
     public void Scale()
     {
-        _blueprint.Object.transform.localScale = _input.GetVector();
+        _blueprint.Object.transform.localScale = _input.GetCappedVector();
     }
 
     public void ChangeColor()

@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using NAudio.Wave;
+using SFB;
+using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioPlayer : MonoBehaviour
 {
-    private static string _fileDirectory;
+    public static string FileDirectory;
 
     private static AudioSource _audioSource;
 
@@ -15,12 +16,12 @@ public class AudioPlayer : MonoBehaviour
 
     private void Awake()
     {
-        _fileDirectory = Path.Combine(Application.dataPath, @"..\", "Clips");
+        FileDirectory = Path.Combine(Application.dataPath, @"..\", "Clips");
 
         // Create the custom audio directory if it does not exist
-        if (!Directory.Exists(_fileDirectory))
+        if (!Directory.Exists(FileDirectory))
         {
-            Directory.CreateDirectory(_fileDirectory);
+            Directory.CreateDirectory(FileDirectory);
         }
 
         _audioSource = GetComponent<AudioSource>();
@@ -37,7 +38,7 @@ public class AudioPlayer : MonoBehaviour
         _clips.Clear();
 
         string[] files;
-        files = Directory.GetFiles(_fileDirectory);
+        files = Directory.GetFiles(FileDirectory);
 
         for (int i = 0; i < files.Length; i++)
         {
@@ -52,5 +53,43 @@ public class AudioPlayer : MonoBehaviour
     public static void PlayClip(int index)
     {
         _audioSource.PlayOneShot(_clips[index]);
+    }
+
+    public static void OpenAudioFile()
+    {
+        var extensions = new[] {
+            new ExtensionFilter("Sound Files", "mp3", "wav" ),
+        };
+        var path = StandaloneFileBrowser.OpenFilePanel("Open File", "", extensions, false);
+
+        if (path.Length == 0)
+        {
+            return;
+        }
+
+        if (path[0].EndsWith(".mp3"))
+        {
+            Mp3ToWav(path[0], FileDirectory + @"\" + Path.GetFileNameWithoutExtension(path[0]) + ".wav");
+        }
+        else
+        {
+            if (!File.Exists(FileDirectory + @"\" + Path.GetFileName(path[0])))
+            {
+                File.Copy(path[0], FileDirectory + @"\" + Path.GetFileName(path[0]));
+            }
+        }
+
+        UpdateFiles();
+    }
+
+    public static void Mp3ToWav(string mp3File, string outputFile)
+    {
+        using (Mp3FileReader reader = new Mp3FileReader(mp3File))
+        {
+            using (WaveStream pcmStream = WaveFormatConversionStream.CreatePcmStream(reader))
+            {
+                WaveFileWriter.CreateWaveFile(outputFile, pcmStream);
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class HouseBuilder : MonoBehaviour
 {
@@ -79,8 +80,7 @@ public class HouseBuilder : MonoBehaviour
 
     private void OnMouseDown()
     {
-        
-        if (_playerManager.canEdit)
+        if (_playerManager.canEdit && !EventSystem.current.IsPointerOverGameObject())
         {
             _editor.SetActive(true);
 
@@ -141,9 +141,14 @@ public class HouseBuilder : MonoBehaviour
 
     private void BuildHouse()
     {
+        Quaternion oldRot = transform.rotation;
+        transform.rotation = Quaternion.identity;
+
         BuildFoundation();
         BuildWalls();
         BuildRoof();
+
+        transform.rotation = oldRot;
     }
 
     private void BuildFoundation()
