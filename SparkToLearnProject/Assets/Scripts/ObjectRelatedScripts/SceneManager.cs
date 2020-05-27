@@ -72,7 +72,7 @@ public class SceneManager : MonoBehaviour
         Debug.Log("Edit");
         if (item.gameObject.TryGetComponent<HouseBuilder>(out HouseBuilder blueprint))
         {
-            blueprint.editor.SetActive(true);
+            blueprint.Editor.SetActive(true);
         }
         else
         {
