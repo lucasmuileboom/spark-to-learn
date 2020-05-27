@@ -122,7 +122,6 @@ public class CodeblockInput : MonoBehaviour
         _colorInput.SetActive(false);
         _keyCodeInput.SetActive(false);
         _audioInput.SetActive(false);
-        _cappedVectorInput.SetActive(false);
 
         switch (_whens.Whens[_dropdown.value].InputType)
         {
@@ -137,9 +136,6 @@ public class CodeblockInput : MonoBehaviour
                 break;
             case InputTypes.Audio:
                 _audioInput.SetActive(true);
-                break;
-            case InputTypes.CappedVector3:
-                _cappedVectorInput.SetActive(true);
                 break;
         }
     }
