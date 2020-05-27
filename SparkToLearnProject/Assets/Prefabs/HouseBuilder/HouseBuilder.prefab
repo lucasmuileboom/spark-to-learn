@@ -81,7 +81,7 @@ MonoBehaviour:
   - Prefab: {fileID: 967166700704599017, guid: 2ab0de1d18eb0ac4d8f7553ac7b5c992, type: 3}
     Name: Door
     Image: {fileID: 21300000, guid: ca48998a82cdf7e49aa9441cd783a20e, type: 3}
-  _roofCornerPrefab: {fileID: 7866626379291726582, guid: 88caf19b44d232d44b8db0fc3a3e2455,
+  _roofCornerPrefab: {fileID: 4953574636865391468, guid: 88caf19b44d232d44b8db0fc3a3e2455,
     type: 3}
   _roofEdgePrefab: {fileID: 453714087116968115, guid: 91cf58956481ce94fa18588055f6ff15,
     type: 3}

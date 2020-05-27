@@ -72,7 +72,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AO_boost: 1.19
+    - _AO_boost: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -93,6 +93,6 @@ Material:
     - _Base_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Mask1_color: {r: 0.9528302, g: 0.22022964, b: 0.22022964, a: 1}
-    - _Mask2_color: {r: 0.7075472, g: 0.55735636, b: 0.130162, a: 1}
-    - _Mask3_color: {r: 0.8679245, g: 0.84110785, b: 0.59362763, a: 1}
+    - _Mask1_color: {r: 1, g: 0.007352948, b: 0.007352948, a: 1}
+    - _Mask2_color: {r: 0.05082181, g: 0.6911765, b: 0.1082329, a: 1}
+    - _Mask3_color: {r: 0.04974049, g: 0.3912004, b: 0.6764706, a: 1}
