@@ -55,8 +55,11 @@ public class PlayerManager : MonoBehaviour
         if (canUseSkils) 
         { 
             Skils();
-        }        
-        BuildMenuArrows();
+        }
+        if (_objectSpawnManager.enabled && !_objectSpawnManager.PlacingProcess)
+        {
+            BuildMenuArrows();
+        }       
         if (!_gravityIsOn)
         {
             CheckGravity();

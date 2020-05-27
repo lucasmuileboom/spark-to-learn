@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 442}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 442}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 392}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 126
+  controlID: 89
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 392}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 148
+  controlID: 90
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -419,7 +419,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 0005f6ffd61ffaff2822faff2efbffff80f5070072f00d00aa5e0e003c930e00
+      m_ExpandedIDs: 00e8feff6afbffff4e9e00006cd400006a0d0100700d0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -479,9 +479,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -5.274414, y: -1.4853516, z: -3.5908203}
+    m_Target: {x: -47.64453, y: 47.375, z: 11.03125}
     speed: 2
-    m_Value: {x: -5.274414, y: -1.4853516, z: -3.5908203}
+    m_Value: {x: -47.64453, y: 47.375, z: 11.03125}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -527,13 +527,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 1
   m_Rotation:
-    m_Target: {x: 0.4167787, y: -0.0013638975, z: 0.00062506157, w: 0.90900874}
+    m_Target: {x: 0.2535783, y: -0.16728759, z: 0.044573132, w: 0.95169836}
     speed: 2
-    m_Value: {x: 0.41677797, y: -0.001363895, z: 0.00062506046, w: 0.90900713}
+    m_Value: {x: 0.25357786, y: -0.16728729, z: 0.044573054, w: 0.95169663}
   m_Size:
-    m_Target: 109.506966
+    m_Target: 41.159725
     speed: 2
-    m_Value: 109.506966
+    m_Value: 41.159725
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -660,20 +660,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Audio
+    - Assets/Scripts/ObjectRelatedScripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Audio
+  - Assets/Scripts/ObjectRelatedScripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\lucas\Documents\SparkToLearn\SparkToLearnProject
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 138}
-    m_SelectedIDs: f8440100
-    m_LastClickedID: 83192
-    m_ExpandedIDs: 0000000072440100a2440100a4440100b844010000ca9a3b
+    scrollPos: {x: 0, y: 202}
+    m_SelectedIDs: 6a450100
+    m_LastClickedID: 83306
+    m_ExpandedIDs: 0000000074440100204501005a45010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -701,7 +701,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000072440100
+    m_ExpandedIDs: 0000000074440100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -728,7 +728,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000024580100046c0000dcc7000062500000c468090000000000921b0100
     m_RenameOverlay:
       m_UserAcceptedRename: 0

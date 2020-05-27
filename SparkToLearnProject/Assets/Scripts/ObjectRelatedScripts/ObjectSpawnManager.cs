@@ -20,6 +20,11 @@ public class ObjectSpawnManager : MonoBehaviour
     private List<Material> _originalMat;
     private bool _placingProcess = false;
     private bool _placeActive = false;
+    public bool PlacingProcess
+    {
+        get { return _placingProcess; }
+    }
+
     void Update()
     {
         _placeActive = _inputManager.SpawnObjectButtonPress();
@@ -34,7 +39,7 @@ public class ObjectSpawnManager : MonoBehaviour
                 Material mat = new Material(mesh.sharedMaterial);
                 _originalMat.Add((mat == null)?new Material(_defaultMaterial):mat);
             }
-            StartCoroutine(ObjectSpawner.HighlightObjectOnRaycastHit(_camera, _currentObject, _inputManager.RotateObjectLeftButtonDown, _inputManager.RotateObjectRightButtonDown, 0.5f, BreakConditionSpawn, _layerMask, _correctHighlight, _incorrectHighlight));
+            StartCoroutine(ObjectSpawner.HighlightObjectOnRaycastHit(_camera, _currentObject, _inputManager.RotateObjectLeftButtonDown, _inputManager.RotateObjectRightButtonDown, _rotateSpeed, BreakConditionSpawn, _layerMask, _correctHighlight, _incorrectHighlight));
         }
     }
 
@@ -52,7 +57,7 @@ public class ObjectSpawnManager : MonoBehaviour
                 Material mat = new Material(mesh.sharedMaterial);
                 _originalMat.Add((mat == null)?new Material(_defaultMaterial):mat);
             }
-            StartCoroutine(ObjectSpawner.RepositionObject(_camera, item.gameObject, _inputManager.RotateObjectLeftButtonDown, _inputManager.RotateObjectRightButtonDown, 0.5f, BreakConditionMove, _layerMask, _correctHighlight, _incorrectHighlight));
+            StartCoroutine(ObjectSpawner.RepositionObject(_camera, item.gameObject, _inputManager.RotateObjectLeftButtonDown, _inputManager.RotateObjectRightButtonDown, _rotateSpeed, BreakConditionMove, _layerMask, _correctHighlight, _incorrectHighlight));
         }
     }
 

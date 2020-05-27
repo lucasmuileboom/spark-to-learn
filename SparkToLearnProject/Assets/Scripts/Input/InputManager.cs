@@ -17,7 +17,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private KeyCode _flyUpButton;
     [SerializeField] private KeyCode _flyDownButton;
 
-    [SerializeField] private KeyCode _spawnObject;
+    //[SerializeField] private KeyCode _spawnObject;
 
     [SerializeField] private KeyCode _rotateObjectLeft;
     [SerializeField] private KeyCode _rotateObjectRight;
@@ -76,22 +76,22 @@ public class InputManager : MonoBehaviour
 
     public bool SpawnObjectButtonDown()
     {
-        return IsButtonDown(_spawnObject);
+        return Input.GetMouseButton(0);
     }
     public bool SpawnObjectButtonPress()
     {
-        return IsButtonPress(_spawnObject);
+        return Input.GetMouseButtonDown(0);
     }
 
     //RotateObject
 
     public bool RotateObjectLeftButtonDown()
     {
-        return IsButtonDown(_rotateObjectLeft);
+        return Input.GetAxis("Mouse ScrollWheel") < 0f;
     }
     public bool RotateObjectRightButtonDown()
     {
-        return IsButtonDown(_rotateObjectRight);
+        return Input.GetAxis("Mouse ScrollWheel") > 0f;
     }
 
     //menu
