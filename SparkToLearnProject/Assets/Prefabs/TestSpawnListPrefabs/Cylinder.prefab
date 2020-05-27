@@ -114,6 +114,10 @@ MonoBehaviour:
   _category: Building
   _description: Round yet flat!!!
   _thumbnail: {fileID: 21300000, guid: 8e1177621a38bb347806c7526d523dd4, type: 3}
+  _mesh:
+  - {fileID: 4346834942111341193}
+  _colliders:
+  - {fileID: 5155996325546210594}
 --- !u!54 &1691520772420614231
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -144,7 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
     type: 3}
+  _canBeClicked: 1
   _shaderRenderen: {fileID: 4346834942111341193}
   _environmentRenderen: {fileID: 0}
-  isProp: 1
-  isEnvironment: 0
+  _isProp: 1
+  _isEnvironment: 0

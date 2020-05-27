@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 5796882542210156762}
   - component: {fileID: 6466893900829294800}
   - component: {fileID: -6439664112926428512}
-  - component: {fileID: -3892700672925323417}
+  - component: {fileID: 7854827368601466183}
   m_Layer: 0
   m_Name: spawn hrs
   m_TagString: Prop
@@ -256,10 +256,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
     type: 3}
+  _canBeClicked: 1
   _shaderRenderen: {fileID: 5796882542210156762}
   _environmentRenderen: {fileID: 0}
-  isProp: 1
-  isEnvironment: 0
+  _isProp: 1
+  _isEnvironment: 0
 --- !u!114 &-6439664112926428512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,11 +275,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: horse
   _objectReference: {fileID: 5210242529702427654}
-  _category: Creature
+  _category: Flora
   _description: horse
   _thumbnail: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
---- !u!64 &-3892700672925323417
-MeshCollider:
+--- !u!65 &7854827368601466183
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -287,7 +288,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 3187707235800122055, guid: e60e7942d7d7d5c478d29bb86ed766ed, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 2.5, z: 3}
+  m_Center: {x: 0, y: 1.25, z: 0.25}

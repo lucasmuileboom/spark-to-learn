@@ -23,7 +23,7 @@ public class CodeblockEvents : MonoBehaviour
 
     private void Start()
     {
-        _blueprint = transform.parent.GetComponent<Blueprint>();
+        _blueprint = transform.parent.parent.GetComponent<Blueprint>();
         _input = GetComponent<CodeblockInput>();
 
         _setColorShader = GetComponent<SetColorShader>();
@@ -47,6 +47,8 @@ public class CodeblockEvents : MonoBehaviour
 
     public void ChangeColor()
     {
+        Debug.Log("Coloring");
+
         Color[] _Colors;
         _Colors = new Color[3];
 

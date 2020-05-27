@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CodeblockAttacher : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class CodeblockAttacher : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
     private UILineRenderer _lineRenderer;
     private Canvas _canvas;
@@ -32,8 +32,20 @@ public class CodeblockAttacher : MonoBehaviour, IDragHandler, IBeginDragHandler,
 
     public void Attach(CodeblockReceiver receiver)
     {
-        attachedReceiver = receiver;
-        receiver.SetAttacher(this);
+        if (receiver.transform.parent == transform.parent)
+        {
+            Detach();
+            return;
+        }
+
+        if (receiver.AllowMultipleReceivers || receiver.attacher == null)
+        {
+            attachedReceiver = receiver;
+            receiver.SetAttacher(this);
+        } else
+        {
+            Detach();
+        }
     }
 
     public void Detach()
@@ -57,7 +69,15 @@ public class CodeblockAttacher : MonoBehaviour, IDragHandler, IBeginDragHandler,
     {
         float xDistance = Input.mousePosition.x - transform.position.x;
         float yDistance = Input.mousePosition.y - transform.position.y;
-        _lineRenderer.Points[1] = new Vector2(xDistance / _canvas.scaleFactor, yDistance / _canvas.scaleFactor);
+        Vector2 linePosition = new Vector2(xDistance / _canvas.scaleFactor, yDistance / _canvas.scaleFactor);
+
+        if (Vector2.Distance(_lineRenderer.Points[0], linePosition) > 20)
+        {
+            _lineRenderer.Points[1] = linePosition;
+        } else
+        {
+            _lineRenderer.Points[1] = Vector2.zero;
+        }
         _lineRenderer.SetVerticesDirty();
     }
 
@@ -87,5 +107,10 @@ public class CodeblockAttacher : MonoBehaviour, IDragHandler, IBeginDragHandler,
         List<RaycastResult> raysastResults = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, raysastResults);
         return raysastResults;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Detach();
     }
 }

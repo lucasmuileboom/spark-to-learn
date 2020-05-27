@@ -53,6 +53,20 @@ public class ItemDetails : MonoBehaviour
         private set { _thumbnail = Thumbnail; }
     }
 
+    [SerializeField] private List<MeshRenderer> _mesh;
+    public List<MeshRenderer> Mesh
+    {
+        get { return _mesh;  }
+        private set { _mesh = Mesh; }
+    }
+
+    [SerializeField] private List<Collider> _colliders;
+    public List<Collider> Colliders
+    {
+        get { return _colliders; }
+        private set { _colliders = Colliders; }
+    }
+
     private GameObject _instance;
     public GameObject Instance
     {

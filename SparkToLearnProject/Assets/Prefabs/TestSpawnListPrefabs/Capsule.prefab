@@ -111,9 +111,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Capsule
   _objectReference: {fileID: 7587449567176566981}
-  _category: Creature
+  _category: Building
   _description: The tall yet round capsule!!!
   _thumbnail: {fileID: 21300000, guid: d6c511716c3db3949838afe7fe4e3c29, type: 3}
+  _mesh:
+  - {fileID: 6615721482880027760}
+  _colliders:
+  - {fileID: 3548409775871813305}
 --- !u!54 &5001681043616540499
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -146,5 +150,5 @@ MonoBehaviour:
     type: 3}
   _shaderRenderen: {fileID: 6615721482880027760}
   _environmentRenderen: {fileID: 0}
-  isProp: 1
-  isEnvironment: 0
+  _isProp: 1
+  _isEnvironment: 0

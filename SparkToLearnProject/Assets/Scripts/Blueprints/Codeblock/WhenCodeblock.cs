@@ -29,6 +29,8 @@ public class WhenCodeblock : MonoBehaviour
     {
         Detach();
 
+        transform.parent.parent.GetComponent<ZoomUI>().RemoveZoomable(transform);
+
         Destroy(gameObject);
     }
 }

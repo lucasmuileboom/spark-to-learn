@@ -113,6 +113,10 @@ MonoBehaviour:
   _category: Building
   _description: It's the power of three!!!
   _thumbnail: {fileID: 21300000, guid: 818e10ae2ee60bb43903497a27a6971e, type: 3}
+  _mesh:
+  - {fileID: 9190438695968543048}
+  _colliders:
+  - {fileID: 8655046431856502469}
 --- !u!54 &8964079404790912324
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -143,7 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
     type: 3}
+  _canBeClicked: 1
   _shaderRenderen: {fileID: 9190438695968543048}
   _environmentRenderen: {fileID: 0}
-  isProp: 1
-  isEnvironment: 0
+  _isProp: 1
+  _isEnvironment: 0

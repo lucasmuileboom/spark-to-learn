@@ -10,6 +10,6 @@ public class CursorManager : MonoBehaviour
     public void toggleCursor(bool newValue)
     {
         _lockCursor.toggleCursor(newValue);
-        _playerManager._canUseSkils = !newValue;
+        _playerManager.canUseSkils = !newValue;
     }
 }
