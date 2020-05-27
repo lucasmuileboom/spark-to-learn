@@ -5,7 +5,7 @@ public class HouseBuilder : MonoBehaviour
 {
     [SerializeField]
     private GameObject _editorPrefab;
-    private GameObject _editor;
+    public GameObject editor;
 
     [Header("Size"), Range(2, 6)]
     public int Length = 2;
@@ -68,7 +68,7 @@ public class HouseBuilder : MonoBehaviour
 
     private void OnMouseDown()
     {
-        _editor.SetActive(true);
+        editor.SetActive(true);
     }
 
     private void Update()
@@ -88,9 +88,9 @@ public class HouseBuilder : MonoBehaviour
 
     private void InstantiateEditor()
     {
-        _editor = Instantiate(_editorPrefab, FindObjectOfType<Canvas>().transform);
-        _editor.GetComponent<HouseEditor>().Builder = this;
-        _editor.SetActive(false);
+        editor = Instantiate(_editorPrefab, FindObjectOfType<Canvas>().transform);
+        editor.GetComponent<HouseEditor>().Builder = this;
+        editor.SetActive(false);
     }
 
     private void InstantiateParents()
