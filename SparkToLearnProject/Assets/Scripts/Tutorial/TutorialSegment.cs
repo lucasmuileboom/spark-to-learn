@@ -19,10 +19,10 @@ public class TutorialSegment : MonoBehaviour
         private set { _previousSegmentButton = PreviousSegmentButton; }
     }
 
-    [SerializeField] private Button _stopSequanceButton;
+    [SerializeField] private Button _stopSequenceButton;
     public Button StopSequenceButton
     {
-        get { return _stopSequanceButton; }
-        private set { _stopSequanceButton = StopSequenceButton; }
+        get { return _stopSequenceButton; }
+        private set { _stopSequenceButton = StopSequenceButton; }
     }
 }
