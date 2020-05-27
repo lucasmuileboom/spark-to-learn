@@ -93,6 +93,6 @@ Material:
     - _Base_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.3443396, g: 0.9414588, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Mask1_color: {r: 0.2509804, g: 0.4130305, b: 1, a: 1}
+    - _Mask1_color: {r: 0.1882353, g: 0.4117647, b: 0.67058825, a: 1}
     - _Mask2_color: {r: 1, g: 1, b: 1, a: 1}
     - _Mask3_color: {r: 1, g: 1, b: 1, a: 1}
