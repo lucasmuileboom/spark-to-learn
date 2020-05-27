@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class HouseBuilder : MonoBehaviour
 {
@@ -68,7 +69,10 @@ public class HouseBuilder : MonoBehaviour
 
     private void OnMouseDown()
     {
-        _editor.SetActive(true);
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            _editor.SetActive(true);
+        }
     }
 
     private void Update()

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BridgeBuilder : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class BridgeBuilder : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (_playerManager.canEdit)
+        if (_playerManager.canEdit && !EventSystem.current.IsPointerOverGameObject())
         {
             _editor.SetActive(true);
 
