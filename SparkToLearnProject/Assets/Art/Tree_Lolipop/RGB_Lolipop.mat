@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMixer4:
-        m_Texture: {fileID: 2800000, guid: 9fc9e2ebe635f044991f111516dbf6b0, type: 3}
+        m_Texture: {fileID: 2800000, guid: dbe1dd1b92489a040811fc0180ff4ef0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -93,6 +93,6 @@ Material:
     - _Base_Color: {r: 33333, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Mask1_color: {r: 1, g: 0, b: 0.06818199, a: 1}
-    - _Mask2_color: {r: 0.35384893, g: 1, b: 0, a: 1}
-    - _Mask3_color: {r: 0.25402117, g: 0, b: 1, a: 1}
+    - _Mask1_color: {r: 0.6862745, g: 0.34901962, b: 0.8666667, a: 1}
+    - _Mask2_color: {r: 1, g: 0.93333334, b: 0, a: 1}
+    - _Mask3_color: {r: 0.8745098, g: 0, b: 1, a: 1}
