@@ -7,6 +7,11 @@ public class BridgeBuilder : MonoBehaviour
     private GameObject _editorPrefab;
 
     private GameObject _editor;
+    public GameObject Editor
+    {
+        get { return _editor; }
+        private set { _editor = Editor; }
+    }
 
     [SerializeField]
     private GameObject[] _bridges;

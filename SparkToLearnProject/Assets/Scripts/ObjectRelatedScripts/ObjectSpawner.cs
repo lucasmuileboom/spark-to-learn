@@ -17,23 +17,24 @@ public class ObjectSpawner : MonoBehaviour
         ItemDetails _item = null;
         Quaternion _hitRotation;
         float _rotated = 0;
+        bool _colliding = false;
         yield return new WaitForEndOfFrame();
 
         while (true)
         {
             //Raycast setup
-            RaycastHit hit;
-            Ray ray = new Ray(orientation.transform.position, orientation.transform.forward);
+            RaycastHit _hit;
+            Ray _ray = new Ray(orientation.transform.position, orientation.transform.forward);
 
-            if (Physics.Raycast(ray, out hit, 100, mask))
+            if (Physics.Raycast(_ray, out _hit, 100, mask))
             {
                 _highlight = (_highlight == null) ? Instantiate<GameObject>(spawnObject) : _highlight;
                 _item = (_item == null && _highlight != null) ? _highlight.GetComponent<ItemDetails>() : _item;
                 
                 //Rotates the object so it alligns with the surface
-                _hitRotation = Quaternion.Euler(hit.normal.x, hit.normal.y, hit.normal.z) * hit.collider.transform.rotation;
+                _hitRotation = Quaternion.Euler(_hit.normal.x, _hit.normal.y, _hit.normal.z) * _hit.collider.transform.rotation;
                 
-                _highlight.transform.SetPositionAndRotation(hit.point, _hitRotation);
+                _highlight.transform.SetPositionAndRotation(_hit.point, _hitRotation);
 
                 _highlight.transform.RotateAround(_highlight.transform.position,_highlight.transform.up, _rotated);
 
@@ -41,12 +42,16 @@ public class ObjectSpawner : MonoBehaviour
 
                 if (_highlight != null)
                 {
-                    _highlight.GetComponent<Collider>().isTrigger = true;
+                    foreach(Collider _col in _item.Colliders)
+                    {
+                        _col.isTrigger = true;
+                    }
                 }
                 if(_item != null)
                 {
                     if (_item.IsTriggerTouching())
                     {
+                        _colliding = true;
                         foreach(MeshRenderer mesh in _currentMat)
                         {
                             mesh.material = incorrectSpawnMaterial;
@@ -54,6 +59,7 @@ public class ObjectSpawner : MonoBehaviour
                     }
                     else
                     {
+                        _colliding = false;
                         foreach (MeshRenderer mesh in _currentMat)
                         {
                             mesh.material = correctSpawnMaterial;
@@ -75,7 +81,7 @@ public class ObjectSpawner : MonoBehaviour
             yield return new WaitForEndOfFrame();
 
             //If the stop condition is met, then stop coroutine
-            if (_currentMat.Exists((MeshRenderer mesh) => { return (mesh.sharedMaterial == correctSpawnMaterial); }))
+            if (_colliding == false)
             {
                 if (breakCondition(_highlight))
                 {
@@ -92,6 +98,7 @@ public class ObjectSpawner : MonoBehaviour
         ItemDetails _item = null;
         Quaternion _hitRotation;
         float _rotated = 0;
+        bool _colliding = false;
         yield return new WaitForEndOfFrame();
 
         while (true)
@@ -124,17 +131,17 @@ public class ObjectSpawner : MonoBehaviour
                 {
                     if (_item.IsTriggerTouching())
                     {
+                        _colliding = true;
                         foreach (MeshRenderer mesh in _currentMat)
                         {
-                            mesh.materials = new Material[0];
                             mesh.material = incorrectSpawnMaterial;
                         }
                     }
                     else
                     {
+                        _colliding = false;
                         foreach (MeshRenderer mesh in _currentMat)
                         {
-                            mesh.materials = new Material[1];
                             mesh.material = correctSpawnMaterial;
                         }
                     }
@@ -154,7 +161,7 @@ public class ObjectSpawner : MonoBehaviour
             yield return new WaitForEndOfFrame();
 
             //If the stop condition is met, then stop coroutine
-            if (_currentMat.Exists((MeshRenderer mesh) => { return (mesh.sharedMaterial == correctSpawnMaterial); }))
+            if (_colliding == false)
             {
                 if (breakCondition(_highlight))
                 {

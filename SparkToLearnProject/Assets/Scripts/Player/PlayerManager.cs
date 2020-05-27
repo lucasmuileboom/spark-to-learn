@@ -35,6 +35,15 @@ public class PlayerManager : MonoBehaviour
         _moveObject = GetComponent<MoveObject>();
         _rotateObjectPlayer = GetComponent<RotateObject>();
         _rotateObjectcamera = Camera.main.GetComponent<RotateObject>();
+
+        _toggleUiActive[0].SetUi(false);
+        _toggleUiActive[1].SetUi(false);
+        _toggleUiActive[2].SetUi(true);
+        _toggleUiActive[3].SetUi(false);
+        _setButtonPressedUI.Settext(2);
+        _lockCursor.toggleCursor(false);
+        _objectSpawnManager.enabled = false;
+        canEdit = true;
     }
     private void Update() 
     {

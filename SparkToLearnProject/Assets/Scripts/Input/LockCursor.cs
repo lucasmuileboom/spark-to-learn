@@ -5,6 +5,7 @@ using UnityEngine;
 public class LockCursor : MonoBehaviour
 {
     [SerializeField] private PlayerManager _playerManager;
+    [SerializeField] private GameObject _crossHair;
     private void Start()
     {
         Cursor.visible = false;
@@ -14,6 +15,7 @@ public class LockCursor : MonoBehaviour
     {
         Cursor.visible = Cursoron;
         _playerManager.canRotate = !Cursoron;
+        _crossHair.SetActive(!Cursoron);
         if (!Cursoron)
         {
             Cursor.lockState = CursorLockMode.Locked;

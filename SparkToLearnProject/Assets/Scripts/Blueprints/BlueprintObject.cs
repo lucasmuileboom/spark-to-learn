@@ -14,9 +14,11 @@ public class BlueprintObject : MonoBehaviour
 
     [SerializeField] private Renderer _shaderRenderen;
     [SerializeField] private Renderer _environmentRenderen;
+    [SerializeField] private Renderer _leavesRenderen;
 
     [SerializeField] private bool _isProp;
     [SerializeField] private bool _isEnvironment;
+    [SerializeField] private bool _useLeavesMat;
 
     public Blueprint Blueprint { get; private set; }
 
@@ -29,10 +31,12 @@ public class BlueprintObject : MonoBehaviour
 
         Blueprint = blueprintInstance.GetComponent<Blueprint>();
         Blueprint.Hide();
-        Blueprint._shaderRenderen = _shaderRenderen;
-        Blueprint._environmentRenderen = _environmentRenderen;
-        Blueprint._isEnvironment = _isEnvironment;
-        Blueprint._isProp = _isProp;
+        Blueprint.shaderRenderen = _shaderRenderen;
+        Blueprint.environmentRenderen = _environmentRenderen;
+        Blueprint.isEnvironment = _isEnvironment;
+        Blueprint.isProp = _isProp;
+        Blueprint.useLeavesMat = _useLeavesMat;
+        Blueprint.leavesRenderen = _leavesRenderen;
 
         _cursorManager = GameObject.Find("Canvas").GetComponent<CursorManager>();
         _playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
