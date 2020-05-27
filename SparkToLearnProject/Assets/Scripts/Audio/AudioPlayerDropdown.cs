@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Fills a dropdown with files from AudioPlayer.cs
 /// </summary>
-public class AudioPlayerDropdown : MonoBehaviour, IPointerClickHandler
+public class AudioPlayerDropdown : MonoBehaviour, IPointerEnterHandler
 {
     private Dropdown _dropdown;
 
@@ -28,7 +28,7 @@ public class AudioPlayerDropdown : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerEnter(PointerEventData eventData)
     {
         UpdateDropDown();
     }
