@@ -141,9 +141,14 @@ public class HouseBuilder : MonoBehaviour
 
     private void BuildHouse()
     {
+        Quaternion oldRot = transform.rotation;
+        transform.rotation = Quaternion.identity;
+
         BuildFoundation();
         BuildWalls();
         BuildRoof();
+
+        transform.rotation = oldRot;
     }
 
     private void BuildFoundation()
