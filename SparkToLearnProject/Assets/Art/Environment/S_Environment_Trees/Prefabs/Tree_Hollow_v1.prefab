@@ -113,7 +113,7 @@ MonoBehaviour:
   _objectReference: {fileID: 5260770704159266680}
   _category: Flora
   _description: 
-  _thumbnail: {fileID: 0}
+  _thumbnail: {fileID: 21300000, guid: 6dcd75a81ad79f742b3b062bdb9dd5b2, type: 3}
   _mesh:
   - {fileID: 5854350871657440164}
   _colliders:

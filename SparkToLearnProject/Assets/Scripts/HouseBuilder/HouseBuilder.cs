@@ -53,6 +53,9 @@ public class HouseBuilder : MonoBehaviour
 
     private BoxCollider _collider;
 
+    private CursorManager _cursorManager;
+    private PlayerManager _playerManager;
+
     private void Start()
     {
         _collider = GetComponent<BoxCollider>();
@@ -69,11 +72,20 @@ public class HouseBuilder : MonoBehaviour
 
         _lastLength = Length;
         _lastWidth = Width;
+
+        _cursorManager = GameObject.Find("Canvas").GetComponent<CursorManager>();
+        _playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
     }
 
     private void OnMouseDown()
     {
-        _editor.SetActive(true);
+        
+        if (_playerManager.canEdit)
+        {
+            _editor.SetActive(true);
+
+            _cursorManager.toggleCursor(true);
+        }
     }
 
     private void Update()

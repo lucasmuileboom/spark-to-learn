@@ -74,6 +74,10 @@ public class SceneManager : MonoBehaviour
         {
             blueprint.Editor.SetActive(true);
         }
+        else if (item.gameObject.TryGetComponent<BridgeBuilder>(out BridgeBuilder bridgeBuilder))
+        {
+            bridgeBuilder.Editor.SetActive(true);
+        }
         else
         {
             Blueprint _blueprint = item.gameObject.GetComponent<BlueprintObject>().Blueprint;

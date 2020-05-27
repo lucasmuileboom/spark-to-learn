@@ -5,7 +5,9 @@ using UnityEngine;
 public class SetColorShader : MonoBehaviour
 {
     private Renderer _meshRenderer;
-    private Material _environmentMaterial;
+    private Renderer _leavesRenderen;
+    private Material _environmentMaterial;    
+    private Material _leavesMaterial;    
     private Material _material;
     private Color _startColor1;
     private Color _startColor2;
@@ -13,12 +15,15 @@ public class SetColorShader : MonoBehaviour
     private bool _canChangeColor = false;
     private bool _isEnvironment = false;
     private bool _isProp = false;
+    private bool _useLeavesMat = false;
 
-    public void SetUpColorChanger(Renderer shaderRenderer, bool isEnvironment, bool isProp, Renderer environmentRenderen)
+
+    public void SetUpColorChanger(Renderer shaderRenderer, bool isEnvironment, bool isProp, bool useLeavesMat, Renderer environmentRenderen, Renderer leavesRenderen)
     {
         _isEnvironment = isEnvironment;
         _isProp = isProp;
-
+        _useLeavesMat = useLeavesMat;
+        _leavesRenderen = leavesRenderen;
         _meshRenderer = shaderRenderer;
 
         if (!isProp)
@@ -34,7 +39,11 @@ public class SetColorShader : MonoBehaviour
         {
             _environmentMaterial = environmentRenderen.sharedMaterial;
         }
-        
+        if (useLeavesMat)
+        {
+            _leavesMaterial = _leavesRenderen.material;
+        }
+
         _startColor1 = _material.GetColor("_Mask1_color");
         _startColor2 = _material.GetColor("_Mask2_color");
         _startColor3 = _material.GetColor("_Mask3_color");
@@ -75,8 +84,12 @@ public class SetColorShader : MonoBehaviour
             {
                 _environmentMaterial.SetColor("_Color", newColor1);
             }
+            if (_useLeavesMat)
+            {
+                _leavesMaterial.SetColor("_Color", newColor1);
+            }
         }
-       
+
     }
 
     private void OnDestroy()
