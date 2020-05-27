@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BlueprintObject : MonoBehaviour
 {
@@ -43,8 +44,9 @@ public class BlueprintObject : MonoBehaviour
 
     private void OnMouseDown()
     {
+
         // Show this object's blueprint when clicked
-        if (_canBeClicked && _playerManager.canEdit) 
+        if (_canBeClicked && _playerManager.canEdit && !EventSystem.current.IsPointerOverGameObject())
         {
             Blueprint.Show();
 
