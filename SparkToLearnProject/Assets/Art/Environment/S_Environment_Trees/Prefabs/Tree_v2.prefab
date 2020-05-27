@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 4583249155593375163}
   - component: {fileID: -5118685574047856321}
   - component: {fileID: 4033394016849102677}
+  - component: {fileID: 5067590002543280363}
   m_Layer: 0
   m_Name: Tree_v2
   m_TagString: Untagged
@@ -141,12 +142,12 @@ MonoBehaviour:
   _objectReference: {fileID: 1234662668546131101}
   _category: Flora
   _description: 
-  _thumbnail: {fileID: 0}
+  _thumbnail: {fileID: 21300000, guid: 782fa8848f702ad43968c6a834f7128a, type: 3}
   _mesh:
   - {fileID: 2369700050044956965}
   - {fileID: 2633873939789321206}
   _colliders:
-  - {fileID: 2950490829546926132}
+  - {fileID: 5067590002543280363}
 --- !u!114 &4583249155593375163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,11 +177,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blueprintPrefab: {fileID: 7611329071604037797, guid: e4b01c73e38058747903a988b62d1419,
     type: 3}
-  _canBeClicked: 0
+  _canBeClicked: 1
   _shaderRenderen: {fileID: 2369700050044956965}
   _environmentRenderen: {fileID: 0}
+  _leavesRenderen: {fileID: 2633873939789321206}
   _isProp: 1
   _isEnvironment: 0
+  _useLeavesMat: 1
 --- !u!54 &4033394016849102677
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -197,6 +200,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &5067590002543280363
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234662668546131101}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 8, z: 1}
+  m_Center: {x: 0, y: 4, z: 0}
 --- !u!1 &4361507215230163503
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +341,7 @@ BoxCollider:
   m_GameObject: {fileID: 7918457823809184635}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

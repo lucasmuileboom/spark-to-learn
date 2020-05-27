@@ -7,6 +7,11 @@ public class HouseBuilder : MonoBehaviour
     [SerializeField]
     private GameObject _editorPrefab;
     private GameObject _editor;
+    public GameObject Editor
+    {
+        get { return _editor; }
+        private set { _editor = Editor; }
+    }
 
     [Header("Size"), Range(2, 6)]
     public int Length = 2;
@@ -49,6 +54,9 @@ public class HouseBuilder : MonoBehaviour
 
     private BoxCollider _collider;
 
+    private CursorManager _cursorManager;
+    private PlayerManager _playerManager;
+
     private void Start()
     {
         _collider = GetComponent<BoxCollider>();
@@ -65,13 +73,18 @@ public class HouseBuilder : MonoBehaviour
 
         _lastLength = Length;
         _lastWidth = Width;
+
+        _cursorManager = GameObject.Find("Canvas").GetComponent<CursorManager>();
+        _playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
     }
 
     private void OnMouseDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (_playerManager.canEdit && !EventSystem.current.IsPointerOverGameObject())
         {
             _editor.SetActive(true);
+
+            _cursorManager.toggleCursor(true);
         }
     }
 

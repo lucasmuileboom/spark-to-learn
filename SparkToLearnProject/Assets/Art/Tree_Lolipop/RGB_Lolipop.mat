@@ -93,6 +93,6 @@ Material:
     - _Base_Color: {r: 33333, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Mask1_color: {r: 0.6873956, g: 0.34901965, b: 0.8666667, a: 1}
-    - _Mask2_color: {r: 1, g: 0.93470955, b: 0, a: 1}
-    - _Mask3_color: {r: 0.8737016, g: 0, b: 1, a: 1}
+    - _Mask1_color: {r: 0.6862745, g: 0.34901962, b: 0.8666667, a: 1}
+    - _Mask2_color: {r: 1, g: 0.93333334, b: 0, a: 1}
+    - _Mask3_color: {r: 0.8745098, g: 0, b: 1, a: 1}
