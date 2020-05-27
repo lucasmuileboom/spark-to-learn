@@ -6,6 +6,11 @@ public class HouseBuilder : MonoBehaviour
     [SerializeField]
     private GameObject _editorPrefab;
     private GameObject _editor;
+    public GameObject Editor
+    {
+        get { return _editor; }
+        private set { _editor = Editor; }
+    }
 
     [Header("Size"), Range(2, 6)]
     public int Length = 2;

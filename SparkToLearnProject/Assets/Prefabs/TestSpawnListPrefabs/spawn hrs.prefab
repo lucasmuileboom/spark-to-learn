@@ -278,6 +278,10 @@ MonoBehaviour:
   _category: Flora
   _description: horse
   _thumbnail: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  _mesh:
+  - {fileID: 5796882542210156762}
+  _colliders:
+  - {fileID: 7854827368601466183}
 --- !u!65 &7854827368601466183
 BoxCollider:
   m_ObjectHideFlags: 0
