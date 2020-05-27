@@ -25,6 +25,7 @@ public class ObjectSpawnManager : MonoBehaviour
         _placeActive = _inputManager.SpawnObjectButtonPress();
         if (!_placingProcess && _placeActive)
         {
+            _playerManager.canUseSkils = false;
             _originalMat = new List<Material>();
             _currentObject = _spawnableItems.GetItem().ObjectReference;
             _placingProcess = true;
@@ -41,6 +42,7 @@ public class ObjectSpawnManager : MonoBehaviour
     {
         if (!_placingProcess)
         {
+            _playerManager.canUseSkils = false;
             _originalMat = new List<Material>();
             _playerManager.ActivateSkill2();
             _placingProcess = true;
@@ -58,6 +60,7 @@ public class ObjectSpawnManager : MonoBehaviour
     {
         if (_placeActive)
         {
+            _playerManager.canUseSkils = true;
             ItemDetails details = movedObject.GetComponent<ItemDetails>();
             foreach (Collider _col in details.Colliders)
             {
@@ -80,6 +83,7 @@ public class ObjectSpawnManager : MonoBehaviour
     {
         if (_placeActive)
         {
+            _playerManager.canUseSkils = true;
             ItemDetails details = placedObject.GetComponent<ItemDetails>();
             foreach(Collider _col in details.Colliders)
             {

@@ -70,9 +70,17 @@ public class SceneManager : MonoBehaviour
     public void EditObject(ItemDetails item)
     {
         Debug.Log("Edit");
-        Blueprint _blueprint = item.gameObject.GetComponent<BlueprintObject>().Blueprint;
+        if (item.gameObject.TryGetComponent<HouseBuilder>(out HouseBuilder blueprint))
+        {
+            blueprint.Editor.SetActive(true);
+        }
+        else
+        {
+            Blueprint _blueprint = item.gameObject.GetComponent<BlueprintObject>().Blueprint;
 
-        _blueprint.Show();
+            _blueprint.Show();
+        }
+        
         _CursorManager.toggleCursor(true);
     }
 
