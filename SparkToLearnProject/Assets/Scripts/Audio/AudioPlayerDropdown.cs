@@ -26,6 +26,8 @@ public class AudioPlayerDropdown : MonoBehaviour, IPointerEnterHandler
             string text = Path.GetFileName(AudioPlayer.Files[i]);
             _dropdown.options.Add(new Dropdown.OptionData() { text = text });
         }
+
+        _dropdown.RefreshShownValue();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

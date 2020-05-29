@@ -2308,8 +2308,7 @@ MonoBehaviour:
   isEnvironment: 0
   useLeavesMat: 0
   leavesRenderen: {fileID: 0}
-  _colorBlock: {fileID: 1232923263711735362, guid: f82804d0f2ac5cf4f8c3a7cbc77385e2,
-    type: 3}
+  _colorBlock: {fileID: 0}
 --- !u!114 &8599909858232135969
 MonoBehaviour:
   m_ObjectHideFlags: 0
