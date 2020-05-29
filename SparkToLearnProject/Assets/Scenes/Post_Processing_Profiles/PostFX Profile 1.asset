@@ -21,7 +21,7 @@ MonoBehaviour:
     value: 15.8
   aperture:
     overrideState: 1
-    value: 1.9
+    value: 8.1
   focalLength:
     overrideState: 1
     value: 60
@@ -43,7 +43,7 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 1
+    value: 0
   shutterAngle:
     overrideState: 1
     value: 120

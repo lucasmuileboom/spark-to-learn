@@ -91,10 +91,7 @@ public class CodeblockInput : MonoBehaviour
         _colorInput.SetActive(false);
         _keyCodeInput.SetActive(false);
         _audioInput.SetActive(false);
-        if (GetComponent<CodeblockWhens>())
-        {
-            _cappedVectorInput.SetActive(false);
-        }
+        _cappedVectorInput.SetActive(false);
         
 
         switch (_events.Events[_dropdown.value].EventParameter)
