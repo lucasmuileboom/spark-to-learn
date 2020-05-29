@@ -23,6 +23,13 @@ public class HouseEditor : MonoBehaviour
     [SerializeField]
     private WallList _wallList;
 
+    private CursorManager _cursorManager;
+
+    private void Awake()
+    {
+        _cursorManager = GameObject.Find("Canvas").GetComponent<CursorManager>();
+    }
+
     private void Start()
     {
         _wallList.PopulateList(Builder.Walls);
@@ -36,6 +43,7 @@ public class HouseEditor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             gameObject.SetActive(false);
+            _cursorManager.toggleCursor(false);
         }
     }
 

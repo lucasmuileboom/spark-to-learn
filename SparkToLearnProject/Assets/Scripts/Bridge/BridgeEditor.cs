@@ -12,6 +12,13 @@ public class BridgeEditor : MonoBehaviour
     [SerializeField]
     private Dropdown _typeDropdown;
 
+    private CursorManager _cursorManager;
+
+    private void Awake()
+    {
+        _cursorManager = GameObject.Find("Canvas").GetComponent<CursorManager>();
+    }
+
     private void Start()
     {
         _typeDropdown.onValueChanged.AddListener(SetType);
@@ -28,6 +35,7 @@ public class BridgeEditor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             gameObject.SetActive(false);
+            _cursorManager.toggleCursor(false);
         }
     }
 

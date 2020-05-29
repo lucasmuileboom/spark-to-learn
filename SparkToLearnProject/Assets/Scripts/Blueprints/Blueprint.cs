@@ -30,10 +30,13 @@ public class Blueprint : MonoBehaviour
     [SerializeField]
     private GameObject _colorBlock;
 
+    private CursorManager _cursorManager;
+
     private void Awake()
     {
         _zoomUI = GetComponent<ZoomUI>();
         _canvasGroup = GetComponent<CanvasGroup>();
+        _cursorManager = GameObject.Find("Canvas").GetComponent<CursorManager>();
     }
 
     private void Start()
@@ -50,6 +53,7 @@ public class Blueprint : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Hide();
+            _cursorManager.toggleCursor(false);
         }
     }
 
